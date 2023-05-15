@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "Kristina";
+  src: url("Kristina.Bold.otf") format("opentype"),
+  url("Kristina.Fine.otf") format("opentype");
+}
+
+.goout {
+  font-family: "Kristina";
+}
+
+@font-face {
+  font-family: "DiaPro";
+  src: url("DiaPro-Regular.eot") format("embedded-opentype"),
+  url("DiaPro-Regular.otf") format("opentype"),
+  url("DiaPro-Regular.woff") format("woff");
+}
+
+.relax {
+  font-family: "DiaPro";
+}
+
+.goout a {
+  animation: 2s linear infinite alternate goout;
+}
+
+.goout a:hover {
+  cursor: pointer;
+  animation: .25s linear infinite alternate goout;
+}
+
+@keyframes goout {
+  0% {
+    color: lemonchiffon;
+    background: lightskyblue;
+  }
+  100% {
+    color: lightskyblue;
+    background: lemonchiffon;
+  }
+}
+
+@-webkit-keyframes goout {
+  0% {
+    color: lemonchiffon;
+    background: lightskyblue;
+  }
+  100% {
+    color: lightskyblue;
+    background: lemonchiffon;
+  }
+}
+
+.relax a {
+  animation: 2s linear infinite alternate relax;
+}
+
+.relax a:hover {
+  cursor: pointer;
+  animation: .25s linear infinite alternate relax;
+}
+
+@keyframes relax {
+  0% {
+    color: #ebd809;
+    background: #000;
+  }
+  100% {
+    color: #000;
+    background: #ebd809;
+  }
+}
+
+@-webkit-keyframes relax {
+  0% {
+    color: #ebd809;
+    background: #000;
+  }
+  100% {
+    color: #000;
+    background: #ebd809;
+  }
+}
+
+
+.sports {
+  font-weight: 500;
+  font-size: 75%;
+  font-family: "Gill Sans";
+  text-transform: uppercase;
+}
+
+.sports a {
+  animation: 2s linear infinite alternate sports;
+}
+
+.sports a:hover {
+  cursor: pointer;
+  animation: .25s linear infinite alternate sports;
+}
+
+@keyframes sports {
+  0% {
+    color: #333;
+    background: #DCF7EE;
+  }
+  100% {
+    color: #DCF7EE;
+    background: #333;
+  }
+}
+
+
+@-webkit-keyframes sports {
+  0% {
+    color: #333;
+    background: #DCF7EE;
+  }
+  100% {
+    color: #DCF7EE;
+    background: #333;
+  }
+}

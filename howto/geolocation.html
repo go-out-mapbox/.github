@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../../readme/style.css" />
+</head>
+<body class="readme">
+  <p>
+    <font>Geolocation API</font><br/>
+    <code>端末の位置をプログラムから取得する 位置情報 API</code>
+  </p>
+  <button type="button" id="myBtn">getCurrentPosition()</button>
+
+  <table class="size">
+    <tbody>
+      <tr>
+        <td>Navigator.geolocation</td>
+        <td id="myLocation">現在位置を取得する</td>
+        <td id="map-link" class="nowValue"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br/>
+  <details open>
+    <summary><code>geolocation.js</code></summary>
+    <pre>
+function geoFindMe() {
+
+  const myLocation = document.querySelector('#myLocation');
+
+  myLocation.textContent = '';
+
+  function success(position) {
+    const latitude  = <code>position<code class="red">.coords.latitude</code></code>;
+    const longitude = <code>position<code class="red">.coords.longitude</code></code>;
+
+    myLocation.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+
+    const mapLink = document.createElement('a');
+    mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+    mapLink.setAttribute('target', '_blank');
+    mapLink.setAttribute("rel", 'noopener noreferrer');
+    mapLink.textContent = 'Link';
+    document.querySelector('#map-link').appendChild(mapLink);
+  }
+
+  function error() {
+    myLocation.textContent = 'Unable to retrieve your location';
+  }
+
+  <code>if(!<font class="red">navigator.geolocation</font>)</code> {
+    myLocation.textContent = 'Geolocation is not supported by your browser';
+  } else {
+    myLocation.textContent = 'Locating…';
+    <code>navigator<code>.geolocation<code class="red">.getCurrentPosition</code></code></code>(success, error);
+  }
+
+}
+
+document.querySelector('#myBtn').addEventListener('click', geoFindMe);
+    </pre>
+  </details>
+  <hr/>
+  <table class="size">
+    <tbody>
+      <tr>
+        <td><button onclick="location.assign('/coding/js/window/')">Window API</button></td>
+        <td>位置情報 API</td>
+        <td style="text-align: right;"><button onclick="history.back()">↩︎</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="geolocation.js" defer></script>
+</body>
+</html>

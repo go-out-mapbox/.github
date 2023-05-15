@@ -1,0 +1,21 @@
+{
+  "title" : "Go Out",
+  "description" : "知っていることの外へ、わからないところまで出かける",
+  "author" : "creative-community.space",
+  "email" : "pehu@creative-community.space",
+  "type" : "website",
+  "twitter" : "@pe_hu_",
+  "card" : "summary_large_image",
+  "src" : "card.png",
+
+  "contents" : [
+    {
+      "date" : "Go Out",
+      "name" : "行ったことのない場所へ行く",
+      "url" : "/map/",
+      "type" : "news",
+      "caption" : "none",
+      "note" : ""
+    }
+  ]
+}
