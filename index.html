@@ -4,19 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
-  <script src="readyState.js"></script>
-  <script src="geolocation.js"></script>
-  <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="font/style.css" />
+  <title>Osaka Map | Go Out</title>
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet" />
+  <link href="font/style.css" rel="stylesheet" />
+  <link href="css/index.css" rel="stylesheet" />
+  <link href="css/popup.css" rel="stylesheet" />
+  <link href="css/title.css" rel="stylesheet" />
+  <style>
+  </style>
 </head>
-<body>
-  <div id="date">
-    <p id="geolocation" class="goout">
-      Life is precious. Every minute. And more precious with you in it. Let's have some fun.
-    </p>
-    <h1 id="title" class="goout">Go Out</h1>
-    <button id="enter"></button>
-  </div>
-  <iframe id="map" name="mapIframe"></iframe>
+<body id="box">
+  <p id="geolocation" class="goout">
+    Life is precious. Every minute. And more precious with you in it. Let's have some fun.
+  </p>
+  <h1 id="title" class="goout">Go Out</h1>
+  <button type="button" id="enter" class="goout">Members Only</button>
+  <ol id="listings"></ol>
+  <main id="map" class="map"></main>
+  <script>
+  let btn = document.querySelector('#enter');
+  let btnToggleclass = function(el) {
+    el.classList.toggle('enter');
+  }
+  btn.addEventListener('click', function() {
+    btnToggleclass(document.body);
+  }, false);
+  </script>
+  <script src="script/osaka.js"></script>
+  <script src="script/mapbox.js"></script>
 </body>
 </html>
