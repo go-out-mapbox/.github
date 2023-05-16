@@ -22,7 +22,7 @@ const map = new mapboxgl.Map({
 if(localStorage.getItem('geolocation')) {
   document.body.classList.add('enter');
   title.remove();
-  enter.remove();
+  enter.innerText = "You Are Here";
 
   mapbox.style.pointerEvents = "auto";
   mapbox.style.userSelect = "auto";
@@ -51,9 +51,10 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+    enter.style.opacity = "0";
 
     setTimeout(() => {
-      title.remove();
+      enter.remove();
     }, 2500)
 
     map.flyTo({
@@ -74,14 +75,11 @@ function geoFindMe() {
 
   function error() {
     getLocation.textContent = 'Unable to retrieve your location';
-    address.textContent = `現在地を取得できません`;
+    address.textContent = `現在地を取得できませんでした`;
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-
-    enter.style.opacity = "1";
-    enter.style.pointerEvents = "auto";
-    enter.style.userSelect = "auto";
+    enter.innerText = "Do It Again";
   }
 
   if(!navigator.geolocation) {
@@ -98,6 +96,7 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "none";
     mapbox.style.userSelect = "none";
+    title.style.opacity = "0";
     navigator.geolocation.getCurrentPosition(success, error);
 
     setTimeout(() => {

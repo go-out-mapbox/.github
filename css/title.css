@@ -6,11 +6,6 @@
   transition: opacity 2.5s;
 }
 
-.enter #title,
-.enter #enter {
-  opacity: 0;
-}
-
 #enter {
   font-size: 150%;
   top: 75%;
