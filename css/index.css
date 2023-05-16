@@ -50,12 +50,16 @@ body,
 #date {
   filter: invert(0);
   mix-blend-mode: difference;
+  width: calc(100% - 2.5rem);
+}
+
+#submit {
+  width: 100%;
 }
 
 #date,
 #submit {
   position: absolute;
-  width: calc(100% - 2.5rem);
   height: 100%;
   z-index: 10;
 }
