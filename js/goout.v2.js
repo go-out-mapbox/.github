@@ -21,7 +21,7 @@ function ChangeHidden() {
   })
 };
 
-/* Add the map to the page */
+/* ページにMapboxを埋め込む */
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
@@ -30,68 +30,57 @@ const map = new mapboxgl.Map({
   scrollZoom: false
 });
 
-if(localStorage.getItem('geolocation')) {
-  title.remove();
-  enter.innerText = "You Are Here";
+stores.features.forEach((store, i) => {
+  store.properties.id = i;
+});
 
-  mapbox.style.pointerEvents = "auto";
-  mapbox.style.userSelect = "auto";
-  const geolocation = JSON.parse(localStorage.getItem('geolocation'));
-  getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
-  address.textContent = `Altitude Accuracy: ${geolocation.longitude} m`;
-
-  map.flyTo({
-    center: [geolocation.longitude, geolocation.latitude],
-    scrollZoom: false
-  });
-}
-
+// 現在地を取得する
 function geoFindMe() {
-  getLocation.textContent = "";
-
   function success(position) {
+    // 緯度経度を変数に代入
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
     const accuracy = position.coords.accuracy;
 
     getLocation.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
 
-    //let uri = `https://nominatim.openstreetmap.org/reverse?format=json&zoom=18&lat=${e.lngLat.lat}&lon=${e.lngLat.lng}`;
+    // 緯度経度から住所を検索
     let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?language=ja&access_token=${mapboxgl.accessToken}`;
-
     fetchData(uri).then(function(response){ return response.text().then(function(jsonStr){
       var data = JSON.parse(jsonStr);
-      //var context = data.display_name +`<br>`;
       var context = data.features[0].place_name;
       address.textContent = context;
     });}).catch(err => { console.log(err); })
-    
+
     async function fetchData(_uri) {
       const res = await fetch(_uri);
       const data = await res;
       return data;
     }
 
-    dateSection.textContent = "";
-    mapbox.style.pointerEvents = "auto";
-    mapbox.style.userSelect = "auto";
-    enter.innerText = "You Are Here";
-
+    // 地図の中心を現在地へ移動
     map.flyTo({
       center: [longitude, latitude],
       zoom: 20,
       scrollZoom: false
     });
 
+    // ローカルストレージへ現在地を記録
     const geolocation = {
       latitude : latitude,
       longitude : longitude,
-      accuracy : accuracy
+      accuracy : accuracy,
+      address : context
     }
 
     const geoJSON = JSON.stringify(geolocation);
     localStorage.setItem('geolocation', geoJSON);
     console.log('geolocation', geoJSON);
+
+    dateSection.textContent = "";
+    mapbox.style.pointerEvents = "auto";
+    mapbox.style.userSelect = "auto";
+    enter.innerText = "You Are Here";
 
     ChangeHidden()
   }
@@ -139,10 +128,36 @@ function geoFindMe() {
   }
 }
 
-stores.features.forEach((store, i) => {
-  store.properties.id = i;
-});
+/**
+* Use Mapbox GL JS's `flyTo` to move the camera smoothly
+* a given center point.
+**/
+function flyToStore(currentFeature) {
+  map.flyTo({
+    center: currentFeature.geometry.coordinates,
+    zoom: 15
+  });
+}
 
+/* ローカルストレージに現在地の記録があるかを確認 */
+if(localStorage.getItem('geolocation')) {
+  title.remove();
+  enter.innerText = "You Are Here";
+
+  mapbox.style.pointerEvents = "auto";
+  mapbox.style.userSelect = "auto";
+  const geolocation = JSON.parse(localStorage.getItem('geolocation'));
+  getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
+  address.textContent = `Latest Update: ${geolocation.address}`;
+
+  map.flyTo({
+    center: [geolocation.longitude, geolocation.latitude],
+    scrollZoom: false
+  });
+}
+
+
+// 地図にマーカーを追加
 map.on('load', () => {
   map.addSource('places', {
     'type': 'geojson',
@@ -151,15 +166,10 @@ map.on('load', () => {
   addMarkers();
 });
 
-/* Add a marker to the map for every store listing. */
 function addMarkers() {
-  /* For each feature in the GeoJSON object above: */
   for (const marker of stores.features) {
-    /* Create a div element for the marker. */
     const el = document.createElement('div');
-    /* Assign a unique `id` to the marker. */
     el.id = `marker-${marker.properties.id}`;
-    /* Assign the `marker` class to each marker for styling. */
     el.className = 'marker';
     new mapboxgl.Marker(el, {
       offset: [0, -23]
@@ -175,23 +185,10 @@ function addMarkers() {
     **/
 
     el.addEventListener('click', (e) => {
-      /* Fly to the point */
       flyToStore(marker);
-      /* Close all other popups and display popup for clicked store */
       createPopUp(marker);
     });
   }
-}
-
-/**
-* Use Mapbox GL JS's `flyTo` to move the camera smoothly
-* a given center point.
-**/
-function flyToStore(currentFeature) {
-  map.flyTo({
-    center: currentFeature.geometry.coordinates,
-    zoom: 15
-  });
 }
 
 /* Create a Mapbox GL JS `Popup`. */
