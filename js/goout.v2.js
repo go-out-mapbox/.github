@@ -13,7 +13,6 @@ if(localStorage.getItem('geolocation')) {
   getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
   address.textContent = `Altitude Accuracy: ${geolocation.longitude} m`;
   dateP.textContent = "";
-  let center = [geolocation.latitude, geolocation.longitude]
 }
 
 function geoFindMe() {
