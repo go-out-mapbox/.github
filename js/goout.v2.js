@@ -144,7 +144,6 @@ function ChangeHidden() {
       enter.innerText = "Let's have some fun";
     } else {
       main.hidden = false;
-      enter.innerText = "You Are Here";
     }
   })
 };
