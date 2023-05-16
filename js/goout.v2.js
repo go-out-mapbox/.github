@@ -52,6 +52,10 @@ function geoFindMe() {
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
 
+    setTimeout(() => {
+      title.remove();
+    }, 2500)
+
     map.flyTo({
       center: [longitude, latitude],
       essential: true
@@ -74,6 +78,10 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+
+    enter.style.opacity = "1";
+    enter.style.pointerEvents = "auto";
+    enter.style.userSelect = "auto";
   }
 
   if(!navigator.geolocation) {
@@ -82,6 +90,8 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+
+    enter.remove();
   } else {
     getLocation.textContent = 'Locating…';
     address.textContent = `現在地を取得中`;
@@ -89,6 +99,10 @@ function geoFindMe() {
     mapbox.style.pointerEvents = "none";
     mapbox.style.userSelect = "none";
     navigator.geolocation.getCurrentPosition(success, error);
+
+    setTimeout(() => {
+      title.remove();
+    }, 2500)
   }
 }
 
