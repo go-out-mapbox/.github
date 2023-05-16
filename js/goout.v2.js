@@ -84,11 +84,6 @@ function geoFindMe() {
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
 
-    enter.style.opacity = "0";
-    setTimeout(() => {
-      title.remove();
-    }, 2500)
-
     submitForm.remove();
     ChangeHidden()
   }
@@ -99,11 +94,6 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-
-    enter.style.opacity = "0";
-    setTimeout(() => {
-      enter.remove();
-    }, 2500)
 
     submitForm.remove();
     ChangeHidden()
