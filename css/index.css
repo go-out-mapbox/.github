@@ -4,6 +4,8 @@ html {
 
 body {
   background: lemonchiffon;
+  display: flex;
+  flex-flow: wrap;
   overflow: hidden;
   height: 100vh;
   max-height: -webkit-fill-available;
@@ -122,8 +124,6 @@ body,
 @media (orientation: portrait) {
   body {
     font-size: 3.21vw;
-    display: flex;
-    flex-flow: wrap;
   }
 
   #date {
