@@ -66,12 +66,12 @@ function geoFindMe() {
     });
 
     // ローカルストレージへ現在地を記録
-    let timestamp = new date()
+    let date = new Date();
     const geolocation = {
       latitude : latitude,
       longitude : longitude,
       accuracy : accuracy,
-      timestamp : timestamp
+      timestamp : date
     }
 
     const geoJSON = JSON.stringify(geolocation);
