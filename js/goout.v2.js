@@ -52,7 +52,7 @@ function geoFindMe() {
 
     map.flyTo({
       center: [longitude, latitude],
-      zoom: 15,
+      zoom: 20,
       essential: true
     });
 
