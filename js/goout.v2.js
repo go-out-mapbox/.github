@@ -147,6 +147,7 @@ function createPopUp(currentFeature) {
   const dateYouTube = document.createElement('iframe');
   dateYouTube.src = `https://www.youtube.com/embed/${currentFeature.properties.src}`;
   dateYouTube.title = "YouTube video player"
+  dateYouTube.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share")
   dateSection.appendChild(dateYouTube);
 }
 
