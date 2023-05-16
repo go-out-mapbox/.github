@@ -148,7 +148,7 @@ if(localStorage.getItem('geolocation')) {
   mapbox.style.userSelect = "auto";
   const geolocation = JSON.parse(localStorage.getItem('geolocation'));
   getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
-  address.textContent = `Latest Update: ${geolocation.address}`;
+  address.textContent = `Latest Update: ${geolocation.timestamp}`;
 
   map.flyTo({
     center: [geolocation.longitude, geolocation.latitude],
