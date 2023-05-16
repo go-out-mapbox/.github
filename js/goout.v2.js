@@ -20,7 +20,6 @@ const map = new mapboxgl.Map({
 });
 
 if(localStorage.getItem('geolocation')) {
-  document.body.classList.add('enter');
   title.remove();
   enter.innerText = "You Are Here";
 
@@ -34,8 +33,6 @@ if(localStorage.getItem('geolocation')) {
     center: [geolocation.longitude, geolocation.latitude],
     essential: true
   });
-
-  dateSection.innerHTML = `<button type="button" class="goout" onclick="geoFindMe()">Update</button>`;
 }
 
 function geoFindMe() {
@@ -51,11 +48,7 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-    enter.style.opacity = "0";
-
-    setTimeout(() => {
-      enter.remove();
-    }, 2500)
+    enter.innerText = "You Are Here";
 
     map.flyTo({
       center: [longitude, latitude],
@@ -79,7 +72,6 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-    enter.innerText = "Do It Again";
   }
 
   if(!navigator.geolocation) {
@@ -88,17 +80,15 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-
-    enter.remove();
   } else {
     getLocation.textContent = 'Locating…';
     address.textContent = `現在地を取得中`;
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "none";
     mapbox.style.userSelect = "none";
-    title.style.opacity = "0";
     navigator.geolocation.getCurrentPosition(success, error);
 
+    title.style.opacity = "0";
     setTimeout(() => {
       title.remove();
     }, 2500)
