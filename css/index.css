@@ -17,7 +17,7 @@ body,
 }
 
 #date,
-#geolocation {
+#date h2 {
   margin: 0;
 }
 
@@ -30,28 +30,35 @@ body,
 }
 
 #map,
+#date,
 .enter #title,
 .enter #enter {
   pointer-events: none;
   user-select: none;
 }
 
-#title,
-#enter {
-  transition: opacity 2.5s;
+#date section {
+  pointer-events: auto;
+  user-select: auto;
 }
 
-#title,
-#enter {
-  opacity: 1;
+#map,
+#listings {
+  width: 100%;
+  height: 100%;
 }
 
-.enter #title,
-.enter #enter {
-  opacity: 0;
+#date {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: invert(0);
+  mix-blend-mode: difference;
+  z-index: 10;
 }
 
 #date h2 {
+  color: #fff;
   font-family: "Kristina", "Gill Sans", sans-serif;
   font-weight: 400;
 }
@@ -65,6 +72,8 @@ body,
 }
 
 #date section {
+  color: #fff;
+  background: #000;
   font-family: "Gill Sans", sans-serif;
   font-weight: 400;
   font-size: 95%;
@@ -89,21 +98,10 @@ body,
 @media (orientation: landscape) {
   body {
     font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   #date {
     padding: 0.5rem;
-    width: 25rem;
-    height: 100%;
-  }
-
-  #map,
-  #listings {
-    width: calc(100% - 25rem);
-    height: 100%;
   }
 
   #date h2 {
@@ -129,14 +127,6 @@ body,
 
   #date {
     padding: 1vw;
-    width: 100%;
-    height: 35%;
-  }
-
-  #map,
-  #listings {
-    width: 100%;
-    height: 65%;
   }
 
   #date h2 {
@@ -162,15 +152,4 @@ button {
   cursor: pointer;
   outline: none;
   word-break: keep-all;
-
-}
-
-#enter {
-  font-size: 150%;
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  z-index: 10;
 }

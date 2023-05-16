@@ -1,3 +1,24 @@
+#title,
+#enter  {
+  position: absolute;
+  left: 50%;
+  opacity: 1;
+  transition: opacity 2.5s;
+}
+
+.enter #title,
+.enter #enter {
+  opacity: 0;
+}
+
+#enter {
+  font-size: 150%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
 #title {
   animation: .5s infinite alternate play;
   -webkit-animation: .5s infinite alternate play;
@@ -7,11 +28,7 @@
   text-align: center;
   pointer-events: none;
   user-select: none;
-  position: fixed;
   top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1, 5);
-  -webkit-transform: translate(-50%, -50%) scale(1, 5);
   width: 100%;
   overflow: hidden;
   z-index: 1;

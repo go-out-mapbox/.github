@@ -20,12 +20,13 @@ const map = new mapboxgl.Map({
 });
 
 if(localStorage.getItem('geolocation')) {
+  document.body.classList.add('enter');
   title.remove();
   enter.remove();
-  document.body.classList.add('enter');
+
   mapbox.style.pointerEvents = "auto";
   mapbox.style.userSelect = "auto";
-  const geolocation = JSON.parse(localStorage.getItem('geolocation'))
+  const geolocation = JSON.parse(localStorage.getItem('geolocation'));
   getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
   address.textContent = `Altitude Accuracy: ${geolocation.longitude} m`;
 
