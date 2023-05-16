@@ -147,8 +147,6 @@ function flyToStore(currentFeature) {
 
 /* ローカルストレージに現在地の記録があるかを確認 */
 if(localStorage.getItem('geolocation')) {
-  title.remove();
-
   mapbox.style.pointerEvents = "auto";
   mapbox.style.userSelect = "auto";
   const geolocation = JSON.parse(localStorage.getItem('geolocation'));
