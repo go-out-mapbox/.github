@@ -106,16 +106,16 @@ body,
     height: 100%;
   }
 
-  #enter {
-    padding: 0.5rem 1rem;
-  }
-
   #date h2 {
     font-size: 150%;
   }
 
   #date section b {
     margin: 0.5rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -139,10 +139,6 @@ body,
     height: 65%;
   }
 
-  #enter {
-    padding: 1.25vw 2.5vw;
-  }
-
   #date h2 {
     font-size: 130%;
   }
@@ -150,9 +146,13 @@ body,
   #date section b {
     margin: 1vw;
   }
+
+  button {
+    padding: 1.25vw 2.5vw;
+  }
 }
 
-#enter {
+button {
   appearance: none;
   background: #fff;
   border: 1px solid #000;
@@ -160,14 +160,17 @@ body,
   box-sizing: border-box;
   color: #000;
   cursor: pointer;
-  font-size: 150%;
   outline: none;
+  word-break: keep-all;
+
+}
+
+#enter {
+  font-size: 150%;
   position: absolute;
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  text-decoration: none;
-  word-break: keep-all;
   z-index: 10;
 }
