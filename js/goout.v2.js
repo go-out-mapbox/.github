@@ -159,6 +159,15 @@ function ChangeHidden() {
   })
 };
 
+const submitClose = document.querySelector('#submit #close');
+submitClose.addEventListener('click', function () {
+  map.flyTo({
+    center: center,
+    zoom: 1.75,
+    scrollZoom: false
+  });
+})
+
 
 // 地図にマーカーを追加
 map.on('load', () => {
