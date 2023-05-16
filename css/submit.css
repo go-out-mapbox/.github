@@ -27,6 +27,7 @@ h3 b {
   line-height: 150%;
 }
 
+#submit input,
 #submit textarea {
   border: 1px solid lightskyblue;
   box-sizing: border-box;
@@ -40,6 +41,7 @@ h3 b {
 
 @media (orientation: landscape) {
   #submit,
+  #submit input,
   #submit textarea {
     padding: 0.5rem;
   }
@@ -53,6 +55,7 @@ h3 b {
 
 @media (orientation: portrait) {
   #submit,
+  #submit input,
   #submit textarea {
     padding: 1vw;
   }
