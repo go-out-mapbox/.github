@@ -31,7 +31,6 @@ if(localStorage.getItem('geolocation')) {
 
   map.flyTo({
     center: [geolocation.longitude, geolocation.latitude],
-    zoom: 15,
     essential: true
   });
 }
@@ -53,6 +52,7 @@ function geoFindMe() {
 
     map.flyTo({
       center: [longitude, latitude],
+      zoom: 15,
       essential: true
     });
 
