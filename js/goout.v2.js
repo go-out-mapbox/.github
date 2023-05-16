@@ -12,7 +12,6 @@ if(localStorage.getItem('geolocation')) {
   const geolocation = JSON.parse(localStorage.getItem('geolocation'))
   getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
   address.textContent = `Altitude Accuracy: ${geolocation.longitude} m`;
-  dateP.textContent = "";
 }
 
 function geoFindMe() {
