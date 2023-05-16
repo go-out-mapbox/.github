@@ -63,12 +63,6 @@ body,
   height: 100%;
 }
 
-#date h2,
-#date address {
-  filter: invert(0);
-  mix-blend-mode: difference;
-}
-
 #date h2 {
   color: #fff;
   font-family: "Kristina", "Gill Sans", sans-serif;
@@ -85,7 +79,6 @@ address {
 
 #date section {
   color: #000;
-  background: #fff7;
   font-family: "Gill Sans", sans-serif;
   font-weight: 400;
   font-size: 95%;
