@@ -9,6 +9,7 @@ const address = document.querySelector('#date address');
 const dateSection = document.querySelector('#date section');
 const title = document.querySelector('#title');
 const enter = document.querySelector('#enter');
+const submitForm = document.querySelector('#submit form');
 
 function ChangeHidden() {
   const mainAll = document.querySelectorAll('main');
@@ -98,6 +99,7 @@ function geoFindMe() {
       title.remove();
     }, 2500)
 
+    submitForm.remove();
     ChangeHidden()
   }
 
@@ -113,6 +115,7 @@ function geoFindMe() {
       enter.remove();
     }, 2500)
 
+    submitForm.remove();
     ChangeHidden()
   } else {
     getLocation.textContent = 'Locating…';
