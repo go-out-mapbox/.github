@@ -70,7 +70,7 @@ function geoFindMe() {
       latitude : latitude,
       longitude : longitude,
       accuracy : accuracy,
-      address : context
+      address : address.textContent
     }
 
     const geoJSON = JSON.stringify(geolocation);
