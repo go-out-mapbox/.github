@@ -163,7 +163,7 @@ const submitClose = document.querySelector('#submit #close');
 submitClose.addEventListener('click', function () {
   map.flyTo({
     center: center,
-    zoom: 1.75,
+    zoom: 11.11,
     scrollZoom: false
   });
 })
