@@ -31,7 +31,7 @@ h3 b {
   line-height: 150%;
 }
 
-#submit input,
+#submit input[type="text"],
 #submit textarea {
   border: 1px solid lightskyblue;
   box-sizing: border-box;

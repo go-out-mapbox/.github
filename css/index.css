@@ -151,6 +151,7 @@ button {
 
 #submit #close {
   background: transparent;
+  border: none;
   float: right;
 }
 
