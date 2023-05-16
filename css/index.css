@@ -73,7 +73,7 @@ body,
   font-weight: 400;
 }
 
-address {
+#date address {
   color: lightskyblue;
   background: lemonchiffon;
   display: inline;
