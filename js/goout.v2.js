@@ -65,6 +65,12 @@ function geoFindMe() {
       var context = data.features[0].place_name;
       address.textContent = context;
     });}).catch(err => { console.log(err); })
+    
+    async function fetchData(_uri) {
+      const res = await fetch(_uri);
+      const data = await res;
+      return data;
+    }
 
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
