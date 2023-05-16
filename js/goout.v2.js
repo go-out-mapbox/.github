@@ -151,6 +151,7 @@ function ChangeHidden() {
       main.hidden = true;
       enter.innerText = "Let's have some fun";
       map.flyTo({
+        center: center,
         zoom: 1.75,
         scrollZoom: false
       });
