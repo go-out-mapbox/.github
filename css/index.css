@@ -139,7 +139,6 @@ input[type="button"] {
   color: #000;
   cursor: pointer;
   outline: none;
-  font-size: 150%;
   word-break: keep-all;
 }
 
@@ -147,12 +146,14 @@ button {
   background: #fff;
   border: 1px solid #000;
   border-radius: 50%;
+  font-size: 150%;
 }
 
 #submit #close {
   background: transparent;
   border: none;
   float: right;
+  font-size: 300%;
 }
 
 .marker {
