@@ -94,6 +94,10 @@ body,
   line-height: 150%;
 }
 
+#date button {
+  filter: invert(1);
+}
+
 
 @media (orientation: landscape) {
   body {
