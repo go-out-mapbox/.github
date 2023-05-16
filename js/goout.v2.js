@@ -31,10 +31,10 @@ if(localStorage.getItem('geolocation')) {
 
   map.flyTo({
     center: [geolocation.longitude, geolocation.latitude],
-    essential: true // this animation is considered essential with respect to prefers-reduced-motion
+    essential: true
   });
 
-  dateSection.textContent = "";
+  dateSection.innerHTML = `<button type="button" class="goout" onclick="geoFindMe()">Update</button>`;
 }
 
 function geoFindMe() {
@@ -53,7 +53,7 @@ function geoFindMe() {
 
     map.flyTo({
       center: [longitude, latitude],
-      essential: true // this animation is considered essential with respect to prefers-reduced-motion
+      essential: true
     });
 
     const geolocation = {
