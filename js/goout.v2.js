@@ -29,7 +29,7 @@ const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
   center: center,
-  zoom: 11.11,
+  zoom: 5,
   scrollZoom: false
 });
 
