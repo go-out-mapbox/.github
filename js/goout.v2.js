@@ -147,7 +147,7 @@ function addMarkers() {
 function flyToStore(currentFeature) {
   map.flyTo({
     center: currentFeature.geometry.coordinates,
-    zoom: 12.345
+    zoom: 15
   });
 }
 
