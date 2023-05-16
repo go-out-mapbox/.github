@@ -132,17 +132,26 @@ body,
   }
 }
 
-button {
+button,
+input[type="button"] {
   appearance: none;
-  background: #fff;
-  border: 1px solid #000;
-  border-radius: 50%;
   box-sizing: border-box;
   color: #000;
   cursor: pointer;
   outline: none;
   font-size: 150%;
   word-break: keep-all;
+}
+
+button {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+#submit #close {
+  background: transparent;
+  float: right;
 }
 
 .marker {
