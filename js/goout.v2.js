@@ -14,6 +14,8 @@ if(localStorage.getItem('geolocation')) {
   const geolocation = JSON.parse(localStorage.getItem('geolocation'))
   getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
   address.textContent = `Altitude Accuracy: ${geolocation.longitude} m`;
+  let center = [geolocation.longitude, geolocation.latitude]
+
   dateSection.textContent = "";
 }
 
