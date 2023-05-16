@@ -161,6 +161,8 @@ function ChangeHidden() {
 
 const submitClose = document.querySelector('#submit #close');
 submitClose.addEventListener('click', function () {
+  const geolocation = JSON.parse(localStorage.getItem('geolocation'));
+  let center = [geolocation.longitude, geolocation.latitude];
   map.flyTo({
     center: center,
     zoom: 11.11,
