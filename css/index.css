@@ -48,6 +48,7 @@ body,
 }
 
 #date {
+  display: block;
   filter: invert(0);
   mix-blend-mode: difference;
   width: calc(100% - 2.5rem);
