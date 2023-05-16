@@ -143,7 +143,7 @@ function createPopUp(currentFeature) {
   const dateP = document.createElement('p');
   dateP.innerText = currentFeature.properties.date;
   dateSection.appendChild(dateP);
-  dateSection.insertAdjacentHTML ('beforeend', `<iframe src="https://www.youtube.com/embed/${currentFeature.properties.src}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`);
+  dateSection.insertAdjacentHTML ('beforeend', `<iframe src="https://www.youtube-nocookie.com/embed/${currentFeature.properties.src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`);
 }
 
 // Add zoom and rotation controls to the map.
