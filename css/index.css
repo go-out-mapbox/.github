@@ -151,5 +151,6 @@ button {
   color: #000;
   cursor: pointer;
   outline: none;
+  font-size: 150%;
   word-break: keep-all;
 }
