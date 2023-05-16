@@ -17,13 +17,13 @@ function ChangeHidden() {
     if (main.hidden == false) {
       main.hidden = true;
       enter.innerText = "Let's have some fun";
+    } else {
+      main.hidden = false;
+      enter.innerText = "You Are Here";
       map.flyTo({
         zoom: 1.75,
         scrollZoom: false
       });
-    } else {
-      main.hidden = false;
-      enter.innerText = "You Are Here";
     }
   })
 };
