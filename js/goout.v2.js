@@ -11,7 +11,6 @@ if(localStorage.getItem('geolocation')) {
   getLocation.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
   address.textContent = `Altitude Accuracy: ${accuracy} m`;
   dateP.textContent = "";
-  center = `[${latitude}, ${longitude}]`;
   document.body.classList.add('enter');
 }
 
