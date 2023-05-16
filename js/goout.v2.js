@@ -16,10 +16,10 @@ function ChangeHidden() {
   mainAll.forEach(main => {
     if (main.hidden == false) {
       main.hidden = true;
-      enter.innerText = "You Are Here";
+      enter.innerText = "Let's have some fun";
     } else {
       main.hidden = false;
-      enter.innerText = "Let's have some fun";
+      enter.innerText = "You Are Here";
     }
   })
 };
