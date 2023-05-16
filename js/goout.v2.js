@@ -8,9 +8,11 @@ const getLocation = document.querySelector('#geolocation');
 const address = document.querySelector('#date address');
 const dateSection = document.querySelector('#date section');
 if(localStorage.getItem('geolocation')) {
-  getLocation.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-  address.textContent = `Altitude Accuracy: ${accuracy} m`;
+  const geolocation = JSON.parse(localStorage.getItem('geolocation'))
+  getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
+  address.textContent = `Altitude Accuracy: ${geolocation.longitude} m`;
   dateP.textContent = "";
+  let center = `[${geolocation.latitude}, ${geolocation.longitude}]`
   document.body.classList.add('enter');
 }
 
