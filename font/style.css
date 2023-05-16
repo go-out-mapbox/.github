@@ -5,7 +5,7 @@
 }
 
 .goout {
-  font-family: "Kristina";
+  font-family: "Kristina", cursive;
 }
 
 @font-face {
@@ -16,7 +16,7 @@
 }
 
 .relax {
-  font-family: "DiaPro";
+  font-family: "DiaPro", sans-serif;
 }
 
 .goout a {
