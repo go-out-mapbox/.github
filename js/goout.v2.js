@@ -55,7 +55,17 @@ function geoFindMe() {
     const accuracy = position.coords.accuracy;
 
     getLocation.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-    address.textContent = `Altitude Accuracy: ${accuracy} m`;
+
+    //let uri = `https://nominatim.openstreetmap.org/reverse?format=json&zoom=18&lat=${e.lngLat.lat}&lon=${e.lngLat.lng}`;
+    let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?language=ja&access_token=${mapboxgl.accessToken}`;
+
+    fetchData(uri).then(function(response){ return response.text().then(function(jsonStr){
+      var data = JSON.parse(jsonStr);
+      //var context = data.display_name +`<br>`;
+      var context = data.features[0].place_name;
+      address.textContent = context;
+    });}).catch(err => { console.log(err); })
+
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
@@ -106,7 +116,7 @@ function geoFindMe() {
     setTimeout(() => {
       enter.remove();
     }, 2500)
-    
+
     ChangeHidden()
   } else {
     getLocation.textContent = 'Locating…';

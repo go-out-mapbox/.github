@@ -2,46 +2,57 @@
   background: rgba(255,250,205,0.5);
 }
 
-#submit h3 {
+h3 {
+  font-family: "DiaPro", sans-serif;
   padding: 0;
   margin: 0;
 }
 
-#submit h3 span {
+h3 span {
   color: #000;
-  font-family: "DiaPro", sans-serif;
   font-size: 125%;
   text-decoration: lightskyblue wavy underline;
 }
 
-#submit h3 b {
+h3 b {
   background-color: lightskyblue;
   color: lemonchiffon;
-  font-family: "DiaPro", sans-serif;
   font-size: 150%;
   line-height: 150%;
 }
 
+#submit textarea {
+  border: 1px solid lightskyblue;
+  box-sizing: border-box;
+  background: #fff7;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 125%;
+  width: 100%;
+
+}
+
 
 @media (orientation: landscape) {
-  #submit {
+  #submit,
+  #submit textarea {
     padding: 0.5rem;
   }
 
-  #submit h3 span,
-  #submit h3 b {
+  h3 span,
+  h3 b {
     margin: 0.25rem 0.25rem 0.25rem 0;
   }
 }
 
 
 @media (orientation: portrait) {
-  #submit {
+  #submit,
+  #submit textarea {
     padding: 1vw;
   }
 
-  #submit h3 span,
-  #submit h3 b {
+  h3 span,
+  h3 b {
     margin: 0.5vw 0.5vw 0.5vw 0;
   }
 }

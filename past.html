@@ -5,32 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
   <title>Go Out | 行ったことのない場所へ行く</title>
-  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
-  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet" />
   <link href="font/style.css" rel="stylesheet" />
   <link href="css/index.css" rel="stylesheet" />
   <link href="css/submit.css" rel="stylesheet" />
   <link href="css/title.css" rel="stylesheet" />
 </head>
 <body>
-  <button type="button" id="enter" class="goout" onclick="geoFindMe()">Let's have some fun</button>
-  <article id="map"></article>
   <main id="submit">
     <form>
-      <h3>
-        <span>知っている場所の</span>
-        <b>外へ</b>
-        <span>わからないところまで</span>
-        <b>出かける</b>
-      </h3>
+      <h3><b>You Are Here</b></h3>
+      <h3><span>geolocation.longitude</span>, <span>geolocation.latitude</span></h3>
+      <address>住所</address>
+      <h3><b>Comment</b></h3>
+      <textarea name="date" rows="10"></textarea>
     </form>
+    <h3>
+      <span>知っている場所の</span>
+      <b>外へ</b>
+      <span>わからないところまで</span>
+      <b>出かける</b>
+    </h3>
     <h3>
       <b>地図を作ろう</b>
     </h3>
     <ol id="listing"></ol>
     <button type="button" onclick="ChangeHidden()">Close</button>
   </main>
-  <script src="js/youtube.js"></script>
-  <script src="js/goout.v2.js"></script>
 </body>
 </html>
