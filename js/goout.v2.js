@@ -16,7 +16,7 @@ function ChangeHidden() {
   mainAll.forEach(main => {
     if (main.hidden == false) {
       main.hidden = true;
-      enter.innerText = "Let's have some fun";
+      enter.innerText = "You Are Here";
     } else {
       main.hidden = false;
       enter.innerText = "Let's have some fun";
