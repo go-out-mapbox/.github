@@ -29,6 +29,11 @@ if(localStorage.getItem('geolocation')) {
   getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
   address.textContent = `Altitude Accuracy: ${geolocation.longitude} m`;
 
+  map.flyTo({
+    center: [geolocation.longitude, geolocation.latitude],
+    essential: true // this animation is considered essential with respect to prefers-reduced-motion
+  });
+
   dateSection.textContent = "";
 }
 
@@ -45,7 +50,7 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-    
+
     map.flyTo({
       center: [longitude, latitude],
       essential: true // this animation is considered essential with respect to prefers-reduced-motion
