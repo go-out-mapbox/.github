@@ -16,8 +16,10 @@ function ChangeHidden() {
   mainAll.forEach(main => {
     if (main.hidden == false) {
       main.hidden = true;
+      enter.innerText = "Let's have some fun";
     } else {
       main.hidden = false;
+      enter.innerText = "Let's have some fun";
     }
   })
 };
@@ -80,9 +82,9 @@ function geoFindMe() {
     console.log('geolocation', geoJSON);
 
     dateSection.textContent = "";
+    enter.innerText = "You Are Here";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-    enter.innerText = "You Are Here";
 
     ChangeHidden()
   }
@@ -146,7 +148,6 @@ function flyToStore(currentFeature) {
 /* ローカルストレージに現在地の記録があるかを確認 */
 if(localStorage.getItem('geolocation')) {
   title.remove();
-  enter.innerText = "You Are Here";
 
   mapbox.style.pointerEvents = "auto";
   mapbox.style.userSelect = "auto";
