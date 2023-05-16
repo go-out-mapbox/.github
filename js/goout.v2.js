@@ -11,23 +11,6 @@ const title = document.querySelector('#title');
 const enter = document.querySelector('#enter');
 const submitForm = document.querySelector('#submit form');
 
-function ChangeHidden() {
-  const mainAll = document.querySelectorAll('main');
-  mainAll.forEach(main => {
-    if (main.hidden == false) {
-      main.hidden = true;
-      enter.innerText = "Let's have some fun";
-    } else {
-      main.hidden = false;
-      enter.innerText = "You Are Here";
-      map.flyTo({
-        zoom: 1.75,
-        scrollZoom: false
-      });
-    }
-  })
-};
-
 /* ページにMapboxを埋め込む */
 const map = new mapboxgl.Map({
   container: 'map',
@@ -160,6 +143,23 @@ if(localStorage.getItem('geolocation')) {
     scrollZoom: false
   });
 }
+
+function ChangeHidden() {
+  const mainAll = document.querySelectorAll('main');
+  mainAll.forEach(main => {
+    if (main.hidden == false) {
+      main.hidden = true;
+      enter.innerText = "Let's have some fun";
+      map.flyTo({
+        zoom: 1.75,
+        scrollZoom: false
+      });
+    } else {
+      main.hidden = false;
+      enter.innerText = "You Are Here";
+    }
+  })
+};
 
 
 // 地図にマーカーを追加
