@@ -7,14 +7,18 @@ const mapbox = document.querySelector('#map');
 const getLocation = document.querySelector('#geolocation');
 const address = document.querySelector('#date address');
 const dateSection = document.querySelector('#date section');
+const title = document.querySelector('#title');
+const enter = document.querySelector('#enter');
 if(localStorage.getItem('geolocation')) {
+  title.remove();
+  enter.remove();
   document.body.classList.add('enter');
   mapbox.style.pointerEvents = "auto";
   mapbox.style.userSelect = "auto";
   const geolocation = JSON.parse(localStorage.getItem('geolocation'))
   getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
   address.textContent = `Altitude Accuracy: ${geolocation.longitude} m`;
-  let center = [geolocation.longitude, geolocation.latitude]
+  let center = [geolocation.longitude, geolocation.latitude];
 
   dateSection.textContent = "";
 }
@@ -143,7 +147,6 @@ function createPopUp(currentFeature) {
   const dateP = document.createElement('p');
   dateP.innerText = currentFeature.properties.date;
   dateSection.appendChild(dateP);
-  dateSection.insertAdjacentHTML ('beforeend', `<iframe src="https://www.youtube-nocookie.com/embed/${currentFeature.properties.src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`);
 }
 
 // Add zoom and rotation controls to the map.
