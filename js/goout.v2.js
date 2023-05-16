@@ -117,14 +117,6 @@ function addMarkers() {
       flyToStore(marker);
       /* Close all other popups and display popup for clicked store */
       createPopUp(marker);
-      /* Highlight listing in sidebar */
-      const activeItem = document.getElementsByClassName('active');
-      e.stopPropagation();
-      if (activeItem[0]) {
-        activeItem[0].classList.remove('active');
-      }
-      const listing = document.getElementById(`listing-${marker.properties.id}`);
-      listing.classList.add('active');
     });
   }
 }
@@ -155,7 +147,6 @@ function createPopUp(currentFeature) {
   const dateYouTube = document.createElement('iframe');
   dateYouTube.src = `https://www.youtube.com/embed/${currentFeature.properties.src}`;
   dateYouTube.title = "YouTube video player"
-  dateYouTube.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   dateSection.appendChild(dateYouTube);
 }
 
