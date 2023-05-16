@@ -9,6 +9,16 @@ const address = document.querySelector('#date address');
 const dateSection = document.querySelector('#date section');
 const title = document.querySelector('#title');
 const enter = document.querySelector('#enter');
+
+/* Add the map to the page */
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
+  center: center,
+  zoom: 11.11,
+  scrollZoom: false
+});
+
 if(localStorage.getItem('geolocation')) {
   title.remove();
   enter.remove();
@@ -18,8 +28,6 @@ if(localStorage.getItem('geolocation')) {
   const geolocation = JSON.parse(localStorage.getItem('geolocation'))
   getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
   address.textContent = `Altitude Accuracy: ${geolocation.longitude} m`;
-
-  flyToStore([geolocation.longitude, geolocation.latitude]);
 
   dateSection.textContent = "";
 }
@@ -37,7 +45,11 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-    flyToStore([longitude, latitude]);
+    
+    map.flyTo({
+      center: [longitude, latitude],
+      essential: true // this animation is considered essential with respect to prefers-reduced-motion
+    });
 
     const geolocation = {
       latitude : latitude,
@@ -73,15 +85,6 @@ function geoFindMe() {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 }
-
-/* Add the map to the page */
-const map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
-  center: center,
-  zoom: 11.11,
-  scrollZoom: false
-});
 
 stores.features.forEach((store, i) => {
   store.properties.id = i;
