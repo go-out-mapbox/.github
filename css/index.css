@@ -64,13 +64,18 @@ body,
 }
 
 #date h2 {
-  color: #fff;
+  color: lemonchiffon;
+  text-shadow:
+  1px 1px 1px lightskyblue,
+  2px 2px 2px lightskyblue,
+  3px 3px 3px lightskyblue;
   font-family: "Kristina", "Gill Sans", sans-serif;
   font-weight: 400;
 }
 
 address {
-  background: #fff;
+  color: lightskyblue;
+  background: lemonchiffon;
   display: inline;
   font-family: "DiaPro", sans-serif;
   font-size: 100%;
