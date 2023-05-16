@@ -10,6 +10,17 @@ const dateSection = document.querySelector('#date section');
 const title = document.querySelector('#title');
 const enter = document.querySelector('#enter');
 
+function ChangeHidden() {
+  const mainAll = document.querySelectorAll('main');
+  mainAll.forEach(main => {
+    if (main.hidden == false) {
+      main.hidden = true;
+    } else {
+      main.hidden = false;
+    }
+  })
+};
+
 /* Add the map to the page */
 const map = new mapboxgl.Map({
   container: 'map',
@@ -65,6 +76,8 @@ function geoFindMe() {
     const geoJSON = JSON.stringify(geolocation);
     localStorage.setItem('geolocation', geoJSON);
     console.log('geolocation', geoJSON);
+
+    ChangeHidden()
   }
 
   function error() {
@@ -73,6 +86,13 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+
+    enter.style.opacity = "0";
+    setTimeout(() => {
+      title.remove();
+    }, 2500)
+
+    ChangeHidden()
   }
 
   if(!navigator.geolocation) {
@@ -81,6 +101,13 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+
+    enter.style.opacity = "0";
+    setTimeout(() => {
+      enter.remove();
+    }, 2500)
+    
+    ChangeHidden()
   } else {
     getLocation.textContent = 'Locating…';
     address.textContent = `現在地を取得中`;

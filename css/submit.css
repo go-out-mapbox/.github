@@ -1,0 +1,36 @@
+#submit h3 span {
+  color: #000;
+  font-family: "DiaPro", sans-serif;
+  font-size: 150%;
+  text-decoration: lightskyblue wavy underline;
+}
+
+#submit h3 b {
+  background-color: lightskyblue;
+  color: lemonchiffon;
+  font-family: "DiaPro", sans-serif;
+  font-size: 250%;
+  line-height: 150%;
+}
+
+
+@media (orientation: landscape) {
+  #submit {
+    padding: 0.5rem;
+  }
+
+  #submit h3 b {
+    margin: 0.5rem;
+  }
+}
+
+
+@media (orientation: portrait) {
+  #submit {
+    padding: 1vw;
+  }
+
+  #submit h3 b {
+    margin: 1vw;
+  }
+}

@@ -46,13 +46,16 @@ body,
   height: 100%;
 }
 
+#date {
+  filter: invert(0);
+  mix-blend-mode: difference;
+}
+
 #date,
 #submit {
   position: absolute;
   width: calc(100% - 2.5rem);
   height: 100%;
-  filter: invert(0);
-  mix-blend-mode: difference;
   z-index: 10;
 }
 
@@ -78,21 +81,6 @@ body,
   font-size: 95%;
 }
 
-#date section span {
-  color: #000;
-  font-family: "DiaPro", sans-serif;
-  font-size: 150%;
-  text-decoration: lightskyblue wavy underline;
-}
-
-#date section b {
-  background-color: lightskyblue;
-  color: lemonchiffon;
-  font-family: "DiaPro", sans-serif;
-  font-size: 250%;
-  line-height: 150%;
-}
-
 #date button {
   filter: invert(1);
 }
@@ -109,10 +97,6 @@ body,
 
   #date h2 {
     font-size: 150%;
-  }
-
-  #date section b {
-    margin: 0.5rem;
   }
 
   button {
@@ -134,10 +118,6 @@ body,
     font-size: 130%;
   }
 
-  #date section b {
-    margin: 1vw;
-  }
-
   button {
     padding: 1.25vw 2.5vw;
   }
@@ -154,4 +134,15 @@ button {
   outline: none;
   font-size: 150%;
   word-break: keep-all;
+}
+
+.marker {
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  background-image: url('../profile/icon.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

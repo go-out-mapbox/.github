@@ -1,13 +1,4 @@
-.marker {
-  border: none;
-  cursor: pointer;
-  height: 55px;
-  width: 55px;
-  background-size: 100%;
-  background-position: center;
-  background-image: url('../profile/icon.png');
-  background-repeat: no-repeat;
-}
+
 
 .mapboxgl-popup-content {
   font-family: "Yu Gothic", "Gill Sans", sans-serif;
