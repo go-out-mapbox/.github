@@ -43,7 +43,7 @@ function geoFindMe() {
     const longitude = position.coords.longitude;
     const accuracy = position.coords.accuracy;
 
-    getLocation.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+    getLocation.textContent = `${longitude},${latitude}`;
 
     // 緯度経度から住所を検索
     let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?language=ja&access_token=${mapboxgl.accessToken}`;
@@ -151,7 +151,7 @@ if(localStorage.getItem('geolocation')) {
   mapbox.style.pointerEvents = "auto";
   mapbox.style.userSelect = "auto";
   const geolocation = JSON.parse(localStorage.getItem('geolocation'));
-  getLocation.textContent = `Latitude: ${geolocation.latitude} °, Longitude: ${geolocation.longitude} °`;
+  getLocation.textContent = `${geolocation.longitude},${geolocation.latitude}`;
   address.textContent = `Latest Update: ${geolocation.timestamp}`;
 
   map.flyTo({
