@@ -70,6 +70,7 @@ body,
   2px 2px 2px lightskyblue,
   3px 3px 3px lightskyblue;
   font-family: "Kristina", "Gill Sans", sans-serif;
+  font-size: 150%;
   font-weight: 400;
 }
 
@@ -103,10 +104,6 @@ body,
     padding: 0.5rem;
   }
 
-  #date h2 {
-    font-size: 150%;
-  }
-
   button {
     padding: 0.5rem 1rem;
   }
@@ -120,10 +117,6 @@ body,
 
   #date {
     padding: 1vw;
-  }
-
-  #date h2 {
-    font-size: 130%;
   }
 
   button {
