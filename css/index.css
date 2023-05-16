@@ -52,7 +52,6 @@ body,
   filter: invert(0);
   mix-blend-mode: difference;
   width: calc(100% - 2.5rem);
-  height: 100%;
 }
 
 #submit {
@@ -63,6 +62,7 @@ body,
 #submit {
   position: absolute;
   z-index: 10;
+  height: 100%;
 }
 
 #date h2 {
