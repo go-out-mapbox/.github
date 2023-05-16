@@ -49,8 +49,6 @@ body,
 
 #date {
   display: block;
-  filter: invert(0);
-  mix-blend-mode: difference;
   width: calc(100% - 2.5rem);
 }
 
@@ -63,6 +61,12 @@ body,
   position: absolute;
   z-index: 10;
   height: 100%;
+}
+
+#date h2,
+#date address {
+  filter: invert(0);
+  mix-blend-mode: difference;
 }
 
 #date h2 {
@@ -80,8 +84,8 @@ address {
 }
 
 #date section {
-  color: #fff;
-  background: #000;
+  color: #000;
+  background: #fff7;
   font-family: "Gill Sans", sans-serif;
   font-weight: 400;
   font-size: 95%;
