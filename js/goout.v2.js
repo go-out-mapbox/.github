@@ -1,7 +1,7 @@
 'use strict'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
-let center = [135.50433479522678, 34.69699057458179]
+let center = [135.50433479522678, 34.69699057458179];
 
 const mapbox = document.querySelector('#map');
 const getLocation = document.querySelector('#geolocation');
@@ -49,8 +49,9 @@ function geoFindMe() {
     }
 
     // 地図の中心を現在地へ移動
+    let center = [longitude, latitude];
     map.flyTo({
-      center: [longitude, latitude],
+      center: center,
       zoom: 20,
       scrollZoom: false
     });
@@ -138,8 +139,9 @@ if(localStorage.getItem('geolocation')) {
   getLocation.textContent = `${geolocation.longitude},${geolocation.latitude}`;
   address.textContent = `Latest Update: ${geolocation.timestamp}`;
 
+  let center = [geolocation.longitude, geolocation.latitude];
   map.flyTo({
-    center: [geolocation.longitude, geolocation.latitude],
+    center: center,
     scrollZoom: false
   });
 }
