@@ -24,7 +24,7 @@ async function submitThis() {
   // 投稿内容を取得する
   const thisGeolocation = document.querySelector('#date #geolocation')
   const thisAddress = document.querySelector('#date address')
-  const thisComment = document.querySelector('#submit textarea')
+  const thisComment = document.querySelector('#submit #comment')
   let thisTime = new Date();
 
   let thisPin = {
