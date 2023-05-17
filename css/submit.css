@@ -3,16 +3,12 @@
 }
 
 #submit form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
   width: 90%;
   max-width: 750px;
 }
 
-h3 {
+h3,
+summary {
   font-family: "DiaPro", sans-serif;
   padding: 0;
   margin: 0;
@@ -24,11 +20,13 @@ h3 span {
   text-decoration: lightskyblue wavy underline;
 }
 
-h3 b {
+h3 b,
+summary {
   background-color: lightskyblue;
   color: lemonchiffon;
   font-size: 150%;
   line-height: 150%;
+  outline: none;
 }
 
 #submit input[type="text"],
@@ -39,15 +37,25 @@ h3 b {
   font-family: "Gill Sans", sans-serif;
   font-size: 125%;
   width: 100%;
-
+  min-width: 100%;
+  max-width: 100%;
 }
 
 
 @media (orientation: landscape) {
   #submit,
+  #submit summary,
   #submit input,
   #submit textarea {
     padding: 0.5rem;
+  }
+
+  #submit form {
+    margin: 7.5rem auto 3.5rem;
+  }
+
+  #submit details {
+    margin: 1rem 0;
   }
 
   h3 span,
@@ -59,9 +67,18 @@ h3 b {
 
 @media (orientation: portrait) {
   #submit,
+  #submit summary,
   #submit input,
   #submit textarea {
     padding: 1vw;
+  }
+
+  #submit form {
+    margin: 25vw auto 12.5vw;
+  }
+
+  #submit details {
+    margin: 2.5vw 0;
   }
 
   h3 span,

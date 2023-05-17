@@ -66,11 +66,11 @@ function geoFindMe() {
     }
 
     const geoJSON = JSON.stringify(geolocation);
-    localStorage.setItem('geolocation', geoJSON);
-    console.log('geolocation', geoJSON);
+    localStorage.setItem("geolocation", geoJSON);
+    console.log("geolocation", geoJSON);
 
-    dateSection.textContent = "";
-    enter.innerText = "You Are Here";
+    dateSection.innerHTML = `<time>${date}</time>`;
+    enter.textContent = "You Are Here";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
 
@@ -124,8 +124,8 @@ function flyToStore(currentFeature) {
 }
 
 /* ローカルストレージに現在地の記録があるかを確認 */
-if(localStorage.getItem('geolocation')) {
-  const geolocation = JSON.parse(localStorage.getItem('geolocation'));
+if(localStorage.getItem("geolocation")) {
+  const geolocation = JSON.parse(localStorage.getItem("geolocation"));
   getLocation.textContent = `${geolocation.longitude},${geolocation.latitude}`;
   address.textContent = `Last Time You Visited ${geolocation.timestamp}`;
 
@@ -141,17 +141,17 @@ function ChangeHidden() {
   mainAll.forEach(main => {
     if (main.hidden == false) {
       main.hidden = true;
-      enter.innerText = "Let's have some fun";
+      enter.textContent = "Let's have some fun";
     } else {
       main.hidden = false;
-      enter.innerText = "You Are Here";
+      enter.textContent = "You Are Here";
     }
   })
 };
 
 const submitClose = document.querySelector('#submit #close');
 submitClose.addEventListener('click', function () {
-  const geolocation = JSON.parse(localStorage.getItem('geolocation'));
+  const geolocation = JSON.parse(localStorage.getItem("geolocation"));
   let center = [geolocation.longitude, geolocation.latitude];
   map.flyTo({
     center: center,
@@ -200,11 +200,11 @@ function createPopUp(currentFeature) {
   dateSection.innerHTML = "";
 
   const popup = document.querySelector('#date');
-  getLocation.innerText = currentFeature.properties.title;
-  address.innerText = currentFeature.properties.address;
+  getLocation.textContent = currentFeature.properties.title;
+  address.textContent = currentFeature.properties.address;
 
   const dateP = document.createElement('p');
-  dateP.innerText = currentFeature.properties.date;
+  dateP.textContent = currentFeature.properties.date;
   dateSection.appendChild(dateP);
 }
 

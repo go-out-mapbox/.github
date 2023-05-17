@@ -11,25 +11,26 @@
   <link href="css/title.css" rel="stylesheet" />
 </head>
 <body>
+<main id="date">
+  <h2 id="geolocation">
+    135.50433479522678, 34.69699057458179
+  </h2>
+  <address>日本, 大阪府大阪市北区西天満4丁目8番1</address>
+  <section><time>0000-00-00T00:00:00.000Z</time></section>
+</main>
   <main id="submit">
+    <input id="close" type="button" onclick="ChangeHidden()" value="×">
     <form>
-      <h3><b>You Are Here</b></h3>
-      <h3><span>geolocation.longitude</span>, <span>geolocation.latitude</span></h3>
-      <address>住所</address>
-      <h3><b>Comment</b></h3>
-      <textarea name="date" rows="10"></textarea>
+      <details>
+        <summary><b>Add A Comment コメントを残す</b></summary>
+        <textarea name="date" rows="10"></textarea>
+      </details>
+      <button type="submit" class="relax">Submit 投稿する</button>
     </form>
-    <h3>
-      <span>知っている場所の</span>
-      <b>外へ</b>
-      <span>わからないところまで</span>
-      <b>出かける</b>
-    </h3>
     <h3>
       <b>地図を作ろう</b>
     </h3>
     <ol id="listing"></ol>
-    <button type="button" onclick="ChangeHidden()">Close</button>
   </main>
 </body>
 </html>

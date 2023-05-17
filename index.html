@@ -33,14 +33,15 @@
   <main id="submit" hidden>
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
     <form>
-      <h3><b>この場所の名前</b></h3>
-      <input type="text" name="title">
-      <h3><b>この場所の感想</b></h3>
-      <textarea name="date" rows="10"></textarea>
-      <button type="button">Submit</button>
+      <details>
+        <summary><b>Add A Comment コメントを残す</b></summary>
+        <textarea name="date" rows="10"></textarea>
+      </details>
+      <button type="submit" class="relax">Submit 投稿する</button>
     </form>
   </main>
   <script src="js/youtube.js"></script>
   <script src="js/goout.v2.js"></script>
+  <script src="js/submit.js"></script>
 </body>
 </html>
