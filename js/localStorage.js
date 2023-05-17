@@ -5,22 +5,20 @@ for (let i = 0; i < mapJSON.length; i++) {
   let thisDate = mapJSON[i].comment
   let thisOn = mapJSON[i].timestamp
 
-  let features = `{
-    'type': 'Feature',
-    'geometry': {
-      'type': 'Point',
-      'coordinates': [${coordinates}]
-    },
-    'properties': {
-      'title': '${coordinates}',
-      'address': '${thisTitle}',
-      'date': '${thisDate}',
-      'on': '${thisOn}',
-  },`
-
   const stores = {
     'type': 'FeatureCollection',
-    'features': [features
+    'features': [{
+      'type': 'Feature',
+      'geometry': {
+        'type': 'Point',
+        'coordinates': `[${coordinates}]`
+      },
+      'properties': {
+        'title': `'${coordinates}'`,
+        'address': `'${thisTitle}'`,
+        'date': `'${thisDate}'`,
+        'on': `'${thisOn}'`,
+    },
     {
       'type': 'Feature',
       'geometry': {
