@@ -14,18 +14,6 @@ const addData = (geolocation, address, date, timestamp) => {
   return {geolocation, address, date, timestamp}
 }
 
-// コメントを取得する
-const thisTXT = document.querySelector('#submit #comment');
-
-function preview(event){
-  let text = thisTXT.value;
-  let textArray = text.split('\n');
-  let thisDate = textArray.join('<br>');
-  dateSection.innerHTML += `<p>${thisDate}</p>`;
-}
-
-thisTXT.addEventListener('change', preview);
-
 
 // 現在地を投稿する
 const submitPin = document.querySelector('#submit')
@@ -38,6 +26,7 @@ async function submitThis() {
   const thisGeolocation = yourHere.textContent
   const thisAddress = yourAddress.textContent
 
+  const thisTXT = document.querySelector('#submit #comment');
   let text = thisTXT.value
   let textArray = text.split('\n')
   let thisDate = textArray.join('<br>')
