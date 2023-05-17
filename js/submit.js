@@ -21,7 +21,7 @@ function preview(event){
   let text = thisTextarea.value;
   let textArray = text.split('\n');
   let thisComent = textArray.join('<br>');
-  msg.innerHTML = `<p>${thisComent}</p>`;
+  msg.innerHTML += `<p>${thisComent}</p>`;
 }
 
 thisTextarea.addEventListener('change', preview);
