@@ -1,16 +1,16 @@
 'use strict'
 
 let array = JSON.parse(localStorage.getItem("map")) || [];
-const addData = (geolocation, address, comment, time) => {
+const addData = (geolocation, address, comment, timestamp) => {
   array.push({
     geolocation,
     address,
     comment,
-    time
+    timestamp
   })
 
   localStorage.setItem("map", JSON.stringify(array))
-  return {geolocation, address, comment, time}
+  return {geolocation, address, comment, timestamp}
 }
 
 let thisTextarea = document.querySelector('#submit #comment');
@@ -35,22 +35,23 @@ async function submitThis() {
   event.preventDefault();
   const thisGeolocation = document.querySelector('#date #geolocation')
   const thisAddress = document.querySelector('#date address')
-  let thisTextarea = document.querySelector('#submit #comment');
-  let text = thisTextarea.value;
-  let textArray = text.split('\n');
-  let thisComent = textArray.join('<br>');
 
-  let thisTime = document.querySelector('#date section time');
+  let thisTextarea = document.querySelector('#submit #comment')
+  let text = thisTextarea.value
+  let textArray = text.split('\n')
+  let thisComent = textArray.join('<br>')
+
+  let thisTime = document.querySelector('#date section time').textContent
 
   let thisPin = {
     geolocation : thisGeolocation.textContent,
     address : thisAddress.textContent,
     comment : thisComent,
-    time : thisTime.textContent
+    timestamp : thisTime
   };
 
   // localStorage に 投稿 を追加
-  addData(geolocation, address, comment, time)
+  addData(geolocation, address, comment, timestamp)
 
   const thisJSON = JSON.stringify(thisPin)
   let url = 'submit.php';
