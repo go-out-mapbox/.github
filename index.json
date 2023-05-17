@@ -9,10 +9,5 @@
   "src" : "profile/card.png",
 
   "contents" : [
-    {
-      "title" : "Your Drawing is Seems So Beautiful",
-      "name" : "Thank You for Visiting",
-      "url" : "profile/"
-    }
   ]
 }

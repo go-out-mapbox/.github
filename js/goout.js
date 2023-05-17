@@ -49,7 +49,6 @@ function geoFindMe() {
     enter.textContent = "You Are Here";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-
     ChangeHidden()
   }
 
@@ -59,7 +58,6 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-
     submitForm.remove();
     ChangeHidden()
   }
@@ -70,7 +68,6 @@ function geoFindMe() {
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
-
     submitForm.remove();
     ChangeHidden()
   } else {
