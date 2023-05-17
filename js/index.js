@@ -3,14 +3,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
 let center = [135.50433479522678, 34.69699057458179];
 
-const mapbox = document.querySelector('#map');
-const getLocation = document.querySelector('#geolocation');
-const address = document.querySelector('#date address');
-const dateSection = document.querySelector('#date section');
-const title = document.querySelector('#title');
-const enter = document.querySelector('#enter');
-const submitForm = document.querySelector('#submit form');
-
 /* ページにMapboxを埋め込む */
 const map = new mapboxgl.Map({
   container: 'map',
@@ -28,14 +20,14 @@ function geoFindMe() {
     const longitude = position.coords.longitude;
     const accuracy = position.coords.accuracy;
 
-    getLocation.textContent = `${longitude},${latitude}`;
+    yourHere.textContent = `${longitude},${latitude}`;
 
     // 緯度経度から住所を検索
     let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?language=ja&access_token=${mapboxgl.accessToken}`;
     fetchData(uri).then(function(response){ return response.text().then(function(jsonStr){
       var data = JSON.parse(jsonStr);
       var context = data.features[0].place_name;
-      address.textContent = context;
+      yourAddress.textContent = context;
     });}).catch(err => { console.log(err); })
 
     async function fetchData(_uri) {
@@ -74,8 +66,8 @@ function geoFindMe() {
   }
 
   function error() {
-    getLocation.textContent = 'Unable to retrieve your location';
-    address.textContent = `現在地を取得できませんでした`;
+    yourHere.textContent = 'Unable to retrieve your location';
+    yourAddress.textContent = `現在地を取得できませんでした`;
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
@@ -85,8 +77,8 @@ function geoFindMe() {
   }
 
   if(!navigator.geolocation) {
-    getLocation.textContent = 'Geolocation is not supported by your browser';
-    address.textContent = `現在地を取得できません`;
+    yourHere.textContent = 'Geolocation is not supported by your browser';
+    yourAddress.textContent = `このブラウザは現在地を取得できません`;
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
@@ -94,8 +86,8 @@ function geoFindMe() {
     submitForm.remove();
     ChangeHidden()
   } else {
-    getLocation.textContent = 'Locating…';
-    address.textContent = `現在地を取得中`;
+    yourHere.textContent = 'Locating…';
+    yourAddress.textContent = `現在地を取得中`;
     dateSection.textContent = "";
     mapbox.style.pointerEvents = "none";
     mapbox.style.userSelect = "none";
@@ -122,8 +114,8 @@ function flyToStore(currentFeature) {
 /* ローカルストレージに現在地の記録があるかを確認 */
 if(localStorage.getItem("geolocation")) {
   const geolocation = JSON.parse(localStorage.getItem("geolocation"));
-  getLocation.textContent = `${geolocation.longitude},${geolocation.latitude}`;
-  address.textContent = `Last Time You Visited ${geolocation.timestamp}`;
+  yourHere.textContent = `${geolocation.longitude},${geolocation.latitude}`;
+  yourAddress.textContent = `You Visited on ${geolocation.timestamp}`;
 
   let center = [geolocation.longitude, geolocation.latitude];
   map.flyTo({
@@ -156,57 +148,6 @@ submitClose.addEventListener('click', function () {
   });
 })
 
-
-// 地図にマーカーを追加
-stores.features.forEach((store, i) => {
-  store.properties.id = i;
-});
-
-map.on('load', () => {
-  map.addSource('places', {
-    'type': 'geojson',
-    'data': stores
-  });
-  addMarkers();
-});
-
-function addMarkers() {
-  for (const marker of stores.features) {
-    const el = document.createElement('div');
-    el.id = `marker-${marker.properties.id}`;
-    el.className = 'marker';
-    new mapboxgl.Marker(el, {
-      offset: [0, -23]
-    })
-    .setLngLat(marker.geometry.coordinates)
-    .addTo(map);
-
-    /**
-    * Listen to the element and when it is clicked, do three things:
-    * 1. Fly to the point
-    * 2. Close all other popups and display popup for clicked store
-    * 3. Highlight listing in sidebar (and remove highlight for all other listings)
-    **/
-
-    el.addEventListener('click', (e) => {
-      flyToStore(marker);
-      createPopUp(marker);
-    });
-  }
-}
-
-/* Create a Mapbox GL JS `Popup`. */
-function createPopUp(currentFeature) {
-  dateSection.innerHTML = "";
-
-  const popup = document.querySelector('#date');
-  getLocation.textContent = currentFeature.properties.title;
-  address.textContent = currentFeature.properties.address;
-
-  const dateP = document.createElement('p');
-  dateP.textContent = currentFeature.properties.date;
-  dateSection.appendChild(dateP);
-}
 
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());

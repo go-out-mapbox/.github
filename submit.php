@@ -8,7 +8,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 $output = array(
   $data["geolocation"],
   $data["address"],
-  $data["comment"],
+  $data["data"],
   $data["timestamp"],
   $ip
 );

@@ -2,30 +2,29 @@
 
 // localStorage から 投稿 を取得
 let array = JSON.parse(localStorage.getItem("map")) || [];
-const addData = (geolocation, address, comment, timestamp) => {
+const addData = (geolocation, address, date, timestamp) => {
   array.push({
     geolocation,
     address,
-    comment,
+    date,
     timestamp
   })
 
   localStorage.setItem("map", JSON.stringify(array))
-  return {geolocation, address, comment, timestamp}
+  return {geolocation, address, date, timestamp}
 }
 
 // コメントを取得する
-let thisTextarea = document.querySelector('#submit #comment');
-let msg = document.querySelector('#date section');
+const thisTXT = document.querySelector('#submit #comment');
 
 function preview(event){
-  let text = thisTextarea.value;
+  let text = thisTXT.value;
   let textArray = text.split('\n');
-  let thisComent = textArray.join('<br>');
-  msg.innerHTML += `<p>${thisComent}</p>`;
+  let thisDate = textArray.join('<br>');
+  dateSection.innerHTML += `<p>${thisDate}</p>`;
 }
 
-thisTextarea.addEventListener('change', preview);
+thisTXT.addEventListener('change', preview);
 
 
 // 現在地を投稿する
@@ -36,24 +35,23 @@ async function submitThis() {
   event.preventDefault();
 
   // localStorage に 投稿 を追加する
-  const thisGeolocation = document.querySelector('#date #geolocation').textContent
-  const thisAddress = document.querySelector('#date address').textContent
+  const thisGeolocation = yourHere.textContent
+  const thisAddress = yourAddress.textContent
 
-  let thisTextarea = document.querySelector('#submit #comment')
-  let text = thisTextarea.value
+  let text = thisTXT.value
   let textArray = text.split('\n')
-  let thisComent = textArray.join('<br>')
+  let thisDate = textArray.join('<br>')
 
   const thisTime = document.querySelector('#date section time').textContent
 
-  addData(thisGeolocation, thisAddress, thisComent, thisTime)
+  addData(thisGeolocation, thisAddress, thisDate, thisTime)
 
 
   // PHP で CSVファイル に 投稿 を追加する
   let thisPin = {
     geolocation : thisGeolocation,
     address : thisAddress,
-    comment : thisComent,
+    date : thisComent,
     timestamp : thisTime
   };
 
