@@ -44,7 +44,7 @@ async function submitThis() {
   let textArray = text.split('\n')
   let thisComent = textArray.join('<br>')
 
-  const thisTime = new Date()
+  const thisTime = document.querySelector('#date section time').textContent
 
   addData(thisGeolocation, thisAddress, thisComent, thisTime)
 
