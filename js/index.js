@@ -1,141 +1,104 @@
 'use strict'
 
-// 現在地を取得する
-function geoFindMe() {
-  function success(position) {
-    // 緯度経度を変数に代入
-    const latitude  = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    const accuracy = position.coords.accuracy;
+async function indexJSON() {
+  const requestURL = 'index.json';
+  const request = new Request(requestURL);
+  const response = await fetch(request);
+  const indexJSON = await response.text();
 
-    yourHere.textContent = `${longitude},${latitude}`;
+  const index = JSON.parse(indexJSON);
+  indexHead(index);
+  indexMenu(index);
+}
 
-    // 緯度経度から住所を検索
-    let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?language=ja&access_token=${mapboxgl.accessToken}`;
-    fetchData(uri).then(function(response){ return response.text().then(function(jsonStr){
-      var data = JSON.parse(jsonStr);
-      var context = data.features[0].place_name;
-      yourAddress.textContent = context;
-    });}).catch(err => { console.log(err); })
+function indexHead(obj) {
+  const head = document.querySelector('head');
+  const indexTitle = document.createElement('title');
+  const ogTitle = document.createElement('meta');
+  const twittetTitle = document.createElement('meta');
+  indexTitle.textContent = obj['title'];
+  ogTitle.setAttribute("property", "og:title");
+  ogTitle.setAttribute("content", obj['title']);
+  twittetTitle.setAttribute("name", "twitter:title");
+  twittetTitle.setAttribute("content", obj['title']);
+  head.appendChild(indexTitle);
+  head.appendChild(ogTitle);
+  head.appendChild(twittetTitle);
 
-    async function fetchData(_uri) {
-      const res = await fetch(_uri);
-      const data = await res;
-      return data;
-    }
+  const indexDescription = document.createElement('meta');
+  const ogDescription = document.createElement('meta');
+  const twitterDescription = document.createElement('meta');
+  indexDescription.setAttribute("name", "description");
+  indexDescription.setAttribute("content", obj['description']);
+  ogDescription.setAttribute("property", "og:description");
+  ogDescription.setAttribute("content", obj['description']);
+  twitterDescription.setAttribute("name", "twitter:description");
+  twitterDescription.setAttribute("content", obj['description']);
+  head.appendChild(indexDescription);
+  head.appendChild(ogDescription);
+  head.appendChild(twitterDescription);
 
-    // 地図の中心を現在地へ移動
-    let center = [longitude, latitude];
-    map.flyTo({
-      center: center,
-      zoom: 20,
-      scrollZoom: false
-    });
+  const indexAuthor = document.createElement( "meta" );
+  indexAuthor.setAttribute("name", "author");
+  indexAuthor.setAttribute("content", obj['author']);
+  head.appendChild(indexAuthor);
 
-    // ローカルストレージへ現在地を記録
-    let date = new Date();
-    const geolocation = {
-      latitude : latitude,
-      longitude : longitude,
-      accuracy : accuracy,
-      timestamp : date
-    }
+  const indexEmail = document.createElement( "meta" );
+  indexEmail.setAttribute("name", "reply-to");
+  indexEmail.setAttribute("content", obj['email']);
+  head.appendChild(indexEmail);
 
-    const geoJSON = JSON.stringify(geolocation);
-    localStorage.setItem("geolocation", geoJSON);
-    console.log("geolocation", geoJSON);
+  const ogType = document.createElement( "meta" );
+  ogType.setAttribute("property", "og:type");
+  ogType.setAttribute("content", obj['type']);
+  head.appendChild(ogType);
 
-    dateSection.innerHTML = `<p><time>${date}</time></p>`;
-    enter.textContent = "You Are Here";
-    mapbox.style.pointerEvents = "auto";
-    mapbox.style.userSelect = "auto";
+  const twitter = document.createElement( "meta" );
+  const twitterCard = document.createElement( "meta" );
+  twitter.setAttribute("name", "twitter:site");
+  twitter.setAttribute("content", obj['twitter']);
+  twitterCard.setAttribute("name", "twitter:card");
+  twitterCard.setAttribute("content", obj['card']);
+  head.appendChild(twitter);
+  head.appendChild(twitterCard);
 
-    ChangeHidden()
-  }
+  const ogIMG = document.createElement( "meta" );
+  const twitterIMG = document.createElement( "meta" );
+  ogIMG.setAttribute("property", "og:image");
+  twitterIMG.setAttribute("name", "twitter:image");
+  ogIMG.setAttribute("content", obj['src']);
+  twitterIMG.setAttribute("content", obj['src']);
+  head.appendChild(ogIMG);
+  head.appendChild(twitterIMG);
 
-  function error() {
-    yourHere.textContent = 'Unable to retrieve your location';
-    yourAddress.textContent = `現在地を取得できませんでした`;
-    dateSection.textContent = "";
-    mapbox.style.pointerEvents = "auto";
-    mapbox.style.userSelect = "auto";
+  const ogSite = document.createElement( "meta" );
+  ogSite.setAttribute("property", "og:site_name");
+  ogSite.setAttribute("content", location.hostname);
+  head.appendChild(ogSite);
 
-    submitForm.remove();
-    ChangeHidden()
-  }
+  const ogURL = document.createElement( "meta" );
+  ogURL.setAttribute("property", "og:url");
+  ogURL.setAttribute("content", location.href);
+  head.appendChild(ogURL);
+}
 
-  if(!navigator.geolocation) {
-    yourHere.textContent = 'Geolocation is not supported by your browser';
-    yourAddress.textContent = `このブラウザは現在地を取得できません`;
-    dateSection.textContent = "";
-    mapbox.style.pointerEvents = "auto";
-    mapbox.style.userSelect = "auto";
+function indexMenu(obj) {
+  const menu = document.querySelector('#menu');
+  const menuLinks = obj.contents;
 
-    submitForm.remove();
-    ChangeHidden()
-  } else {
-    yourHere.textContent = 'Locating…';
-    yourAddress.textContent = `現在地を取得中`;
-    dateSection.textContent = "";
-    mapbox.style.pointerEvents = "none";
-    mapbox.style.userSelect = "none";
-    navigator.geolocation.getCurrentPosition(success, error);
+  for (const link of menuLinks) {
+    const linkA = document.createElement('a');
+    const linkB = document.createElement('b');
+    const linkI = document.createElement('i');
 
-    title.style.opacity = "0";
-    setTimeout(() => {
-      title.remove();
-    }, 2500)
+    linkA.href = link.url;
+    linkB.innerHTML = link.title;
+    linkI.innerHTML = link.name;
+
+    menu.appendChild(linkA);
+    linkA.appendChild(linkI);
+    linkA.appendChild(linkB);
   }
 }
 
-/**
-* Use Mapbox GL JS's `flyTo` to move the camera smoothly
-* a given center point.
-**/
-function flyToStore(currentFeature) {
-  map.flyTo({
-    center: currentFeature.geometry.coordinates,
-    zoom: 15
-  });
-}
-
-/* ローカルストレージに現在地の記録があるかを確認 */
-if(localStorage.getItem("geolocation")) {
-  const geolocation = JSON.parse(localStorage.getItem("geolocation"));
-  yourHere.textContent = `${geolocation.longitude},${geolocation.latitude}`;
-  yourAddress.textContent = `Last Time You Visited Here ${geolocation.timestamp}`;
-
-  let center = [geolocation.longitude, geolocation.latitude];
-  map.flyTo({
-    center: center,
-    scrollZoom: false
-  });
-}
-
-function ChangeHidden() {
-  const mainAll = document.querySelectorAll('main');
-  mainAll.forEach(main => {
-    if (main.hidden == false) {
-      main.hidden = true;
-      enter.textContent = "Let's have some fun";
-    } else {
-      main.hidden = false;
-      enter.textContent = "You Are Here";
-    }
-  })
-};
-
-const submitClose = document.querySelector('#submit #close');
-submitClose.addEventListener('click', function () {
-  const geolocation = JSON.parse(localStorage.getItem("geolocation"));
-  let center = [geolocation.longitude, geolocation.latitude];
-  map.flyTo({
-    center: center,
-    zoom: 11.11,
-    scrollZoom: false
-  });
-})
-
-
-// Add zoom and rotation controls to the map.
-map.addControl(new mapboxgl.NavigationControl());
+indexJSON();

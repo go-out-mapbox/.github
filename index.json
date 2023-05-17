@@ -1,0 +1,18 @@
+{
+  "title" : "Go Out | 行ったことのない場所へ行く",
+  "description" : "知っている場所の 外へ わからないところまで 出かける",
+  "author" : "creative-community.space",
+  "email" : "pehu@creative-community.space",
+  "type" : "website",
+  "twitter" : "@pe_hu_",
+  "card" : "summary_large_image",
+  "src" : "profile/card.png",
+
+  "contents" : [
+    {
+      "title" : "Your Drawing is Seems So Beautiful",
+      "name" : "Thank You for Visiting",
+      "url" : "profile/"
+    }
+  ]
+}

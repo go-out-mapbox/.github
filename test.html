@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
-  <title>Go Out | 行ったことのない場所へ行く</title>
+  <script src="js/index.js"></script>
   <link href="font/style.css" rel="stylesheet" />
   <link href="css/index.css" rel="stylesheet" />
   <link href="css/title.css" rel="stylesheet" />
   <link href="css/submit.css" rel="stylesheet" />
+  <link rel="icon" href="profile/icon.png" type="image/png">
+  <link rel="icon" href="profile/icon.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon-precomposed" href="profile/icon.png" sizes="180x180" type="image/png">
 </head>
 <body>
   <main id="date">
@@ -51,18 +54,6 @@
   const title = document.querySelector('#title');
   const enter = document.querySelector('#enter');
   const submitForm = document.querySelector('#submit form');
-
-  /* ページにMapboxを埋め込む */
-  mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
-  let center = [135.50433479522678, 34.69699057458179];
-
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
-    center: center,
-    zoom: 1.75,
-    scrollZoom: false
-  });
   </script>
   <script src="js/submit.js"></script>
 </body>
