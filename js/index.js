@@ -103,7 +103,7 @@ function flyToStore(currentFeature) {
 if(localStorage.getItem("geolocation")) {
   const geolocation = JSON.parse(localStorage.getItem("geolocation"));
   yourHere.textContent = `${geolocation.longitude},${geolocation.latitude}`;
-  yourAddress.textContent = `You Visited on ${geolocation.timestamp}`;
+  yourAddress.textContent = `Last Time You Visited Here ${geolocation.timestamp}`;
 
   let center = [geolocation.longitude, geolocation.latitude];
   map.flyTo({
