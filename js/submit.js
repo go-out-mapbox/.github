@@ -42,11 +42,13 @@ async function submitThis() {
   let thisComent = textArray.join('<br>')
 
   const geolocation = JSON.parse(localStorage.getItem("geolocation"));
+  const thisTime = geolocation.timestamp
+
   let thisPin = {
     geolocation : thisGeolocation.textContent,
     address : thisAddress.textContent,
     comment : thisComent,
-    posted : geolocation.timestamp
+    posted : thisTime
   };
 
   // localStorage に 投稿 を追加
