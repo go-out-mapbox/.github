@@ -30,7 +30,7 @@ async function submitThis() {
   let thisPin = {
     geolocation : thisGeolocation.textContent,
     address : thisAddress.textContent,
-    comment : thisComment.innerText,
+    comment : thisComment.value,
     timestamp : thisTime
   };
 
