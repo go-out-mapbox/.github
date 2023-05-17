@@ -7,6 +7,12 @@
   max-width: 750px;
 }
 
+#submit #readme,
+#submit input[type="text"],
+#submit textarea {
+  font-family: "Gill Sans", sans-serif;
+}
+
 h3,
 summary {
   font-family: "DiaPro", sans-serif;
@@ -34,8 +40,6 @@ summary {
   border: 1px solid lightskyblue;
   box-sizing: border-box;
   background: #fff7;
-  font-family: "Gill Sans", sans-serif;
-  font-size: 125%;
   width: 100%;
   min-width: 100%;
   max-width: 100%;
@@ -44,6 +48,7 @@ summary {
 
 @media (orientation: landscape) {
   #submit,
+  #submit #readme,
   #submit summary,
   #submit input,
   #submit textarea {
@@ -51,11 +56,16 @@ summary {
   }
 
   #submit form {
-    margin: 50vh auto 2.5rem;
+    margin: 10rem auto 2.5rem;
   }
 
   #submit details {
     margin: 1rem 0;
+  }
+
+  #submit input[type="text"],
+  #submit textarea {
+    font-size: 1.25rem;
   }
 
   h3 span,
@@ -67,6 +77,7 @@ summary {
 
 @media (orientation: portrait) {
   #submit,
+  #submit #readme,
   #submit summary,
   #submit input,
   #submit textarea {
@@ -74,11 +85,16 @@ summary {
   }
 
   #submit form {
-    margin: 50vh auto 12.5vw;
+    margin: 37.5vw auto 5vw;
   }
 
   #submit details {
     margin: 2.5vw 0;
+  }
+
+  #submit input[type="text"],
+  #submit textarea {
+    font-size: 3.75vw;
   }
 
   h3 span,

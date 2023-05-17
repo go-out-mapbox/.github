@@ -90,6 +90,10 @@ body,
   font-size: 111%;
 }
 
+#date section time {
+  font-size: 75%;
+}
+
 #date button {
   filter: invert(1);
 }
@@ -152,7 +156,9 @@ button {
 #submit #close {
   background: transparent;
   border: none;
-  float: right;
+  position: fixed;
+  top: 0;
+  right: 0;
   font-size: 300%;
 }
 
