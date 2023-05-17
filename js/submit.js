@@ -1,3 +1,5 @@
+'use strict'
+
 let mapPins = JSON.parse(localStorage.getItem("map")) || [];
 const addPins = (geolocation, address, timestamp, comment) => {
   mapPins.push({
@@ -7,15 +9,15 @@ const addPins = (geolocation, address, timestamp, comment) => {
     comment
   })
 
-  localStorage.setItem("sign", JSON.stringify(mapPins))
+  localStorage.setItem("map", JSON.stringify(mapPins))
   return {geolocation, address, timestamp, comment}
 }
 
 // 投稿内容を取得する
-const thisGeolocation = document.querySelector('#date #geolocation').textContent
-const thisAddress = document.querySelector('#date address').textContent
-const thisTime = document.querySelector('#date time').textContent
-const thisComment = document.querySelector('#submit textarea').textContent
+const thisGeolocation = document.querySelector('#date #geolocation')
+const thisAddress = document.querySelector('#date address')
+const thisTime = document.querySelector('#date time')
+const thisComment = document.querySelector('#submit textarea')
 
 const submitForm = document.querySelector('#submit')
 submitForm.addEventListener('submit', submitThis)
@@ -23,23 +25,23 @@ submitForm.addEventListener('submit', submitThis)
 async function submitThis() {
   event.preventDefault();
   let thisPin = {
-    geolocation : thisGeolocation,
-    address : thisAddress,
-    timestamp : thisTime,
-    comment : thisComment
+    geolocation : thisGeolocation.textContent,
+    address : thisAddress.textContent,
+    timestamp : thisTime.textContent,
+    comment : thisComment.textContent
   };
 
   // localStorage に 投稿 を追加
   addPins(geolocation, address, timestamp, comment)
 
-  const mappinsJSON = JSON.stringify(thisPin)
+  const thisJSON = JSON.stringify(thisPin)
   let url = 'submit.php';
   let response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8'
     },
-    body: mappinsJSON
+    body: thisJSON
   })
 
   .then(response => response.json())
