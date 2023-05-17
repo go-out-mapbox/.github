@@ -137,12 +137,17 @@ body,
 }
 
 button,
-input[type="button"] {
+input[type="button"],
+textarea {
   appearance: none;
   box-sizing: border-box;
   color: #000;
-  cursor: pointer;
   outline: none;
+}
+
+button,
+input[type="button"] {
+  cursor: pointer;
   word-break: keep-all;
 }
 
