@@ -18,6 +18,7 @@ for (let i = 0; i < mapJSON.length; i++) {
         'address': `'${thisTitle}'`,
         'date': `'${thisDate}'`,
         'on': `'${thisOn}'`,
+      }
     },
     {
       'type': 'Feature',
@@ -33,5 +34,5 @@ for (let i = 0; i < mapJSON.length; i++) {
       }
     }
   ]
-  };
+};
 }
