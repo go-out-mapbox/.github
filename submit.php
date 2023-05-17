@@ -1,12 +1,4 @@
 <?php
-mb_language("ja");
-mb_internal_encoding("UTF-8");
-date_default_timezone_set("Asia/Tokyo");
-
-$w = date("w");
-$week_name = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-$timestamp = date('n j Y') . "($week_name[$w]) " .date("g:i:s A");
-
 $source_file = "submit.csv";
 $ip = $_SERVER["REMOTE_ADDR"];
 
@@ -17,7 +9,7 @@ $output = array(
   $data["geolocation"],
   $data["address"],
   $data["comment"],
-  $timestamp,
+  $data["timestamp"],
   $ip
 );
 

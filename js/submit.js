@@ -1,21 +1,23 @@
 'use strict'
 
+// localStorage から 投稿 を取得
 let array = JSON.parse(localStorage.getItem("map")) || [];
-const addData = (geolocation, address, comment) => {
+const addData = (geolocation, address, comment, timestamp) => {
   array.push({
     geolocation,
     address,
-    comment
+    comment,
+    timestamp
   })
 
   localStorage.setItem("map", JSON.stringify(array))
-  return {geolocation, address, comment}
+  return {geolocation, address, comment, timestamp}
 }
 
+// コメントを取得する
 let thisTextarea = document.querySelector('#submit #comment');
 let msg = document.querySelector('#date section');
 
-// コメントを取得する
 function preview(event){
   let text = thisTextarea.value;
   let textArray = text.split('\n');
@@ -32,6 +34,8 @@ submitPin.addEventListener('submit', submitThis)
 
 async function submitThis() {
   event.preventDefault();
+
+  // localStorage に 投稿 を追加する
   const thisGeolocation = document.querySelector('#date #geolocation').textContent
   const thisAddress = document.querySelector('#date address').textContent
 
@@ -40,14 +44,18 @@ async function submitThis() {
   let textArray = text.split('\n')
   let thisComent = textArray.join('<br>')
 
+  const thisTime = new Date()
+
+  addData(thisGeolocation, thisAddress, thisComent, thisTime)
+
+
+  // PHP で CSVファイル に 投稿 を追加する
   let thisPin = {
     geolocation : thisGeolocation,
     address : thisAddress,
-    comment : thisComent
+    comment : thisComent,
+    timestamp : thisTime
   };
-
-  // localStorage に 投稿 を追加
-  addData(thisGeolocation, thisAddress, thisComent)
 
   const thisJSON = JSON.stringify(thisPin)
   let url = 'submit.php';
