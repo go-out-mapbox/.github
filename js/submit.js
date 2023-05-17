@@ -9,7 +9,7 @@ const addData = (geolocation, address, comment) => {
   })
 
   localStorage.setItem("map", JSON.stringify(array))
-  return {geolocation, address, comment, posted}
+  return {geolocation, address, comment}
 }
 
 let thisTextarea = document.querySelector('#submit #comment');
