@@ -30,15 +30,28 @@
       </h3>
     </section>
   </main>
-  <main id="submit" hidden>
+  <main id="submit">
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
     <form>
+      <section id="readme"></section>
+      <script type="text/javascript">
+      async function mainSection() {
+        fetch('profile/README.md')
+        .then(response => response.text())
+        .then(innerText => {
+          document.querySelector('#readme').innerText = innerText
+        });
+      }
+      mainSection();
+      </script>
+
       <details>
         <summary><b>Add A Comment コメントを残す</b></summary>
-        <textarea rows="10" id="comment"></textarea>
+        <textarea rows="7" id="comment"></textarea>
       </details>
       <button type="submit" class="relax">Submit 投稿する</button>
     </form>
+    <section id="menu"></section>
   </main>
   <script type="text/javascript">
   const mapbox = document.querySelector('#map');
