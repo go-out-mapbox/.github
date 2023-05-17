@@ -1,5 +1,3 @@
-'use strict'
-
 let mapPins = JSON.parse(localStorage.getItem("map")) || [];
 const addPins = (geolocation, address, timestamp, comment) => {
   mapPins.push({
