@@ -32,8 +32,8 @@ submitPin.addEventListener('submit', submitThis)
 
 async function submitThis() {
   event.preventDefault();
-  const thisGeolocation = document.querySelector('#date #geolocation')
-  const thisAddress = document.querySelector('#date address')
+  const thisGeolocation = document.querySelector('#date #geolocation').textContent
+  const thisAddress = document.querySelector('#date address').textContent
 
   let thisTextarea = document.querySelector('#submit #comment')
   let text = thisTextarea.value
@@ -41,13 +41,13 @@ async function submitThis() {
   let thisComent = textArray.join('<br>')
 
   let thisPin = {
-    geolocation : thisGeolocation.textContent,
-    address : thisAddress.textContent,
+    geolocation : thisGeolocation,
+    address : thisAddress,
     comment : thisComent
   };
 
   // localStorage に 投稿 を追加
-  addData(geolocation, address, comment)
+  addData(thisGeolocation, thisAddress, thisComent)
 
   const thisJSON = JSON.stringify(thisPin)
   let url = 'submit.php';
