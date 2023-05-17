@@ -16,8 +16,7 @@ const addData = (geolocation, address, date, timestamp) => {
 
 
 // 現在地を投稿する
-const submitPin = document.querySelector('#submit')
-submitPin.addEventListener('submit', submitThis)
+submitForm.addEventListener('submit', submitThis)
 
 async function submitThis() {
   event.preventDefault();

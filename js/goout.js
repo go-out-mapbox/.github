@@ -53,29 +53,27 @@ function geoFindMe() {
   }
 
   function error() {
-    yourHere.textContent = 'Unable to retrieve your location';
-    yourAddress.textContent = `現在地を取得できませんでした`;
-    dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+    yourHere.textContent = 'Unable to retrieve your location';
+    yourAddress.textContent = `現在地を取得できませんでした`;
     submitForm.remove();
     ChangeHidden()
   }
 
   if(!navigator.geolocation) {
-    yourHere.textContent = 'Geolocation is not supported by your browser';
-    yourAddress.textContent = `このブラウザは現在地を取得できません`;
-    dateSection.textContent = "";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+    yourHere.textContent = 'Geolocation is not supported by your browser';
+    yourAddress.textContent = `このブラウザは現在地を取得できません`;
     submitForm.remove();
     ChangeHidden()
   } else {
+    mapbox.style.pointerEvents = "none";
+    mapbox.style.userSelect = "none";
     yourHere.textContent = 'Locating…';
     yourAddress.textContent = `現在地を取得中`;
     dateSection.textContent = "";
-    mapbox.style.pointerEvents = "none";
-    mapbox.style.userSelect = "none";
     navigator.geolocation.getCurrentPosition(success, error);
 
     title.style.opacity = "0";
