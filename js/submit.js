@@ -16,7 +16,7 @@ const addData = (geolocation, address, timestamp, comment) => {
 // 投稿内容を取得する
 const thisGeolocation = document.querySelector('#date #geolocation')
 const thisAddress = document.querySelector('#date address')
-const thisTime = document.querySelector('#date time')
+const thisTime = document.querySelector('#date section time')
 const thisComment = document.querySelector('#submit textarea')
 
 const submitPin = document.querySelector('#submit')
@@ -27,8 +27,8 @@ async function submitThis() {
   let thisPin = {
     geolocation : thisGeolocation.textContent,
     address : thisAddress.textContent,
-    timestamp : thisTime.textContent,
-    comment : thisComment.textContent
+    timestamp : thisTime.innerText,
+    comment : thisComment.innerText
   };
 
   // localStorage に 投稿 を追加
