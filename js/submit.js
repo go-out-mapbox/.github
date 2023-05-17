@@ -1,12 +1,11 @@
 'use strict'
 
 let array = JSON.parse(localStorage.getItem("map")) || [];
-const addData = (geolocation, address, comment, posted) => {
+const addData = (geolocation, address, comment) => {
   array.push({
     geolocation,
     address,
-    comment,
-    posted
+    comment
   })
 
   localStorage.setItem("map", JSON.stringify(array))
@@ -41,18 +40,14 @@ async function submitThis() {
   let textArray = text.split('\n')
   let thisComent = textArray.join('<br>')
 
-  const geolocation = JSON.parse(localStorage.getItem("geolocation"));
-  const thisTime = geolocation.timestamp
-
   let thisPin = {
     geolocation : thisGeolocation.textContent,
     address : thisAddress.textContent,
-    comment : thisComent,
-    posted : thisTime
+    comment : thisComent
   };
 
   // localStorage に 投稿 を追加
-  addData(geolocation, address, comment, posted)
+  addData(geolocation, address, comment)
 
   const thisJSON = JSON.stringify(thisPin)
   let url = 'submit.php';
