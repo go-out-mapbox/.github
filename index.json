@@ -9,5 +9,11 @@
   "src" : "profile/card.png",
 
   "contents" : [
+    {
+      "title" : "things that i (we) heard",
+      "date" : "私（わたしたち）が聞いた言葉",
+      "url" : "heard/",
+      "type" : "heard"
+    }
   ]
 }

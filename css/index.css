@@ -177,3 +177,13 @@ button {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+hr {
+  border: none;
+}
+
+#menu {
+  width: 90%;
+  max-width: 750px;
+  margin: auto;
+}

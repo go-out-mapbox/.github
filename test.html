@@ -26,23 +26,16 @@
   <main id="submit">
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
     <form>
-      <section id="readme"></section>
-      <script type="text/javascript">
-      async function mainSection() {
-        fetch('profile/README.md')
-        .then(response => response.text())
-        .then(innerText => {
-          document.querySelector('#readme').innerText = innerText
-        });
-      }
-      mainSection();
-      </script>
-
+      <section id="readme">
+        <h3><span>This is a Collection of Where We Were.</span></h3>
+        <p>この地図に、わたしたちがいた場所を記録します。</p>
+      </section>
+      <p style="text-align: center;"><button type="button" class="goout">Under Construction</button></p>
+      <hr/>
       <details>
-        <summary><b>Add A Comment コメントを残す</b></summary>
+        <summary><b>Submit A Comment with A Marker コメントを残す</b></summary>
         <textarea rows="7" id="comment"></textarea>
       </details>
-      <button type="submit" class="goout">Submit 投稿する</button>
     </form>
     <section id="menu"></section>
   </main>
