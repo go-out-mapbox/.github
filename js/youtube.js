@@ -202,7 +202,7 @@ function addMarkers() {
   for (const marker of stores.features) {
     const el = document.createElement('div');
     el.id = `marker-${marker.properties.id}`;
-    el.className = marker.properties.tag;
+    el.className = marker.properties.tags;
     new mapboxgl.Marker(el, {
       offset: [0, -23]
     })
