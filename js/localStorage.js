@@ -12,19 +12,6 @@ const stores = {
     'type': 'Feature',
     'geometry': {
       'type': 'Point',
-      'coordinates': `[${coordinates}]`
-    },
-    'properties': {
-      'title': `'${coordinates}'`,
-      'address': `'${thisTitle}'`,
-      'date': `'${thisDate}'`,
-      'on': `'${thisOn}'`,
-    }
-  },
-  {
-    'type': 'Feature',
-    'geometry': {
-      'type': 'Point',
       'coordinates': [135.4854249,34.616754]
     },
     'properties': {
