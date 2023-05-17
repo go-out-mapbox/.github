@@ -41,7 +41,7 @@ async function submitThis() {
   let textArray = text.split('\n')
   let thisComent = textArray.join('<br>')
 
-  let thisTime = document.querySelector('#date section time').textContent
+  let thisTime = new Date()
 
   let thisPin = {
     geolocation : thisGeolocation.textContent,
