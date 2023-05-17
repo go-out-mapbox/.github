@@ -19,8 +19,8 @@ const thisAddress = document.querySelector('#date address')
 const thisTime = document.querySelector('#date time')
 const thisComment = document.querySelector('#submit textarea')
 
-const submitThis = document.querySelector('#submit')
-submitThis.addEventListener('submit', submitThis)
+const submitPin = document.querySelector('#submit')
+submitPin.addEventListener('submit', submitThis)
 
 async function submitThis() {
   event.preventDefault();
