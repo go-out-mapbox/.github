@@ -1,7 +1,7 @@
 'use strict'
 
 let array = JSON.parse(localStorage.getItem("map")) || [];
-const addData = (geolocation, address, timestamp, comment) => {
+const addData = (geolocation, address, comment, timestamp) => {
   array.push({
     geolocation,
     address,
