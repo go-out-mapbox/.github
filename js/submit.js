@@ -40,13 +40,13 @@ async function submitThis() {
   let textArray = text.split('\n');
   let thisComent = textArray.join('<br>');
 
-  let thisTime = new Date();
+  let thisTime = document.querySelector('#date section time');
 
   let thisPin = {
     geolocation : thisGeolocation.textContent,
     address : thisAddress.textContent,
     comment : thisComent,
-    timestamp : thisTime
+    timestamp : thisTime.textContent
   };
 
   // localStorage に 投稿 を追加
