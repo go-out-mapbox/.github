@@ -20,10 +20,6 @@ const map = new mapboxgl.Map({
   scrollZoom: false
 });
 
-stores.features.forEach((store, i) => {
-  store.properties.id = i;
-});
-
 // 現在地を取得する
 function geoFindMe() {
   function success(position) {
@@ -162,6 +158,10 @@ submitClose.addEventListener('click', function () {
 
 
 // 地図にマーカーを追加
+stores.features.forEach((store, i) => {
+  store.properties.id = i;
+});
+
 map.on('load', () => {
   map.addSource('places', {
     'type': 'geojson',
