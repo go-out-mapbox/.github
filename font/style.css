@@ -46,6 +46,7 @@
 .heard a {
   color: #fff;
   background-color: #CDCBCC;
+  font-style: italic;
 }
 
 .heard a:hover {
