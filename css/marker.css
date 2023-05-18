@@ -1,0 +1,10 @@
+#map .marker {
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  background-image: url('../profile/icon.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

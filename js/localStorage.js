@@ -16,6 +16,20 @@ let stores = {
         'timestamp': 'Sat Dec 16 2017 - Sun Apr 29 2018 | Sun Jan 6 2019 - Sun 15 Sep 2019',
         'tags': 'marker pehu',
       }
+    },
+    {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [135.47306292634534, 34.62458544610712]
+      },
+      'properties': {
+        'title': '135.50433479522678, 34.69699057458179',
+        'address': '日本, 大阪府大阪市住之江区北加賀屋５丁目５−１',
+        'date': '<a href="heard/otobuilding/">things that i (we) heard around OTO building</a>',
+        'timestamp': 'Sun Jan 5 2020 - Sun May 22 2022',
+        'tags': 'marker heard',
+      }
     }
   ]
 };
