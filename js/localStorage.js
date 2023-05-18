@@ -1,4 +1,12 @@
-if(localStorage.getItem('map')) {
+// 地図にマーカーを追加
+map.on('load', () => {
+  map.addSource('places', {
+    'type': 'geojson'
+  });
+  addMarkers();
+});
+
+function addMarkers() {
   let mapJSON = JSON.parse(localStorage.getItem('map'));
   for (let i = 0; i < mapJSON.length; i++) {
     let coordinates = mapJSON[i].geolocation
