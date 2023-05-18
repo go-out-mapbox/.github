@@ -32,7 +32,7 @@ async function submitThis() {
 
   const thisTime = document.querySelector('#date section time').textContent
 
-  addData(thisGeolocation, thisAddress, thisDate, thisTime)
+  addData(`[${thisGeolocation}]`, thisAddress, thisDate, thisTime)
 
 
   // PHP で CSVファイル に 投稿 を追加する
