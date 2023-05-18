@@ -37,7 +37,7 @@ async function submitThis() {
 
   // PHP で CSVファイル に 投稿 を追加する
   let thisPin = {
-    geolocation : thisGeolocation,
+    geolocation : `[${thisGeolocation}]`,
     address : thisAddress,
     date : thisDate,
     timestamp : thisTime
