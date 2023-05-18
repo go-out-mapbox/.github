@@ -42,7 +42,7 @@ if(localStorage.getItem("map")) {
       }`
     });
 
-    stores.features.push(yourMarker)
+    stores.features.push(`${yourMarker}`)
   }
 
   // 地図にマーカーを追加
