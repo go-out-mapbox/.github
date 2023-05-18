@@ -24,7 +24,7 @@ let stores = {
 if(localStorage.getItem("map")) {
   const mapJSON = JSON.parse(localStorage.getItem('map'));
   mapJSON.forEach((marker, i) => {
-    let coordinates = marker.geolocation;
+    let coordinates = marker.title;
     let thisTitle = marker.address;
     let thisDate = marker.date;
     let thisOn = marker.timestamp;
