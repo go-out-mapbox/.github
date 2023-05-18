@@ -45,7 +45,7 @@ function geoFindMe() {
     localStorage.setItem("geolocation", geoJSON);
     console.log("geolocation", geoJSON);
 
-    dateSection.innerHTML = `<p><time>${date}</time></p>`;
+    dateSection.innerHTML = `<p class="goout"><time>${date}</time></p>`;
     enter.textContent = "You Are Here";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";

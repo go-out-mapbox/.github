@@ -202,7 +202,7 @@ function addMarkers() {
   for (const marker of stores.features) {
     const el = document.createElement('div');
     el.id = `marker-${marker.properties.id}`;
-    el.className = 'marker';
+    el.className = marker.properties.tags;
     new mapboxgl.Marker(el, {
       offset: [0, -23]
     })
@@ -221,8 +221,13 @@ function createPopUp(currentFeature) {
   dateSection.innerHTML = "";
   yourHere.textContent = currentFeature.properties.title;
   yourAddress.textContent = currentFeature.properties.address;
+  dateSection.className = currentFeature.properties.tags;
 
   const dateTXT = document.createElement('p');
   dateTXT.textContent = currentFeature.properties.date;
   dateSection.appendChild(dateTXT);
+
+  const dateTime = document.createElement('p');
+  dateTime.innerHTML = `<time>${currentFeature.properties.timestamp}</time>`;
+  dateSection.appendChild(dateTime);
 }

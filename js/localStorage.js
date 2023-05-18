@@ -84,13 +84,14 @@ function createPopUp(currentFeature) {
   dateSection.innerHTML = "";
   yourHere.textContent = currentFeature.properties.title;
   yourAddress.textContent = currentFeature.properties.address;
-  dateSection.className = currentFeature.properties.tags;
 
   const dateTXT = document.createElement('p');
   dateTXT.innerHTML = currentFeature.properties.date;
+  dateTXT.className = currentFeature.properties.tags;
   dateSection.appendChild(dateTXT);
 
   const dateTime = document.createElement('p');
   dateTime.innerHTML = `<time>${currentFeature.properties.timestamp}</time>`;
+  dateTime.className = currentFeature.properties.tags;
   dateSection.appendChild(dateTime);
 }
