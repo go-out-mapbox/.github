@@ -1,6 +1,15 @@
 'use strict'
 
-if(localStorage.getItem('map')) {
+// 地図にマーカーを追加
+map.on('load', () => {
+  map.addSource('places', {
+    'type': 'geojson',
+    'data': stores
+  });
+  addMarkers();
+});
+
+function addMarkers() {
   const mapJSON = JSON.parse(localStorage.getItem('map'));
   mapJSON.forEach((marker, i) => {
     let coordinates = marker.geolocation;

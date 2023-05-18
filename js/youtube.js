@@ -206,7 +206,7 @@ function addMarkers() {
     new mapboxgl.Marker(el, {
       offset: [0, -23]
     })
-    .setLngLat(marker.geometry.coordinates);
+    .setLngLat(marker.geometry.coordinates)
     .addTo(map);
 
     el.addEventListener('click', (e) => {
