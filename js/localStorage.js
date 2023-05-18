@@ -14,13 +14,14 @@ function addMarkers() {
     let thisTitle = mapJSON[i].address
     let thisDate = mapJSON[i].comment
     let thisOn = mapJSON[i].timestamp
+    dateSection.innerText += coordinates
+
     const el = document.createElement('div');
     el.id = `marker-${i}`;
     el.className = 'marker';
     new mapboxgl.Marker(el, {
       offset: [0, -23]
     })
-    dateSection.innerText += coordinates
     .setLngLat(coordinates)
     .addTo(map);
 
