@@ -1,8 +1,7 @@
 // 地図にマーカーを追加
 map.on('load', () => {
   map.addSource('places', {
-    'type': 'geojson',
-    'data': mapJSON
+    'type': 'geojson'
   });
   addMarkers();
 });
