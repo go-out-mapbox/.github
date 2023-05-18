@@ -55,7 +55,7 @@ window.addEventListener('load', (event) => {
     });
     addMarkers();
   });
-};
+});
 
 stores.features.forEach((store, i) => {
   store.properties.id = i;
