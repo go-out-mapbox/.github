@@ -1,12 +1,4 @@
-let mapJSON = JSON.parse(localStorage.getItem('map'));
-for (let i = 0; i < mapJSON.length; i++) {
-  let coordinates = mapJSON[i].geolocation
-  let thisTitle = mapJSON[i].address
-  let thisDate = mapJSON[i].comment
-  let thisOn = mapJSON[i].timestamp
-}
-
-function addMarkers() {
+if(localStorage.getItem('map')) {
   let mapJSON = JSON.parse(localStorage.getItem('map'));
   for (let i = 0; i < mapJSON.length; i++) {
     let coordinates = mapJSON[i].geolocation

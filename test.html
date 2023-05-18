@@ -21,6 +21,8 @@
   <link rel="apple-touch-icon-precomposed" href="profile/icon.png" sizes="180x180" type="image/png">
 </head>
 <body>
+  <h1 id="title" class="goout">Go Out</h1>
+  <button type="button" id="enter" class="goout" onclick="geoFindMe()">Let's have some fun</button>
   <article id="map"></article>
   <main id="date">
     <h2 id="geolocation">
@@ -43,7 +45,7 @@
         <h3><span>This is a Collection of Where We Were.</span></h3>
         <p>この地図に、わたしたちがいた場所を記録します。</p>
       </section>
-      <p style="text-align: center;"><button type="button" class="goout">Under Construction</button></p>
+      <p style="text-align: center;"><button type="submit" class="goout">I'm Here</button></p>
       <hr/>
       <details>
         <summary><b>Submit A Comment with A Marker コメントを残す</b></summary>
@@ -76,8 +78,6 @@
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
-  mapbox.style.pointerEvents = "auto";
-  mapbox.style.userSelect = "auto";
   </script>
   <script src="js/goout.js"></script>
   <script src="js/localStorage.js"></script>
