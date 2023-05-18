@@ -8,6 +8,16 @@
   font-family: "Kristina", cursive;
 }
 
+.goout a {
+  color: lightskyblue;
+  background-color: lemonchiffon;
+}
+
+.goout a:hover {
+  color: lemonchiffon;
+  background-color: lightskyblue;
+}
+
 @font-face {
   font-family: "DiaPro";
   src: url("DiaPro-Regular.eot") format("embedded-opentype"),
@@ -19,8 +29,28 @@
   font-family: "DiaPro", sans-serif;
 }
 
+.relax a {
+  color: #000;
+  background-color: #ebd809;
+}
+
+.relax a:hover {
+  color: #ebd809;
+  background-color: #000;
+}
+
 .heard {
   font-family: 'Libre Baskerville', serif;
+}
+
+.heard a {
+  color: #fff;
+  background-color: #CDCBCC;
+}
+
+.heard a:hover {
+  color: #CDCBCC;
+  background-color: #fff;
 }
 
 .do {

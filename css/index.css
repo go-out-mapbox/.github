@@ -93,6 +93,10 @@ body,
   font-size: 75%;
 }
 
+#date section a {
+  transition: 1s;
+}
+
 #date button {
   filter: invert(1);
 }
@@ -165,6 +169,18 @@ button {
   right: 0;
   font-size: 300%;
 }
+
+#map .marker {
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  background-image: url('../profile/icon.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 hr {
   border: none;
