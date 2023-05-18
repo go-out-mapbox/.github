@@ -4,7 +4,9 @@
 map.on('load', () => {
   map.addSource('places', {
     'type': 'geojson',
-    'data': stores
+    'data': {
+      'type': 'FeatureCollection'
+    };
   });
   addMarkers();
 });
