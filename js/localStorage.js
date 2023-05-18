@@ -20,6 +20,7 @@ function addMarkers() {
     new mapboxgl.Marker(el, {
       offset: [0, -23]
     })
+    dateSection.innerText += coordinates
     .setLngLat(coordinates)
     .addTo(map);
 
