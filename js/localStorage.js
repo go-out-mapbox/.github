@@ -57,6 +57,10 @@ window.onload = (event) => {
   });
 };
 
+stores.features.forEach((store, i) => {
+  store.properties.id = i;
+});
+
 function addMarkers() {
   for (const marker of stores.features) {
     const el = document.createElement('div');
