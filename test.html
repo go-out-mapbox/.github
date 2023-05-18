@@ -36,6 +36,21 @@
       </h3>
     </section>
   </main>
+  <main id="submit" hidden>
+    <input id="close" type="button" onclick="ChangeHidden()" value="×">
+    <form>
+      <section id="readme">
+        <h3><span>This is a Collection of Where We Were.</span></h3>
+        <p>この地図に、わたしたちがいた場所を記録します。</p>
+      </section>
+      <p style="text-align: center;"><button type="button" class="goout">Under Construction</button></p>
+      <hr/>
+      <details>
+        <summary><b>Submit A Comment with A Marker コメントを残す</b></summary>
+        <textarea rows="7" id="comment"></textarea>
+      </details>
+    </form>
+  </main>
   <script type="text/javascript">
   const mapbox = document.querySelector('#map');
   const yourHere = document.querySelector('#date #geolocation');
