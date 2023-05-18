@@ -23,13 +23,12 @@ let stores = {
 // localStorage から 投稿 を取得
 if(localStorage.getItem("map")) {
   const mapJSON = JSON.parse(localStorage.getItem('map'));
-  mapJSON.forEach((marker, i) => {
-    let coordinates = marker.title;
-    let thisAddress = marker.address;
-    let thisDate = marker.date;
-    let thisOn = marker.timestamp;
-    let yourMarker =
-    {
+  for (let i = 0; i < mapJSON.length; i++) {
+    let coordinates = mapJSON[i].title;
+    let thisAddress = mapJSON[i].address;
+    let thisDate = mapJSON[i].date;
+    let thisOn = mapJSON[i].timestamp;
+    let yourMarker = {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
@@ -43,9 +42,8 @@ if(localStorage.getItem("map")) {
         'tags': 'marker',
       }
     }
+    stores.features.push(yourMarker)
   });
-
-  stores.features.push(yourMarker)
 }
 
 // 地図にマーカーを追加
