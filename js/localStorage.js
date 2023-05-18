@@ -11,7 +11,7 @@ if(localStorage.getItem('map')) {
     new mapboxgl.Marker(el, {
       offset: [0, -23]
     })
-    .setLngLat(mapJSON[i].geolocation)
+    .setLngLat(`[${mapJSON[i].geolocation}]`)
     .addTo(map);
 
     el.addEventListener('click', (e) => {
