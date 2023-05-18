@@ -12,11 +12,12 @@ map.on('load', () => {
   map.addSource('places', {
     'type': 'geojson',
     'data': {
-      'type': 'FeatureCollection',
-      'features' : addMarkers();
+      'type': 'FeatureCollection'
     }
   });
+  addMarkers()
 });
+
 function addMarkers() {
   let mapJSON = JSON.parse(localStorage.getItem('map'));
   for (let i = 0; i < mapJSON.length; i++) {
@@ -31,7 +32,6 @@ function addMarkers() {
     new mapboxgl.Marker(el, {
       offset: [0, -23]
     })
-    .setLngLat(coordinates)
     .addTo(map);
 
     el.addEventListener('click', (e) => {
