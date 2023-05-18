@@ -46,7 +46,7 @@ if(localStorage.getItem("map")) {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
-        'coordinates': `[${coordinates}]`
+        'coordinates': [coordinates]
       },
       'properties': {
         'title': coordinates,
