@@ -3,10 +3,7 @@
 // 地図にマーカーを追加
 map.on('load', () => {
   map.addSource('places', {
-    'type': 'geojson',
-    'data': {
-      'type': 'FeatureCollection'
-    };
+    'type': 'geojson'
   });
   addMarkers();
 });
