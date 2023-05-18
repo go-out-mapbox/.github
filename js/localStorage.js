@@ -47,13 +47,15 @@ if(localStorage.getItem("map")) {
 }
 
 // 地図にマーカーを追加
-map.on('load', () => {
-  map.addSource('places', {
-    'type': 'geojson',
-    'data': stores
+window.onload = (event) => {
+  map.on('load', () => {
+    map.addSource('places', {
+      'type': 'geojson',
+      'data': stores
+    });
+    addMarkers();
   });
-  addMarkers();
-});
+};
 
 function addMarkers() {
   for (const marker of stores.features) {
