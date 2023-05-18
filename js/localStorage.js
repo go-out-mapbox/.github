@@ -11,7 +11,10 @@ if(localStorage.getItem('map')) {
     const el = document.createElement('div');
     el.id = `marker-${i}`;
     el.className = 'marker';
-    el.innerText = coordinates;
-    dateSection.prepend(el)
+    new mapboxgl.Marker(el, {
+      offset: [0, -23]
+    })
+    .setLngLat(coordinates);
+    .addTo(map);
   });
 }
