@@ -88,16 +88,16 @@ function indexMenu(obj) {
 
   for (const link of menuLinks) {
     const linkA = document.createElement('a');
-    const linkB = document.createElement('b');
+    const linkStrong = document.createElement('strong');
     const linkSmall = document.createElement('small');
 
     linkA.href = link.url;
     linkA.classList.add(link.type);
-    linkB.innerHTML = link.title;
+    linkStrong.innerHTML = link.title;
     linkSmall.innerHTML = link.date;
 
     menu.appendChild(linkA);
-    linkA.appendChild(linkB);
+    linkA.appendChild(linkStrong);
     linkA.appendChild(linkSmall);
   }
 }

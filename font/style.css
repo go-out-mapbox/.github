@@ -19,68 +19,13 @@
   font-family: "DiaPro", sans-serif;
 }
 
-.goout a {
-  animation: 2s linear infinite alternate goout;
+.heard {
+  font-family: 'Libre Baskerville', serif;
 }
 
-.goout a:hover {
-  cursor: pointer;
-  animation: .25s linear infinite alternate goout;
+.do {
+  font-family: 'Mochiy Pop One', sans-serif;
 }
-
-@keyframes goout {
-  0% {
-    color: lemonchiffon;
-    background: lightskyblue;
-  }
-  100% {
-    color: lightskyblue;
-    background: lemonchiffon;
-  }
-}
-
-@-webkit-keyframes goout {
-  0% {
-    color: lemonchiffon;
-    background: lightskyblue;
-  }
-  100% {
-    color: lightskyblue;
-    background: lemonchiffon;
-  }
-}
-
-.relax a {
-  animation: 2s linear infinite alternate relax;
-}
-
-.relax a:hover {
-  cursor: pointer;
-  animation: .25s linear infinite alternate relax;
-}
-
-@keyframes relax {
-  0% {
-    color: #ebd809;
-    background: #000;
-  }
-  100% {
-    color: #000;
-    background: #ebd809;
-  }
-}
-
-@-webkit-keyframes relax {
-  0% {
-    color: #ebd809;
-    background: #000;
-  }
-  100% {
-    color: #000;
-    background: #ebd809;
-  }
-}
-
 
 .sports {
   font-weight: 500;

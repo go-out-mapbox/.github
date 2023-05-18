@@ -1,0 +1,102 @@
+#menu {
+  width: 90%;
+  max-width: 750px;
+  margin: auto;
+}
+
+#menu::before {
+  content: "Let's Go Out And Play";
+  color: lightskyblue;
+  display: block;
+  text-align: center;
+  text-decoration: lightskyblue wavy underline;
+  font-family: "Kristina", cursive;
+  font-size: 200%;
+  font-weight: 900;
+}
+
+#menu::after {
+  content: "Copyright © You. All Rights Reserved.";
+  display: block;
+  text-align: center;
+  font-family: "Kristina", cursive;
+  font-size: 100%;
+}
+
+#menu a,
+#menu strong,
+#menu small {
+  display: block;
+}
+
+#menu a {
+  text-decoration: none;
+  font-size: 125%;
+  transition: 1s;
+}
+
+a.relax {
+  line-height: 1.5rem;
+  color: #000;
+  background-color: #ebd809;
+}
+
+a.relax:hover {
+  color: #ebd809;
+  background-color: #000;
+}
+
+a.relax strong {
+  font-size: 200%;
+  line-height: 125%;
+}
+
+a.heard {
+  line-height: 1.5rem;
+  color: #fff;
+  background-color: #CDCBCC;
+}
+
+a.heard:hover {
+  color: #CDCBCC;
+  background-color: #fff;
+}
+
+a.heard strong {
+  font-size: 125%;
+  line-height: 150%;
+  font-style: italic;
+}
+
+a.do {
+  line-height: 1.5rem;
+  color: #B1302B;
+  background: #166BB6;
+}
+
+a.do:hover {
+  color: #166BB6;
+  background-color: #B1302B;
+}
+
+a.do strong {
+  font-size: 150%;
+  line-height: 150%;
+}
+
+@media (orientation: landscape) {
+  #menu::before,
+  #menu::after,
+  #menu a {
+    padding: 1rem;
+  }
+}
+
+
+@media (orientation: portrait) {
+  #menu::before,
+  #menu::after,
+  #menu a {
+    padding: 2vw;
+  }
+}

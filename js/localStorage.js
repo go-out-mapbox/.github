@@ -1,19 +1,31 @@
 let mapJSON = JSON.parse(localStorage.getItem('map'));
-
-map.on('load', () => {
-  map.addSource('places', {
-    'type': 'geojson',
-    'data': mapJSON
-  });
-  addMarkers();
-});
+for (let i = 0; i < mapJSON.length; i++) {
+  let coordinates = mapJSON[i].geolocation
+  let thisTitle = mapJSON[i].address
+  let thisDate = mapJSON[i].comment
+  let thisOn = mapJSON[i].timestamp
+}
 
 function addMarkers() {
+  let mapJSON = JSON.parse(localStorage.getItem('map'));
   for (let i = 0; i < mapJSON.length; i++) {
     let coordinates = mapJSON[i].geolocation
     let thisTitle = mapJSON[i].address
     let thisDate = mapJSON[i].comment
     let thisOn = mapJSON[i].timestamp
+    const el = document.createElement('div');
+    el.id = `marker-${i}`;
+    el.className = 'marker';
+    new mapboxgl.Marker(el, {
+      offset: [0, -23]
+    })
+    .setLngLat(mapJSON[i].geolocation)
+    .addTo(map);
+
+    el.addEventListener('click', (e) => {
+      flyToStore(marker);
+    });
+  }
 }
 
 const stores = {
