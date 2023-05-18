@@ -14,7 +14,7 @@ if(localStorage.getItem('map')) {
     new mapboxgl.Marker(el, {
       offset: [0, -23]
     })
-    .setLngLat(coordinates);
+    .setLngLat(coordinates)
     .addTo(map);
   });
 }
