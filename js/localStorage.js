@@ -21,7 +21,7 @@ let stores = {
 };
 
 // localStorage から 投稿 を取得
-if(!localStorage.getItem("map")) {
+if(localStorage.getItem("map")) {
   const mapJSON = JSON.parse(localStorage.getItem('map'));
   mapJSON.forEach((marker, i) => {
     let coordinates = marker.geolocation;
