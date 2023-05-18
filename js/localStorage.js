@@ -28,20 +28,20 @@ if(localStorage.getItem("map")) {
     let thisAddress = mapJSON[i].address;
     let thisDate = mapJSON[i].date;
     let thisOn = mapJSON[i].timestamp;
-    let yourMarker = {
+    let yourMarker = `{
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
-        'coordinates': `[${coordinates}]`
+        'coordinates': [${coordinates}]
       },
       'properties': {
-        'title': `${coordinates}`,
-        'address': `${thisAddress}`,
-        'date': `${thisDate}`,
-        'timestamp': `${thisOn}`,
+        'title': ${coordinates},
+        'address': ${thisAddress},
+        'date': ${thisDate},
+        'timestamp': ${thisOn},
         'tags': 'marker',
       }
-    }
+    }`
     stores.features.push(yourMarker)
   };
 }
