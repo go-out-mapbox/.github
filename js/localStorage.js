@@ -24,7 +24,7 @@ function addMarkers() {
     .addTo(map);
 
     el.addEventListener('click', (e) => {
-      flyToStore(marker);
+      flyToStore(coordinates);
     });
   }
 }
