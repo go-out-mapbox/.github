@@ -2,16 +2,16 @@
 
 // localStorage から 投稿 を取得
 let array = JSON.parse(localStorage.getItem("map")) || [];
-const addData = (geolocation, address, date, timestamp) => {
+const addData = (title, address, date, timestamp) => {
   array.push({
-    geolocation,
+    title,
     address,
     date,
     timestamp
   })
 
   localStorage.setItem("map", JSON.stringify(array))
-  return {geolocation, address, date, timestamp}
+  return {title, address, date, timestamp}
 }
 
 
@@ -32,12 +32,12 @@ async function submitThis() {
 
   const thisTime = document.querySelector('#date section time').textContent
 
-  addData(`[${thisGeolocation}]`, thisAddress, thisDate, thisTime)
+  addData(thisGeolocation, thisAddress, thisDate, thisTime)
 
 
   // PHP で CSVファイル に 投稿 を追加する
   let thisPin = {
-    geolocation : `[${thisGeolocation}]`,
+    title : thisGeolocation,
     address : thisAddress,
     date : thisDate,
     timestamp : thisTime

@@ -65,3 +65,17 @@
     background: #333;
   }
 }
+
+@font-face {
+  font-family: "MS Mincho";
+  src: url("https://creative-community.space/ver/font/MSMincho.ttc");
+}
+
+@font-face {
+  font-family: "SimSong";
+  src: url("https://creative-community.space/ver/font/SimSun.ttc");
+}
+
+.pehu {
+  font-family: "MS Mincho", "SimSong", serif;
+}

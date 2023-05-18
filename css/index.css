@@ -85,7 +85,6 @@ body,
 
 #date section {
   color: #000;
-  font-family: "Gill Sans", sans-serif;
   font-weight: 400;
   font-size: 111%;
 }
@@ -167,7 +166,7 @@ button {
   font-size: 300%;
 }
 
-.marker {
+#map .marker {
   border: none;
   cursor: pointer;
   height: 50px;
