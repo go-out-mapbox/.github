@@ -35,10 +35,10 @@ if(localStorage.getItem("map")) {
         'coordinates': `[${coordinates}]`
       },
       'properties': {
-        'title': `${coordinates}`,
-        'address': `${thisAddress}`,
-        'date': `${thisDate}`,
-        'timestamp': `${thisOn}`,
+        'title': coordinates,
+        'address': thisAddress,
+        'date': thisDate,
+        'timestamp': thisOn,
         'tags': 'marker',
       }
     }
