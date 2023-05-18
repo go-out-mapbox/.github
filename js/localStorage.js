@@ -1,6 +1,6 @@
 'use strict'
 
-const stores = {
+let stores = {
   'type': 'FeatureCollection',
   'features': [
     {

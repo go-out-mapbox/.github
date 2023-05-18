@@ -8,7 +8,6 @@ async function indexJSON() {
 
   const index = JSON.parse(indexJSON);
   indexHead(index);
-  indexMenu(index);
 }
 
 function indexHead(obj) {
@@ -80,26 +79,6 @@ function indexHead(obj) {
   ogURL.setAttribute("property", "og:url");
   ogURL.setAttribute("content", location.href);
   head.appendChild(ogURL);
-}
-
-function indexMenu(obj) {
-  const menu = document.querySelector('#menu');
-  const menuLinks = obj.contents;
-
-  for (const link of menuLinks) {
-    const linkA = document.createElement('a');
-    const linkStrong = document.createElement('strong');
-    const linkSmall = document.createElement('small');
-
-    linkA.href = link.url;
-    linkA.classList.add(link.type);
-    linkStrong.innerHTML = link.title;
-    linkSmall.innerHTML = link.date;
-
-    menu.appendChild(linkA);
-    linkA.appendChild(linkStrong);
-    linkA.appendChild(linkSmall);
-  }
 }
 
 indexJSON();
