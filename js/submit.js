@@ -58,6 +58,6 @@ async function submitThis() {
   })
 
   setTimeout(() => {
-    window.location.replace('/map/')
+    window.location.replace('/map/profile/')
   }, 1000)
 }
