@@ -46,14 +46,15 @@
         <p>この地図に、わたしたちがいた場所を記録します。</p>
       </section>
       <p style="text-align: center;">
-        <button type="submit" class="goout">I'm Here</button>
+        <button type="submit" class="goout">I'm Here !</button>
       </p>
       <hr/>
       <details>
-        <summary><b>Submit A Comment with A Marker コメントを残す</b></summary>
+        <summary><b>Submit A Comment コメントを残す</b></summary>
         <textarea rows="7" id="comment"></textarea>
       </details>
     </form>
+    <footer id="credit" class="goout"></footer>
   </main>
   <script type="text/javascript">
   const mapbox = document.querySelector('#map');
@@ -65,6 +66,15 @@
   const submitForm = document.querySelector('#submit form');
   const submitButton = document.querySelector('#submit button');
   const submitDetails = document.querySelector('#submit details');
+
+  async function readmeMD() {
+    fetch('credit.html')
+    .then(response => response.text())
+    .then(innerHTML => {
+      document.querySelector('#credit').innerHTML = innerHTML;
+    });
+  }
+  readmeMD();
 
   /* ページにMapboxを埋め込む */
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
