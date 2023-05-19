@@ -30,6 +30,20 @@ let stores = {
         'timestamp': 'Sun Jan 5 2020 - Sun May 22 2022',
         'tags': 'marker heard',
       }
+    },
+    {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [135.76854055131543,35.00017558944718]
+      },
+      'properties': {
+        'title': '135.76854055131543,35.00017558944718',
+        'address': '日本, 京都府京都市下京区天満町２６７−１',
+        'date': '<a href="heard/bnaaltermuseum/">things that i (we) heard around BnA Alter Museum</a>',
+        'timestamp': 'Thu Jul 21 2022 - Mon Aug 15 2022',
+        'tags': 'marker heard',
+      }
     }
   ]
 };
