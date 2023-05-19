@@ -2,7 +2,8 @@
   background: rgba(255,250,205,0.25);
 }
 
-#submit form {
+#submit form,
+#submit #credit {
   width: 90%;
   max-width: 750px;
 }
@@ -58,6 +59,7 @@ summary {
   font-size: 111%;
   flex-flow: wrap;
   justify-content: space-between;
+  margin: auto;
 }
 
 #submit #credit p {
@@ -66,6 +68,7 @@ summary {
 }
 
 #submit #credit::after {
+  box-sizing: border-box;
   content: "Copyright © You. All Rights Reserved.";
   display: block;
   font-family: "Kristina", sans-serif;
@@ -77,6 +80,7 @@ summary {
 
 @media (orientation: landscape) {
   #submit #readme,
+  #submit #howto,
   #submit summary,
   #submit input,
   #submit textarea,
@@ -87,10 +91,6 @@ summary {
 
   #submit form {
     margin: 20vh auto 5.5rem;
-  }
-
-  #submit details {
-    margin: 1rem 0;
   }
 
   #submit input[type="text"],
@@ -111,6 +111,7 @@ summary {
 
 @media (orientation: portrait) {
   #submit #readme,
+  #submit #howto,
   #submit summary,
   #submit input,
   #submit textarea,
@@ -121,10 +122,6 @@ summary {
 
   #submit form {
     margin: 35vw auto 17.5vw;
-  }
-
-  #submit details {
-    margin: 2.5vw 0;
   }
 
   #submit input[type="text"],

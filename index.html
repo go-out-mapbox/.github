@@ -43,12 +43,12 @@
     <form>
       <section id="readme">
         <h3><span>This is a Collection of Where We Were.</span></h3>
-        <p>この地図に、わたしたちがいた場所を記録します。</p>
       </section>
+      <section id="howto"></section>
       <p style="text-align: center;">
         <button type="submit" class="goout">I'm Here !</button>
       </p>
-      <hr/>
+      <hr>
       <details>
         <summary><b>Submit A Comment コメントを残す</b></summary>
         <textarea rows="7" id="comment"></textarea>
@@ -66,15 +66,22 @@
   const submitForm = document.querySelector('#submit form');
   const submitButton = document.querySelector('#submit button');
   const submitDetails = document.querySelector('#submit details');
+  const submitSummary = document.querySelector('#submit summary');
 
-  async function readmeMD() {
+  async function indexHTML() {
     fetch('credit.html')
     .then(response => response.text())
     .then(innerHTML => {
       document.querySelector('#credit').innerHTML = innerHTML;
     });
+
+    fetch('readme.md')
+    .then(response => response.text())
+    .then(innerText => {
+      document.querySelector('#howto').innerText = innerText;
+    });
   }
-  readmeMD();
+  indexHTML();
 
   /* ページにMapboxを埋め込む */
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
@@ -150,8 +157,7 @@
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
   </script>
-  <script src="js/goout.js"></script>
-  <script src="js/submit.js"></script>
   <script src="js/readyState.js"></script>
+  <script src="js/submit.js"></script>
 </body>
 </html>

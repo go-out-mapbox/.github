@@ -7,7 +7,6 @@ function geoFindMe() {
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
     const accuracy = position.coords.accuracy;
-
     yourHere.textContent = `${longitude}, ${latitude}`;
 
     // 緯度経度から住所を検索
