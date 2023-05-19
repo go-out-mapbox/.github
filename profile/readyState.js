@@ -13,12 +13,12 @@ document.addEventListener('readystatechange', event => {
       let timestamp = geoJSON.timestamp;
 
       title.innerHTML = `
-      <u>You Visited on ${timestamp}</u>
+      <u>You Visited on ${timestamp}</u><br/>
       Latitude: <b>${latitude}°</b>
       Longitude: <b>${longitude}°</b>
       `
     } else {
-      title.innerHTML = "Web Storage API"
+      title.innerHTML = `<b>Web Storage API</b>`
     }
 
     const back = document.querySelector('#back');
