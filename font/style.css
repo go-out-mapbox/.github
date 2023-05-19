@@ -1,11 +1,21 @@
 @font-face {
+  font-family: "Osaka";
+  src: url("Osaka.ttc") format("truetype");
+}
+
+.osaka {
+  font-family: "Osaka", sans-serif;
+  font-weight: lighter;
+}
+
+@font-face {
   font-family: "Kristina";
   src: url("Kristina.Bold.otf") format("opentype"),
   url("Kristina.Fine.otf") format("opentype");
 }
 
 .goout {
-  font-family: "Kristina", cursive;
+  font-family: "Kristina", "Osaka", sans-serif;
 }
 
 .goout a {

@@ -1,3 +1,5 @@
+'use strict'
+
 // localStorage から 投稿 を取得
 if(localStorage.getItem("map")) {
   const mapJSON = JSON.parse(localStorage.getItem('map'));

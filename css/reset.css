@@ -1,0 +1,78 @@
+html {
+  font-family: "Osaka", sans-serif;
+  font-weight: lighter;
+  height: -webkit-fill-available;
+}
+
+body {
+  background: lemonchiffon;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+
+@media (orientation: landscape) {
+  body {
+    font-size: 16px;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    border: 2px solid #000;
+  }
+}
+
+
+@media (orientation: portrait) {
+  body {
+    font-size: 3.21vw;
+  }
+
+  button {
+    padding: 1.25vw 2.5vw;
+    border: 0.5vw solid #000;
+  }
+}
+
+button,
+input[type="button"],
+textarea,
+summary {
+  appearance: none;
+  box-sizing: border-box;
+  color: #000;
+  outline: none;
+}
+
+button,
+input[type="button"],
+summary {
+  cursor: pointer;
+  word-break: keep-all;
+}
+
+button {
+  background: #fff;
+  border-radius: 50%;
+  font-size: 150%;
+}
+
+input[type="button"] {
+  background: transparent;
+  border: none;
+  padding: 0 0.75rem;
+  margin: 0;
+}
+
+hr {
+  border: none;
+}

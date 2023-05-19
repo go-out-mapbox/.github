@@ -38,10 +38,7 @@
   <main id="submit">
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
     <form>
-      <section id="readme">
-        <h3><span>This is a Collection of Where We Were.</span></h3>
-      </section>
-      <section id="howto"></section>
+      <section id="readme"></section>
       <p style="text-align: center;">
         <button type="submit" class="goout">I'm Here !</button>
       </p>
@@ -64,20 +61,20 @@
   const submitButton = document.querySelector('#submit button');
   const submitDetails = document.querySelector('#submit details');
 
-  async function indexHTML() {
+  async function submitHTML() {
+    fetch('readme.html')
+    .then(response => response.text())
+    .then(innerHTML => {
+      document.querySelector('#readme').innerHTML = innerHTML;
+    });
+
     fetch('credit.html')
     .then(response => response.text())
     .then(innerHTML => {
       document.querySelector('#credit').innerHTML = innerHTML;
     });
-
-    fetch('readme.md')
-    .then(response => response.text())
-    .then(innerText => {
-      document.querySelector('#howto').innerText = innerText;
-    });
   }
-  indexHTML();
+  submitHTML();
   </script>
   <script src="js/submit.js"></script>
   <script src="js/readyState.js"></script>

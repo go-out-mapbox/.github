@@ -1,9 +1,4 @@
-html {
-  height: -webkit-fill-available;
-}
-
 body {
-  background: lemonchiffon;
   display: flex;
   flex-flow: wrap;
   overflow: hidden;
@@ -11,15 +6,20 @@ body {
   max-height: -webkit-fill-available;
 }
 
-body,
 #map {
   padding: 0;
   margin: 0;
 }
 
-#date,
-#date h2 {
+#date {
   margin: 0;
+}
+
+a,
+#date,
+#map,
+#submit {
+  transition: all 1000ms ease;
 }
 
 #date,
@@ -27,7 +27,6 @@ body,
 #submit {
   box-sizing: border-box;
   overflow: auto;
-  transition: all 1000ms ease;
 }
 
 #map,
@@ -69,7 +68,7 @@ body,
   1px 1px 1px lightskyblue,
   2px 2px 2px lightskyblue,
   3px 3px 3px lightskyblue;
-  font-family: "Kristina", "Gill Sans", sans-serif;
+  font-family: "Kristina", "Osaka", sans-serif;
   font-size: 200%;
   font-weight: 400;
 }
@@ -93,16 +92,8 @@ body,
   font-size: 75%;
 }
 
-#date section a {
-  transition: 1s;
-}
-
 
 @media (orientation: landscape) {
-  body {
-    font-size: 16px;
-  }
-
   #date {
     padding: 0.5rem;
   }
@@ -110,18 +101,10 @@ body,
   #date section {
     font-size: 111%;
   }
-
-  button {
-    padding: 0.5rem 1rem;
-  }
 }
 
 
 @media (orientation: portrait) {
-  body {
-    font-size: 3.21vw;
-  }
-
   #date {
     padding: 1vw;
   }
@@ -129,45 +112,11 @@ body,
   #date section {
     font-size: 95%;
   }
-
-  button {
-    padding: 1.25vw 2.5vw;
-  }
-}
-
-button,
-input[type="button"],
-textarea {
-  appearance: none;
-  box-sizing: border-box;
-  color: #000;
-  outline: none;
-}
-
-button,
-input[type="button"] {
-  cursor: pointer;
-  word-break: keep-all;
-}
-
-button {
-  background: #fff;
-  border: 1px solid #000;
-  border-radius: 50%;
-  font-size: 150%;
-}
-
-hr {
-  border: none;
 }
 
 #submit #close {
-  background: transparent;
-  border: none;
   position: fixed;
   top: 0;
   right: 0;
-  padding: 0 0.75rem;
-  margin: 0;
   font-size: 300%;
 }

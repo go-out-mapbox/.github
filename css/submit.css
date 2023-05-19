@@ -8,20 +8,17 @@
   max-width: 750px;
 }
 
-#submit input[type="text"],
-#submit textarea {
-  font-family: "Gill Sans", sans-serif;
+#submit summary,
+#submit #credit::after {
+  font-family: "Kristina", "Osaka", sans-serif;
 }
 
-#submit button {
-  font-size: 250%;
-}
-
-h3,
-summary {
+h3 {
   font-family: "DiaPro", sans-serif;
-  padding: 0;
-  margin: 0;
+}
+
+#submit textarea {
+  font-family: "Osaka", sans-serif;
 }
 
 h3 span {
@@ -30,18 +27,21 @@ h3 span {
   text-decoration: lightskyblue wavy underline;
 }
 
+h3 b,
+#submit summary {
+  background-color: lightskyblue;
+  color: lemonchiffon;
+  font-size: 150%;
+  line-height: 150%;
+}
+
 #submit #credit a {
   font-size: 125%;
   text-decoration: none;
 }
 
-h3 b,
-summary {
-  background-color: lightskyblue;
-  color: lemonchiffon;
-  font-size: 150%;
-  line-height: 150%;
-  outline: none;
+#submit button {
+  font-size: 250%;
 }
 
 #submit input[type="text"],
@@ -49,17 +49,21 @@ summary {
   border: 1px solid lightskyblue;
   box-sizing: border-box;
   background: #fff7;
+  font-size: 1.25rem;
   width: 100%;
   min-width: 100%;
   max-width: 100%;
 }
 
 #submit #credit {
+  margin: auto;
+}
+
+#submit #credit nav {
   display: flex;
   font-size: 111%;
   flex-flow: wrap;
   justify-content: space-between;
-  margin: auto;
 }
 
 #submit #credit p {
@@ -71,7 +75,6 @@ summary {
   box-sizing: border-box;
   content: "Copyright © You. All Rights Reserved.";
   display: block;
-  font-family: "Kristina", sans-serif;
   font-size: 100%;
   text-align: center;
   width: 100%;
@@ -79,8 +82,12 @@ summary {
 
 
 @media (orientation: landscape) {
+  h3 span,
+  h3 b {
+    margin: 0.25rem 0.25rem 0.25rem 0;
+  }
+
   #submit #readme,
-  #submit #howto,
   #submit summary,
   #submit input,
   #submit textarea,
@@ -93,16 +100,6 @@ summary {
     margin: 20vh auto 5.5rem;
   }
 
-  #submit input[type="text"],
-  #submit textarea {
-    font-size: 1.25rem;
-  }
-
-  h3 span,
-  h3 b {
-    margin: 0.25rem 0.25rem 0.25rem 0;
-  }
-
   #submit #credit::after {
     margin-top: 0.5rem;
   }
@@ -110,8 +107,12 @@ summary {
 
 
 @media (orientation: portrait) {
+  h3 span,
+  h3 b {
+    margin: 0.5vw 0.5vw 0.5vw 0;
+  }
+
   #submit #readme,
-  #submit #howto,
   #submit summary,
   #submit input,
   #submit textarea,
@@ -126,12 +127,7 @@ summary {
 
   #submit input[type="text"],
   #submit textarea {
-    font-size: 3.75vw;
-  }
-
-  h3 span,
-  h3 b {
-    margin: 0.5vw 0.5vw 0.5vw 0;
+    font-size: 1rem;
   }
 
   #submit #credit::after {
