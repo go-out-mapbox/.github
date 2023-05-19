@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Osaka";
-  src: url("Osaka.ttc") format("truetype");
+  src: url("Osaka.ttc");
 }
 
 .osaka {
