@@ -15,14 +15,6 @@
   font-weight: 900;
 }
 
-#menu::after {
-  content: "Copyright © You. All Rights Reserved.";
-  display: block;
-  text-align: center;
-  font-family: "Kristina", cursive;
-  font-size: 100%;
-}
-
 #menu a,
 #menu strong,
 #menu small {

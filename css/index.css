@@ -157,15 +157,17 @@ button {
   font-size: 150%;
 }
 
+hr {
+  border: none;
+}
+
 #submit #close {
   background: transparent;
   border: none;
   position: fixed;
   top: 0;
   right: 0;
+  padding: 0 0.75rem;
+  margin: 0;
   font-size: 300%;
-}
-
-hr {
-  border: none;
 }

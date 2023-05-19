@@ -29,6 +29,11 @@ h3 span {
   text-decoration: lightskyblue wavy underline;
 }
 
+#submit #credit a {
+  font-size: 125%;
+  text-decoration: none;
+}
+
 h3 b,
 summary {
   background-color: lightskyblue;
@@ -48,18 +53,40 @@ summary {
   max-width: 100%;
 }
 
+#submit #credit {
+  display: flex;
+  font-size: 111%;
+  flex-flow: wrap;
+  justify-content: space-between;
+}
+
+#submit #credit p {
+  margin: 0;
+  line-height: 150%;
+}
+
+#submit #credit::after {
+  content: "Copyright © You. All Rights Reserved.";
+  display: block;
+  font-family: "Kristina", sans-serif;
+  font-size: 100%;
+  text-align: center;
+  width: 100%;
+}
+
 
 @media (orientation: landscape) {
-  #submit,
   #submit #readme,
   #submit summary,
   #submit input,
-  #submit textarea {
+  #submit textarea,
+  #submit #credit p,
+  #submit #credit::after {
     padding: 0.5rem;
   }
 
   #submit form {
-    margin: 20vh auto 7.5rem;
+    margin: 20vh auto 5.5rem;
   }
 
   #submit details {
@@ -75,20 +102,25 @@ summary {
   h3 b {
     margin: 0.25rem 0.25rem 0.25rem 0;
   }
+
+  #submit #credit::after {
+    margin-top: 0.5rem;
+  }
 }
 
 
 @media (orientation: portrait) {
-  #submit,
   #submit #readme,
   #submit summary,
   #submit input,
-  #submit textarea {
+  #submit textarea,
+  #submit #credit p,
+  #submit #credit::after {
     padding: 1vw;
   }
 
   #submit form {
-    margin: 35vw auto 25vw;
+    margin: 35vw auto 17.5vw;
   }
 
   #submit details {
@@ -103,5 +135,9 @@ summary {
   h3 span,
   h3 b {
     margin: 0.5vw 0.5vw 0.5vw 0;
+  }
+
+  #submit #credit::after {
+    margin-top: 1vw;
   }
 }

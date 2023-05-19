@@ -17,7 +17,6 @@ const addData = (title, address, date, timestamp) => {
 
 // 現在地を投稿する
 submitForm.addEventListener('submit', submitThis)
-
 async function submitThis() {
   event.preventDefault();
 
@@ -29,11 +28,8 @@ async function submitThis() {
   let text = thisTXT.value
   let textArray = text.split('\n')
   let thisDate = textArray.join('<br>')
-
   const thisTime = document.querySelector('#date section time').textContent
-
   addData(thisGeolocation, thisAddress, thisDate, thisTime)
-
 
   // PHP で CSVファイル に 投稿 を追加する
   let thisPin = {

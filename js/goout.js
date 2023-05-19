@@ -57,7 +57,11 @@ function geoFindMe() {
     mapbox.style.userSelect = "auto";
     yourHere.textContent = 'Unable to retrieve your location';
     yourAddress.textContent = `現在地を取得できませんでした`;
-    submitForm.remove();
+    mapbox.style.pointerEvents = "auto";
+    mapbox.style.userSelect = "auto";
+    enter.remove();
+    submitButton.remove();
+    submitDetails.remove();
     ChangeHidden()
   }
 
@@ -66,7 +70,11 @@ function geoFindMe() {
     mapbox.style.userSelect = "auto";
     yourHere.textContent = 'Geolocation is not supported by your browser';
     yourAddress.textContent = `このブラウザは現在地を取得できません`;
-    submitForm.remove();
+    mapbox.style.pointerEvents = "auto";
+    mapbox.style.userSelect = "auto";
+    enter.remove();
+    submitButton.remove();
+    submitDetails.remove();
     ChangeHidden()
   } else {
     mapbox.style.pointerEvents = "none";
@@ -87,7 +95,7 @@ function geoFindMe() {
 if(localStorage.getItem("geolocation")) {
   const geolocation = JSON.parse(localStorage.getItem("geolocation"));
   yourHere.textContent = `${geolocation.longitude}, ${geolocation.latitude}`;
-  yourAddress.textContent = `Last Time You Visited Here ${geolocation.timestamp}`;
+  yourAddress.textContent = `Last Time You Visited ${geolocation.timestamp}`;
 
   let center = [geolocation.longitude, geolocation.latitude];
   map.flyTo({
