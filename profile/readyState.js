@@ -2,6 +2,25 @@
 
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
+    const title = document.querySelector('h1');
+
+    // localStorage から 最新の現在地 を取得
+    if(localStorage.getItem("geolocation")) {
+      const geoJSON = JSON.parse(localStorage.getItem('geolocation'));
+      let latitude = geoJSON.latitude;
+      let longitude = geoJSON.longitude;
+      let accuracy = geoJSON.accuracy;
+      let timestamp = geoJSON.timestamp;
+
+      title.innerHTML = `
+      Latitude: <b>${latitude}°</b>
+      Longitude: <b>${longitude}°</b><br/>
+      <small>${accuracy}</small>
+      `
+    } else {
+      title.innerHTML = "Web Storage API"
+    }
+
     const back = document.querySelector('#back');
     back.addEventListener('click', function () {
       location.assign('../')
