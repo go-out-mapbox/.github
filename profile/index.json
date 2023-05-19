@@ -1,0 +1,31 @@
+{
+  "title" : "Go Out | 行ったことのない場所へ行く",
+  "description" : "知っている場所の 外へ わからないところまで 出かける",
+  "author" : "creative-community.space",
+  "email" : "pehu@creative-community.space",
+  "type" : "website",
+  "twitter" : "@pe_hu_",
+  "card" : "summary_large_image",
+  "src" : "profile/card.png",
+
+  "contents" : [
+    {
+      "title" : "things that i (we) heard",
+      "date" : "私（わたしたち）が聞いた言葉",
+      "url" : "heard/",
+      "type" : "heard"
+    },
+    {
+      "title" : "Fancy and Relaxin'",
+      "date" : "優雅にゆっくり落ち着ける場所",
+      "url" : "relax/",
+      "type" : "relax"
+    },
+    {
+      "title" : "やるぞ ‼",
+      "date" : "大阪ヘルスバンクニュース掲示板",
+      "url" : "do/",
+      "type" : "do"
+    }
+  ]
+}

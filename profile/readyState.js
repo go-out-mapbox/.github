@@ -13,9 +13,9 @@ document.addEventListener('readystatechange', event => {
       let timestamp = geoJSON.timestamp;
 
       title.innerHTML = `
+      <u>You Visited on ${timestamp}</u>
       Latitude: <b>${latitude}°</b>
-      Longitude: <b>${longitude}°</b><br/>
-      <small>${accuracy}</small>
+      Longitude: <b>${longitude}°</b>
       `
     } else {
       title.innerHTML = "Web Storage API"
