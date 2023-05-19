@@ -79,8 +79,7 @@ summary {
 }
 
 #storage li {
-  writing-mode: vertical-lr;
-  direction: ltr;
+  writing-mode: vertical-rl;
   unicode-bidi: bidi-override;
 }
 
