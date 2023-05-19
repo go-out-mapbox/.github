@@ -113,10 +113,3 @@ a,
     font-size: 95%;
   }
 }
-
-#submit #close {
-  position: fixed;
-  top: 0;
-  right: 0;
-  font-size: 300%;
-}

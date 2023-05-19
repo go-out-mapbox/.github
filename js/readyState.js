@@ -48,6 +48,8 @@ function geoFindMe() {
     enter.textContent = "You Are Here";
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+
+    indexHTML();
     ChangeHidden()
   }
 
@@ -58,6 +60,7 @@ function geoFindMe() {
     yourAddress.textContent = `現在地を取得できませんでした`;
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+    errorMD()
     enter.remove();
     submitButton.remove();
     submitDetails.remove();
@@ -71,6 +74,7 @@ function geoFindMe() {
     yourAddress.textContent = `このブラウザは現在地を取得できません`;
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
+    errorMD()
     enter.remove();
     submitButton.remove();
     submitDetails.remove();

@@ -1,5 +1,12 @@
 <?php
-$source_file = "submit.csv";
+mb_language("ja");
+mb_internal_encoding("UTF-8");
+date_default_timezone_set('Asia/Tokyo');
+
+$year = date("Y");
+$month = date("m");
+
+$source_file = "submit/". $year . $month .".csv";
 $ip = $_SERVER["REMOTE_ADDR"];
 
 define("LOGFILE", $source_file);

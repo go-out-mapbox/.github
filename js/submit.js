@@ -1,6 +1,6 @@
 'use strict'
 
-// localStorage から 投稿 を取得
+// localStorage に 投稿 を追加
 let array = JSON.parse(localStorage.getItem("map")) || [];
 const addData = (title, address, date, timestamp) => {
   array.push({
@@ -18,7 +18,7 @@ const addData = (title, address, date, timestamp) => {
 // 現在地を投稿する
 submitForm.addEventListener('submit', submitThis)
 async function submitThis() {
-  event.preventDefault();
+  event.preventDefault()
 
   // localStorage に 投稿 を追加する
   const thisGeolocation = yourHere.textContent
@@ -40,7 +40,7 @@ async function submitThis() {
   };
 
   const thisJSON = JSON.stringify(thisPin)
-  let url = 'submit.php';
+  let url = 'submit.php'
   let response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -55,9 +55,9 @@ async function submitThis() {
   })
   .catch(error => {
     console.log(error)
-  });
+  })
 
   setTimeout(() => {
-    window.location.replace('/map/');
-  }, 1000);
+    window.location.replace('/map/')
+  }, 1000)
 }

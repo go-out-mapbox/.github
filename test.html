@@ -8,6 +8,7 @@
   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
   <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet" />
   <link href="font/style.css" rel="stylesheet" />
+  <link href="css/reset.css" rel="stylesheet" />
   <link href="css/index.css" rel="stylesheet" />
   <link href="css/marker.css" rel="stylesheet" />
   <link href="css/title.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
       <p style="text-align: center;">
         <button type="submit" class="goout">I'm Here !</button>
       </p>
-      <hr>
       <details>
         <summary><b>Submit A Comment コメントを残す</b></summary>
         <textarea rows="7" id="comment"></textarea>
@@ -75,6 +75,20 @@
     });
   }
   submitHTML();
+
+  async function errorMD() {
+    fetch('readme.md')
+    .then(response => response.text())
+    .then(innerHTML => {
+      document.querySelector('#readme').innerHTML = innerHTML;
+    });
+
+    fetch('credit.html')
+    .then(response => response.text())
+    .then(innerHTML => {
+      document.querySelector('#credit').innerHTML = innerHTML;
+    });
+  }
   </script>
   <script src="js/submit.js"></script>
   <script src="js/readyState.js"></script>

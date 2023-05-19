@@ -44,7 +44,6 @@ h3 b,
   font-size: 250%;
 }
 
-#submit input[type="text"],
 #submit textarea {
   border: 1px solid lightskyblue;
   box-sizing: border-box;
@@ -80,6 +79,13 @@ h3 b,
   width: 100%;
 }
 
+#submit #close {
+  font-size: 300%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
 
 @media (orientation: landscape) {
   h3 span,
@@ -89,11 +95,14 @@ h3 b,
 
   #submit #readme,
   #submit summary,
-  #submit input,
   #submit textarea,
   #submit #credit p,
   #submit #credit::after {
     padding: 0.5rem;
+  }
+
+  #submit button {
+    margin-bottom: 1rem;
   }
 
   #submit form {
@@ -114,18 +123,20 @@ h3 b,
 
   #submit #readme,
   #submit summary,
-  #submit input,
   #submit textarea,
   #submit #credit p,
   #submit #credit::after {
     padding: 1vw;
   }
 
+  #submit button {
+    margin-bottom: 2.5vw;
+  }
+
   #submit form {
     margin: 35vw auto 17.5vw;
   }
 
-  #submit input[type="text"],
   #submit textarea {
     font-size: 1rem;
   }

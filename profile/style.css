@@ -11,13 +11,17 @@ input[type="button"] {
   font-size: 200%;
 }
 
-h1 b,
-#storage li h2,
-summary {
+#storage li h2 {
   font-size: 150%;
   font-weight: 400;
 }
 
+summary {
+  font-size: 125%;
+  font-weight: 400;
+}
+
+h1 b,
 #storage li p {
   font-size: 111%;
   font-weight: 400;
