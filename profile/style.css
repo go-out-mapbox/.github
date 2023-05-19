@@ -69,7 +69,7 @@ summary {
 
 #storage {
   display: flex;
-  flex-flow: wrap-reverse;
+  flex-flow: wrap;
   padding: 0;
   margin: 0;
   width: 100%;
