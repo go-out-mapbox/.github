@@ -21,7 +21,7 @@ document.addEventListener('readystatechange', event => {
     const storage = document.querySelector('#storage');
 
     // localStorage から 投稿 を取得
-    if(!localStorage.getItem("map")) {
+    if(localStorage.getItem("map")) {
       const mapJSON = JSON.parse(localStorage.getItem('map'));
       for (let i = 0; i < mapJSON.length; i++) {
         let coordinates = mapJSON[i].title;
