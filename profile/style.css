@@ -69,6 +69,7 @@ summary {
 
 #storage {
   display: flex;
+  flex-flow: column-reverse;
   padding: 0;
   margin: 0;
   width: 100%;
