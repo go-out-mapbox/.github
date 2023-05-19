@@ -8,3 +8,35 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+#map .pehu {
+  border: none;
+  cursor: pointer;
+  height: 55px;
+  width: 55px;
+}
+
+#map .pehu::before {
+  content: "∧°┐";
+  display: block;
+  font-size: 1.25rem;
+  text-align: center;
+  width: 100%;
+}
+
+#map .heard {
+  border: none;
+  cursor: pointer;
+  height: 55px;
+  width: 55px;
+}
+
+#map .heard::before {
+  color: #fff;
+  background-color: #CDCBCC;
+  content: "i (we)";
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.25rem;
+  width: 100%;
+}

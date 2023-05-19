@@ -83,17 +83,6 @@ function geoFindMe() {
   }
 }
 
-/**
-* Use Mapbox GL JS's `flyTo` to move the camera smoothly
-* a given center point.
-**/
-function flyToStore(currentFeature) {
-  map.flyTo({
-    center: currentFeature.geometry.coordinates,
-    zoom: 15
-  });
-}
-
 /* ローカルストレージに現在地の記録があるかを確認 */
 if(localStorage.getItem("geolocation")) {
   const geolocation = JSON.parse(localStorage.getItem("geolocation"));

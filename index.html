@@ -9,6 +9,7 @@
   <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet" />
   <link href="font/style.css" rel="stylesheet" />
   <link href="css/index.css" rel="stylesheet" />
+  <link href="css/marker.css" rel="stylesheet" />
   <link href="css/title.css" rel="stylesheet" />
   <link href="css/submit.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,14 +73,73 @@
     style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
     center: center,
     zoom: 1.75,
-    scrollZoom: false
+    scrollZoom: true
   });
+
+  /**
+  * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+  * a given center point.
+  **/
+  function flyToStore(currentFeature) {
+    map.flyTo({
+      center: currentFeature.geometry.coordinates,
+      zoom: 15
+    });
+  }
+
+  let stores = {
+    'type': 'FeatureCollection',
+    'features': [
+      {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [135.76854055131543,35.00017558944718]
+        },
+        'properties': {
+          'title': '135.76854055131543,35.00017558944718',
+          'address': '日本, 京都府京都市下京区天満町２６７−１',
+          'date': '<a href="heard/bnaaltermuseum/">things that i (we) heard around BnA Alter Museum</a>',
+          'timestamp': 'Thu Jul 21 2022 - Mon Aug 15 2022',
+          'tags': 'heard',
+        }
+      },
+      {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [135.47306292634534, 34.62458544610712]
+        },
+        'properties': {
+          'title': '135.50433479522678, 34.69699057458179',
+          'address': '日本, 大阪府大阪市住之江区北加賀屋５丁目５−１',
+          'date': '<a href="heard/otobuilding/">things that i (we) heard around OTO building</a>',
+          'timestamp': 'Sun Jan 5 2020 - Sun May 22 2022',
+          'tags': 'heard',
+        }
+      },
+      {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [135.50433479522678, 34.69699057458179]
+        },
+        'properties': {
+          'title': '135.50433479522678, 34.69699057458179',
+          'address': '日本, 大阪府大阪市北区西天満4丁目8番1',
+          'date': '<a href="https://vg.pe.hu/jp/">∧°┐ | creative, community space</a>',
+          'timestamp': 'Sat Dec 16 2017 - Sun Apr 29 2018 | Sun Jan 6 2019 - Sun 15 Sep 2019',
+          'tags': 'pehu',
+        }
+      }
+    ]
+  };
 
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
   </script>
   <script src="js/goout.js"></script>
   <script src="js/submit.js"></script>
-  <script src="localStorage.js"></script>
+  <script src="js/readyState.js"></script>
 </body>
 </html>

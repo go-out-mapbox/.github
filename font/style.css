@@ -110,3 +110,9 @@
 .pehu {
   font-family: "MS Mincho", "SimSong", serif;
 }
+
+.pehu a {
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+}
