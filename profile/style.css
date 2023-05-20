@@ -5,15 +5,14 @@ body {
   min-height: 100vh;
 }
 
-header {
-  margin: auto;
-}
-
 article {
+  position: relative;
   width: 100%;
+  z-index: 10;
 }
 
 input[type="button"],
+header,
 #map {
   position: fixed;
   top: 0;
@@ -132,10 +131,23 @@ summary,
   text-orientation: mixed;
 }
 
+header,
 #map {
+  left: 0;
   width: 100%;
   height: 100vh;
   max-height: -webkit-fill-available;
+}
+
+input[type="button"] {
+  z-index: 10;
+}
+
+header {
+  z-index: 0;
+}
+
+#map {
   z-index: -1;
 }
 
