@@ -207,3 +207,11 @@ header {
     0.5vw 0.5vw 0.5vw lightskyblue;
   }
 }
+
+#map .marker {
+  background: lemonchiffon;
+  border: lightskyblue solid 2px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
