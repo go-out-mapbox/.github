@@ -79,6 +79,7 @@ summary {
 }
 
 #storage li {
+  box-sizing: border-box;
   height: 100%;
   writing-mode: vertical-rl;
 }
