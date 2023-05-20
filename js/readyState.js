@@ -27,8 +27,7 @@ function geoFindMe() {
     let center = [longitude, latitude];
     map.flyTo({
       center: center,
-      zoom: 20,
-      scrollZoom: false
+      zoom: 20
     });
 
     // ローカルストレージへ現在地を記録
@@ -117,12 +116,11 @@ document.addEventListener('readystatechange', event => {
     if(localStorage.getItem("geolocation")) {
       const geolocation = JSON.parse(localStorage.getItem("geolocation"));
       yourHere.textContent = `${geolocation.longitude}, ${geolocation.latitude}`;
-      yourAddress.textContent = `Last Time You Visited ${geolocation.timestamp}`;
+      yourAddress.textContent = `Last Known Location ${geolocation.timestamp}`;
 
       let center = [geolocation.longitude, geolocation.latitude];
       map.flyTo({
-        center: center,
-        scrollZoom: false
+        center: center
       });
     }
 
@@ -132,8 +130,7 @@ document.addEventListener('readystatechange', event => {
       let center = [geolocation.longitude, geolocation.latitude];
       map.flyTo({
         center: center,
-        zoom: 11.11,
-        scrollZoom: false
+        zoom: 11.11
       });
     })
   }

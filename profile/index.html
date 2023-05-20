@@ -5,23 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
   <script src="../js/index.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet" />
   <link href="../font/style.css" rel="stylesheet" />
   <link href="../css/reset.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
   <link rel="icon" href="icon.png" type="image/png">
 </head>
 <body>
+  <input type="button" name="button" id="back" value="↩︎">
   <header>
     <h1></h1>
-    <input type="button" name="button" id="back" value="↩︎">
   </header>
   <article>
     <ol id="storage"></ol>
     <details id="readme">
-      <summary>ユーザーのローカル環境（ブラウザ）にデータを保存する</summary>
+      <summary>About This Page このページについて</summary>
       <section></section>
     </details>
   </article>
+  <main id="map"></main>
+  <script type="text/javascript">
+  /* ページにMapboxを埋め込む */
+  mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
+  let center = [135.50433479522678, 34.69699057458179];
+
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
+    center: center,
+    zoom: 1.75,
+    scrollZoom: true
+  });
+
+  /**
+  * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+  * a given center point.
+  **/
+  function flyToStore(currentFeature) {
+    map.flyTo({
+      center: currentFeature.geometry.coordinates,
+      zoom: 15,
+      scrollZoom: false
+    });
+  };
+  </script>
   <script src="readyState.js"></script>
 </body>
 </html>

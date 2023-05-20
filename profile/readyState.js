@@ -12,18 +12,28 @@ document.addEventListener('readystatechange', event => {
       let accuracy = geoJSON.accuracy;
       let timestamp = geoJSON.timestamp;
 
+      let center = [geoJSON.longitude, geoJSON.latitude];
+      map.flyTo({
+        center: center
+      });
+
       title.innerHTML = `
-      <u>You Visited on ${timestamp}</u><br/>
+      <u>Your Device's Location Infomations</u><br/>
       Latitude: <b>${latitude}°</b>
-      Longitude: <b>${longitude}°</b>
+      Longitude: <b>${longitude}°</b><br/>
+      <small>${timestamp}</small>
       `
     } else {
-      title.innerHTML = `<b>Web Storage API</b>`
+      title.innerHTML = `
+      <u>Web Storage API</u><br/>
+      <b>Your Device's Location Infomations</b><br/>
+      <small>あなたのデバイスのウェブストレージに記録されたあなたの位置情報</small>
+      `
     }
 
     const back = document.querySelector('#back');
     back.addEventListener('click', function () {
-      location.assign('../')
+      location.assign('../');
     })
 
     async function readmeMD() {
@@ -51,6 +61,7 @@ document.addEventListener('readystatechange', event => {
         // #storage に 投稿ごとの id名を付けた li要素 を生成
         const storageLi = document.createElement('li');
         storageLi.id = `post-${i}`;
+        storageLi.setAttribute('date-coordinates', coordinates);
         storage.appendChild(storageLi);
 
         // li 要素内に 投稿を出力
@@ -61,6 +72,17 @@ document.addEventListener('readystatechange', event => {
         <time>${thisOn}</time>
         `
       };
+
+      const storageAll = document.querySelectorAll('#storage li');
+      storageAll.forEach(storageEach => {
+        storageEach.addEventListener('click', function () {
+        let center = [storageEach.dataset.coordinates];
+          map.flyTo({
+            center: center,
+            zoom: 11.11
+          });
+        });
+      });
     } else {
       // まだ投稿がない場合、#storage に li要素 を生成
       const storageLi = document.createElement('li');

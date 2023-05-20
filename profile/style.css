@@ -1,4 +1,5 @@
-input[type="button"] {
+input[type="button"],
+#map {
   position: fixed;
   top: 0;
   right: 0;
@@ -6,7 +7,6 @@ input[type="button"] {
 
 h1,
 input[type="button"] {
-  color: lightskyblue;
   font-size: 200%;
 }
 
@@ -21,6 +21,7 @@ summary {
 }
 
 h1 b,
+#storage li::marker,
 #storage li p {
   font-size: 111%;
   font-weight: 400;
@@ -32,9 +33,13 @@ h1 u,
   font-style: normal;
 }
 
+h1 small {
+  font-size: 55%;
+  text-decoration: lightskyblue wavy underline;
+}
+
 #storage li time {
   font-size: 90%;
-  color: lightskyblue;
 }
 
 h1 u,
@@ -43,6 +48,13 @@ summary {
   background: lightskyblue;
   color: lemonchiffon;
   text-decoration: none;
+}
+
+h1,
+input[type="button"],
+#storage li::marker,
+#storage li time {
+  color: lightskyblue;
 }
 
 #storage li h2,
@@ -56,8 +68,9 @@ h1,
 }
 
 h1 u,
-#storage li address,
-summary {
+h1 small,
+summary,
+#storage li address {
   font-family: "DiaPro", sans-serif;
 }
 
@@ -67,6 +80,7 @@ summary {
 }
 
 #storage {
+  background: #fff7;
   display: flex;
   flex-direction: row-reverse;
   padding: 0;
@@ -82,10 +96,22 @@ summary {
   box-sizing: border-box;
   height: 100%;
   writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+#map {
+  width: 100%;
+  height: 100vh;
+  max-height: -webkit-fill-available;
+  z-index: -1;
 }
 
 
 @media (orientation: landscape) {
+  header {
+    margin-bottom: 1rem;
+  }
+
   h1,
   input[type="button"],
   #storage li,
@@ -99,6 +125,7 @@ summary {
     margin: 0 0.5rem;
   }
 
+  h1 b,
   #storage li h2 {
     color: lemonchiffon;
     text-shadow:
@@ -110,6 +137,10 @@ summary {
 
 
 @media (orientation: portrait) {
+  header {
+    margin-bottom: 2vw;
+  }
+
   h1,
   input[type="button"],
   #storage li,
@@ -123,6 +154,7 @@ summary {
     margin: 0 1vw;
   }
 
+  h1 b,
   #storage li h2 {
     color: lemonchiffon;
     text-shadow:
