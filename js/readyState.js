@@ -7,7 +7,7 @@ function geoFindMe() {
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
     const accuracy = position.coords.accuracy;
-    yourHere.textContent = `
+    yourHere.innerHTML = `
     <span id="longitude">${longitude}</span>,
     <span id="latitude">${latitude}</span>
     `;
@@ -111,7 +111,7 @@ document.addEventListener('readystatechange', event => {
     /* ローカルストレージに現在地の記録があるかを確認 */
     if(localStorage.getItem("geolocation")) {
       const geolocation = JSON.parse(localStorage.getItem("geolocation"));
-      yourHere.textContent = `
+      yourHere.innerHTML = `
       <span id="longitude">${geolocation.longitude}</span>,
       <span id="latitude">${geolocation.latitude}</span>
       `;
