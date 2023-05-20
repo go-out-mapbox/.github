@@ -76,7 +76,7 @@ document.addEventListener('readystatechange', event => {
           'type': 'Feature',
           'geometry': {
             'type': 'Point',
-            'coordinates': [thisCenter]
+            'coordinates': thisCenter
           },
           'properties': {
             'title': `${thisLongitude}, ${thisLatitude}`,
