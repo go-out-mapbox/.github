@@ -77,7 +77,7 @@ document.addEventListener('readystatechange', event => {
       storageAll.forEach(storageEach => {
         storageEach.addEventListener('click', function () {
           let thisCenter = storageEach.dataset.coordinates
-        let center = [thisCenter];
+          let center = [thisCenter];
           map.flyTo({
             center: center,
             zoom: 11.11
