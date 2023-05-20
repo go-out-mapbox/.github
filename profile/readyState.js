@@ -30,7 +30,7 @@ document.addEventListener('readystatechange', event => {
       <u>あなたのデバイスの位置情報</u><br/>
       <b>${longitude}</b>,
       <b>${latitude}</b><br/>
-      <small>Your Device's Last Known Location ${timestamp}</small>
+      <small>Last Known Location ${timestamp}</small>
       `
 
       // li 要素を クリックすると 投稿した位置に地図の中心が移動

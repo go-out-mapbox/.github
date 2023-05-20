@@ -72,7 +72,7 @@ summary {
 h1.geo:hover,
 #storage li:hover {
   cursor: help;
-  background: lemonchiffon;
+  background: rgba(255,250,205,0.9);
   color: lightskyblue;
 }
 
@@ -85,8 +85,9 @@ h1 {
   color: lightskyblue;
 }
 
-details {
-  background: #fff7;
+#storage ol li,
+#readme section {
+  background: #fff9;
 }
 
 #storage li h2,
@@ -151,14 +152,10 @@ header {
 
 
 @media (orientation: landscape) {
-  header {
-    margin-bottom: 1rem;
-  }
-
   h1,
   input[type="button"],
-  #storage li,
   summary,
+  #storage li,
   #readme section {
     padding: 0.5rem;
   }
@@ -180,14 +177,10 @@ header {
 
 
 @media (orientation: portrait) {
-  header {
-    margin-bottom: 2vw;
-  }
-
   h1,
   input[type="button"],
-  #storage li,
   summary,
+  #storage li,
   #readme section {
     padding: 1vw;
   }
