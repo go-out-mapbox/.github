@@ -78,10 +78,10 @@ document.addEventListener('readystatechange', event => {
       const storageAll = document.querySelectorAll('#storage li');
       storageAll.forEach(storageEach => {
         storageEach.addEventListener('click', function () {
-          let lng = storageEach.dataset.longitude
-          let lat = storageEach.dataset.latitude
+          let thisLng = storageEach.dataset.longitude
+          let thisLat = storageEach.dataset.latitude
           map.flyTo({
-            center: [`${lng}, ${lat}`],
+            center: [thisLng, thisLat],
             zoom: 11.11
           });
         });
