@@ -22,6 +22,23 @@ document.addEventListener('readystatechange', event => {
       let timestamp = geoJSON.timestamp;
 
       let center = [longitude, latitude];
+
+      let yourMarker = {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [center]
+        },
+        'properties': {
+          'title': `${longitude}, ${latitude}`,
+          'address': thisAddress,
+          'date': thisDate,
+          'timestamp': thisOn,
+          'tags': 'marker',
+        }
+      }
+      stores.features.push(yourMarker)
+
       map.flyTo({
         center: center
       });

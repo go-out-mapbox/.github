@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
   <script src="../js/index.js"></script>
-  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
-  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
   <link href="../font/style.css" rel="stylesheet" />
   <link href="../css/reset.css" rel="stylesheet" />
+  <link href="../css/marker.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
   <link rel="icon" href="icon.png" type="image/png">
 </head>
@@ -37,9 +38,63 @@
     container: 'map',
     style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
     center: center,
+    projection: 'globe',
     zoom: 1.75,
     scrollZoom: true
   });
+
+  let stores = {
+    'type': 'FeatureCollection',
+    'features': []
+  };
+
+  // 地図にマーカーを追加
+  map.on('load', () => {
+    map.addSource('places', {
+      'type': 'geojson',
+      'data': stores
+    })
+    addMarkers()
+  })
+
+  stores.features.forEach((store, i) => {
+    store.properties.id = i;
+  })
+
+  function addMarkers() {
+    for (const marker of stores.features) {
+      const el = document.createElement('div');
+      el.id = `marker-${marker.properties.id}`;
+      el.className = marker.properties.tags;
+      new mapboxgl.Marker(el, {
+        offset: [0, 0]
+      })
+      .setLngLat(marker.geometry.coordinates)
+      .addTo(map);
+
+      el.addEventListener('click', (e) => {
+        flyToStore(marker);
+        createPopUp(marker);
+      })
+    };
+  };
+
+  /* Create a Mapbox GL JS `Popup`. */
+  function createPopUp(currentFeature) {
+    dateSection.innerHTML = "";
+    yourHere.textContent = currentFeature.properties.title;
+    yourAddress.textContent = currentFeature.properties.address;
+
+    const dateTXT = document.createElement('p');
+    dateTXT.innerHTML = currentFeature.properties.date;
+    dateTXT.className = currentFeature.properties.tags;
+    dateSection.appendChild(dateTXT);
+
+    const dateTime = document.createElement('p');
+    dateTime.innerHTML = `<time>${currentFeature.properties.timestamp}</time>`;
+    dateTime.className = currentFeature.properties.tags;
+    dateSection.appendChild(dateTime);
+  }
   </script>
   <script src="readyState.js"></script>
 </body>
