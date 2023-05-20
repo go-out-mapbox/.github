@@ -20,6 +20,7 @@ input[type="button"],
   right: 0;
 }
 
+h1.geo,
 #storage li,
 #storage li::marker {
   transition: 1s;
@@ -70,6 +71,7 @@ summary {
   text-decoration: none;
 }
 
+h1.geo:hover,
 #storage li:hover {
   cursor: help;
   background: lemonchiffon;

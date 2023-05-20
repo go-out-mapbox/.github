@@ -14,6 +14,7 @@ document.addEventListener('readystatechange', event => {
 
     // localStorage から 最新の現在地 を取得
     if(localStorage.getItem('geolocation')) {
+      title.className = "geo"
       const geoJSON = JSON.parse(localStorage.getItem('geolocation'));
       let longitude = geoJSON.longitude;
       let latitude = geoJSON.latitude;
