@@ -22,23 +22,6 @@ document.addEventListener('readystatechange', event => {
       let timestamp = geoJSON.timestamp;
 
       let center = [longitude, latitude];
-
-      let yourMarker = {
-        'type': 'Feature',
-        'geometry': {
-          'type': 'Point',
-          'coordinates': [center]
-        },
-        'properties': {
-          'title': `${longitude}, ${latitude}`,
-          'address': thisAddress,
-          'date': thisDate,
-          'timestamp': thisOn,
-          'tags': 'marker',
-        }
-      }
-      stores.features.push(yourMarker)
-
       map.flyTo({
         center: center
       });
@@ -87,6 +70,23 @@ document.addEventListener('readystatechange', event => {
         let thisAddress = mapJSON[i].address;
         let thisDate = mapJSON[i].date;
         let thisOn = mapJSON[i].timestamp;
+
+        let thisCenter = [thisLongitude, thisLatitude];
+        let yourMarker = {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [thisCenter]
+          },
+          'properties': {
+            'title': `${thisLongitude}, ${thisLatitude}`,
+            'address': thisAddress,
+            'date': thisDate,
+            'timestamp': thisOn,
+            'tags': 'marker',
+          }
+        }
+        stores.features.push(yourMarker)
 
         // #storage に 投稿ごとの id名を付けた li要素 を生成
         const storageLi = document.createElement('li');

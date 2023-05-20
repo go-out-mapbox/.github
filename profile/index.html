@@ -74,27 +74,9 @@
 
       el.addEventListener('click', (e) => {
         flyToStore(marker);
-        createPopUp(marker);
       })
     };
   };
-
-  /* Create a Mapbox GL JS `Popup`. */
-  function createPopUp(currentFeature) {
-    dateSection.innerHTML = "";
-    yourHere.textContent = currentFeature.properties.title;
-    yourAddress.textContent = currentFeature.properties.address;
-
-    const dateTXT = document.createElement('p');
-    dateTXT.innerHTML = currentFeature.properties.date;
-    dateTXT.className = currentFeature.properties.tags;
-    dateSection.appendChild(dateTXT);
-
-    const dateTime = document.createElement('p');
-    dateTime.innerHTML = `<time>${currentFeature.properties.timestamp}</time>`;
-    dateTime.className = currentFeature.properties.tags;
-    dateSection.appendChild(dateTime);
-  }
   </script>
   <script src="readyState.js"></script>
 </body>
