@@ -35,7 +35,7 @@ h1 u,
 
 h1 small {
   font-size: 55%;
-  text-decoration: lightskyblue wavy underline;
+  text-decoration: lemonchiffon wavy underline;
 }
 
 #storage li time {
@@ -50,7 +50,10 @@ summary {
   text-decoration: none;
 }
 
-h1,
+h1 {
+  color: lemonchiffon;
+}
+
 input[type="button"],
 #storage li::marker,
 #storage li time {

@@ -7,7 +7,10 @@ function geoFindMe() {
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
     const accuracy = position.coords.accuracy;
-    yourHere.textContent = `${longitude}, ${latitude}`;
+    yourHere.textContent = `
+    <span id="longitude">${longitude}</span>,
+    <span id="latitude">${latitude}</span>
+    `;
 
     // 緯度経度から住所を検索
     let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?language=ja&access_token=${mapboxgl.accessToken}`;
@@ -37,7 +40,7 @@ function geoFindMe() {
       longitude : longitude,
       accuracy : accuracy,
       timestamp : date
-    }
+    };
 
     const geoJSON = JSON.stringify(geolocation);
     localStorage.setItem("geolocation", geoJSON);
@@ -49,41 +52,37 @@ function geoFindMe() {
     mapbox.style.userSelect = "auto";
 
     indexHTML();
-    ChangeHidden()
+    ChangeHidden();
   }
 
   function error() {
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
     yourHere.textContent = 'Unable to retrieve your location';
-    yourAddress.textContent = `現在地を取得できませんでした`;
-    mapbox.style.pointerEvents = "auto";
-    mapbox.style.userSelect = "auto";
-    errorMD()
+    yourAddress.textContent = '現在地を取得できませんでした';
+    errorMD();
     enter.remove();
     submitButton.remove();
     submitDetails.remove();
-    ChangeHidden()
+    ChangeHidden();
   }
 
   if(!navigator.geolocation) {
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
     yourHere.textContent = 'Geolocation is not supported by your browser';
-    yourAddress.textContent = `このブラウザは現在地を取得できません`;
-    mapbox.style.pointerEvents = "auto";
-    mapbox.style.userSelect = "auto";
-    errorMD()
+    yourAddress.textContent = 'このブラウザは現在地を取得できません';
+    errorMD();
     enter.remove();
     submitButton.remove();
     submitDetails.remove();
-    ChangeHidden()
+    ChangeHidden();
   } else {
     mapbox.style.pointerEvents = "none";
     mapbox.style.userSelect = "none";
     yourHere.textContent = 'Locating…';
-    yourAddress.textContent = `現在地を取得中`;
-    dateSection.textContent = "";
+    yourAddress.textContent = '現在地を取得中';
+    dateSection.textContent = '';
     navigator.geolocation.getCurrentPosition(success, error);
 
     title.style.opacity = "0";
@@ -104,25 +103,25 @@ function ChangeHidden() {
       enter.textContent = "You Are Here";
     }
   })
-};
+}
+
 
 document.addEventListener('readystatechange', event => {
-  if (event.target.readyState === 'loading') {
-    // 文書の読み込み中に実行する
-  }
-
-  else if (event.target.readyState === 'interactive') {
+  if (event.target.readyState === 'interactive') {
     /* ローカルストレージに現在地の記録があるかを確認 */
     if(localStorage.getItem("geolocation")) {
       const geolocation = JSON.parse(localStorage.getItem("geolocation"));
-      yourHere.textContent = `${geolocation.longitude}, ${geolocation.latitude}`;
-      yourAddress.textContent = `Last Known Location ${geolocation.timestamp}`;
+      yourHere.textContent = `
+      <span id="longitude">${geolocation.longitude}</span>,
+      <span id="latitude">${geolocation.latitude}</span>
+      `;
+      yourAddress.textContent = `Last Known Location ${geolocation.timestamp}`
 
       let center = [geolocation.longitude, geolocation.latitude];
       map.flyTo({
         center: center
-      });
-    }
+      })
+    };
 
     const submitClose = document.querySelector('#submit #close');
     submitClose.addEventListener('click', function () {
@@ -131,23 +130,21 @@ document.addEventListener('readystatechange', event => {
       map.flyTo({
         center: center,
         zoom: 11.11
-      });
+      })
     })
-  }
-
-  else if (event.target.readyState === 'complete') {
+  } else if (event.target.readyState === 'complete') {
     // 地図にマーカーを追加
     map.on('load', () => {
       map.addSource('places', {
         'type': 'geojson',
         'data': stores
-      });
-      addMarkers();
-    });
+      })
+      addMarkers()
+    })
 
     stores.features.forEach((store, i) => {
       store.properties.id = i;
-    });
+    })
 
     function addMarkers() {
       for (const marker of stores.features) {
@@ -163,9 +160,9 @@ document.addEventListener('readystatechange', event => {
         el.addEventListener('click', (e) => {
           flyToStore(marker);
           createPopUp(marker);
-        });
-      }
-    }
+        })
+      };
+    };
 
     /* Create a Mapbox GL JS `Popup`. */
     function createPopUp(currentFeature) {
@@ -182,6 +179,18 @@ document.addEventListener('readystatechange', event => {
       dateTime.innerHTML = `<time>${currentFeature.properties.timestamp}</time>`;
       dateTime.className = currentFeature.properties.tags;
       dateSection.appendChild(dateTime);
+    }
+
+    /**
+    * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+    * a given center point.
+    **/
+    function flyToStore(currentFeature) {
+      map.flyTo({
+        center: currentFeature.geometry.coordinates,
+        zoom: 15,
+        scrollZoom: false
+      });
     }
   }
 });

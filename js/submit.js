@@ -2,16 +2,17 @@
 
 // localStorage に 投稿 を追加
 let array = JSON.parse(localStorage.getItem("map")) || [];
-const addData = (title, address, date, timestamp) => {
+const addData = (longitude, latitude, address, date, timestamp) => {
   array.push({
-    title,
+    longitude,
+    latitude,
     address,
     date,
     timestamp
   })
 
   localStorage.setItem("map", JSON.stringify(array))
-  return {title, address, date, timestamp}
+  return {longitude, latitude, address, date, timestamp}
 }
 
 
@@ -21,7 +22,8 @@ async function submitThis() {
   event.preventDefault()
 
   // localStorage に 投稿 を追加する
-  const thisGeolocation = yourHere.textContent
+  const thisLongitude = document.querySelector('#date #longitude').textContent
+  const thisLatitude = document.querySelector('#date #latitude').textContent
   const thisAddress = yourAddress.textContent
 
   const thisTXT = document.querySelector('#submit #comment');
@@ -29,11 +31,12 @@ async function submitThis() {
   let textArray = text.split('\n')
   let thisDate = textArray.join('<br>')
   const thisTime = document.querySelector('#date section time').textContent
-  addData(thisGeolocation, thisAddress, thisDate, thisTime)
+  addData(thisLongitude, thisLatitude, thisAddress, thisDate, thisTime)
 
   // PHP で CSVファイル に 投稿 を追加する
   let thisPin = {
-    title : thisGeolocation,
+    longitude : thisLongitude,
+    latitude : thisLatitude,
     address : thisAddress,
     date : thisDate,
     timestamp : thisTime

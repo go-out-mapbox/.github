@@ -107,18 +107,6 @@
     scrollZoom: true
   });
 
-  /**
-  * Use Mapbox GL JS's `flyTo` to move the camera smoothly
-  * a given center point.
-  **/
-  function flyToStore(currentFeature) {
-    map.flyTo({
-      center: currentFeature.geometry.coordinates,
-      zoom: 15,
-      scrollZoom: false
-    });
-  }
-
   let stores = {
     'type': 'FeatureCollection',
     'features': [
@@ -126,7 +114,7 @@
         'type': 'Feature',
         'geometry': {
           'type': 'Point',
-          'coordinates': [135.76854055131543,35.00017558944718]
+          'coordinates': [135.76854055131543, 35.00017558944718]
         },
         'properties': {
           'title': '135.76854055131543,35.00017558944718',
@@ -171,6 +159,5 @@
   map.addControl(new mapboxgl.NavigationControl());
   </script>
   <script src="js/readyState.js"></script>
-  <script src="js/submit.js"></script>
 </body>
 </html>

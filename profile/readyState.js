@@ -19,8 +19,8 @@ document.addEventListener('readystatechange', event => {
 
       title.innerHTML = `
       <u>Your Device's Location Infomations</u><br/>
-      Latitude: <b>${latitude}°</b>
-      Longitude: <b>${longitude}°</b><br/>
+      <b>${latitude}</b>,
+      <b>${longitude}</b><br/>
       <small>${timestamp}</small>
       `
     } else {
@@ -53,7 +53,8 @@ document.addEventListener('readystatechange', event => {
     if(localStorage.getItem("map")) {
       const mapJSON = JSON.parse(localStorage.getItem('map'));
       for (let i = 0; i < mapJSON.length; i++) {
-        let coordinates = mapJSON[i].title;
+        let thisLongitude = mapJSON[i].longitude;
+        let thisLatitude = mapJSON[i].latitude;
         let thisAddress = mapJSON[i].address;
         let thisDate = mapJSON[i].date;
         let thisOn = mapJSON[i].timestamp;
@@ -61,12 +62,13 @@ document.addEventListener('readystatechange', event => {
         // #storage に 投稿ごとの id名を付けた li要素 を生成
         const storageLi = document.createElement('li');
         storageLi.id = `post-${i}`;
-        storageLi.setAttribute('date-coordinates', coordinates);
+        storageLi.setAttribute('date-longitude', thisLongitude);
+        storageLi.setAttribute('date-latitude', thisLatitude);
         storage.appendChild(storageLi);
 
         // li 要素内に 投稿を出力
         storageLi.innerHTML = `
-        <h2>${coordinates}</h2><br/>
+        <h2>${thisLongitude}, ${thisLatitude}</h2><br/>
         <address>${thisAddress}</address>
         <p>${thisDate}</p>
         <time>${thisOn}</time>
@@ -76,8 +78,9 @@ document.addEventListener('readystatechange', event => {
       const storageAll = document.querySelectorAll('#storage li');
       storageAll.forEach(storageEach => {
         storageEach.addEventListener('click', function () {
-          let thisCenter = storageEach.dataset.coordinates
-          let center = [thisCenter];
+          let thisLon = storageEach.dataset.longitude
+          let thisLat = storageEach.dataset.latitude
+          let center = [thisLon, thisLat];
           map.flyTo({
             center: center,
             zoom: 11.11
