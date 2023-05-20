@@ -3,7 +3,7 @@
 function flyToStore(longitude, latitude) {
   map.flyTo({
     center: [longitude, latitude],
-    zoom: 11.11,
+    zoom: 15,
     essential: true
   });
 }
