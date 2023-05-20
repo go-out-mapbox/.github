@@ -80,9 +80,8 @@ document.addEventListener('readystatechange', event => {
         storageEach.addEventListener('click', function () {
           let lng = storageEach.dataset.longitude
           let lat = storageEach.dataset.latitude
-          let center = [`${lng}, ${lat}`];
           map.flyTo({
-            center: center,
+            center: [`${lng}, ${lat}`],
             zoom: 11.11
           });
         });
