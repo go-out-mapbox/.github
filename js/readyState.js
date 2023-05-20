@@ -156,40 +156,7 @@ document.addEventListener('readystatechange', event => {
         })
         .setLngLat(marker.geometry.coordinates)
         .addTo(map);
-
-        el.addEventListener('click', (e) => {
-          flyToStore(marker);
-          createPopUp(marker);
-        })
-      };
-    };
-
-    /* Create a Mapbox GL JS `Popup`. */
-    function createPopUp(currentFeature) {
-      dateSection.innerHTML = "";
-      yourHere.textContent = currentFeature.properties.title;
-      yourAddress.textContent = currentFeature.properties.address;
-
-      const dateTXT = document.createElement('p');
-      dateTXT.innerHTML = currentFeature.properties.date;
-      dateTXT.className = currentFeature.properties.tags;
-      dateSection.appendChild(dateTXT);
-
-      const dateTime = document.createElement('p');
-      dateTime.innerHTML = `<time>${currentFeature.properties.timestamp}</time>`;
-      dateTime.className = currentFeature.properties.tags;
-      dateSection.appendChild(dateTime);
-    }
-
-    /**
-    * Use Mapbox GL JS's `flyTo` to move the camera smoothly
-    * a given center point.
-    **/
-    function flyToStore(currentFeature) {
-      map.flyTo({
-        center: currentFeature.geometry.coordinates,
-        zoom: 15
-      });
+      }
     }
   }
 });
