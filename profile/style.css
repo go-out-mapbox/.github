@@ -209,11 +209,9 @@ header {
 }
 
 #map .marker {
-  border: none;
-  height: 45px;
-  width: 45px;
-  background-image: url('../profile/icon.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: lemonchiffon;
+  border: lightskyblue solid 2px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
 }
