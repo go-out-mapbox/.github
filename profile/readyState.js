@@ -1,5 +1,13 @@
 'use strict'
 
+function flyToStore(longitude, latitude) {
+  map.flyTo({
+    center: [longitude, latitude],
+    zoom: 15,
+    essential: true
+  });
+}
+
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
     const title = document.querySelector('h1');
@@ -7,22 +15,27 @@ document.addEventListener('readystatechange', event => {
     // localStorage から 最新の現在地 を取得
     if(localStorage.getItem('geolocation')) {
       const geoJSON = JSON.parse(localStorage.getItem('geolocation'));
-      let latitude = geoJSON.latitude;
       let longitude = geoJSON.longitude;
+      let latitude = geoJSON.latitude;
       let accuracy = geoJSON.accuracy;
       let timestamp = geoJSON.timestamp;
 
-      let center = [geoJSON.longitude, geoJSON.latitude];
+      let center = [longitude, latitude];
       map.flyTo({
         center: center
       });
 
       title.innerHTML = `
       <u>Your Device's Last Known Location</u><br/>
-      <b>${latitude}</b>,
-      <b>${longitude}</b><br/>
+      <b>${longitude}</b>,
+      <b>${latitude}</b><br/>
       <small>${timestamp}</small>
       `
+
+      // li 要素を クリックすると 投稿した位置に地図の中心が移動
+      title.addEventListener('click', () => {
+        flyToStore(longitude, latitude);
+      })
     } else {
       title.innerHTML = `
       <u>Web Storage API</u><br/>
@@ -78,14 +91,6 @@ document.addEventListener('readystatechange', event => {
     } else {
       // まだ投稿がない場合、#storage を 削除
       storage.remove()
-    }
-
-    function flyToStore(longitude, latitude) {
-      map.flyTo({
-        center: [longitude, latitude],
-        zoom: 15,
-        essential: true
-      });
     }
   }
 });

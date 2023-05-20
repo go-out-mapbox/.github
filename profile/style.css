@@ -7,8 +7,6 @@ body {
 
 header {
   margin: auto;
-  pointer-events: none;
-  user-select: none;
 }
 
 article {
