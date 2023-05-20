@@ -26,8 +26,7 @@ document.addEventListener('readystatechange', event => {
     } else {
       title.innerHTML = `
       <u>Web Storage API</u><br/>
-      <b>The Location Infometions of Your Device's</b><br/>
-      <small>あなたのデバイスのウェブストレージに記録されたあなたの位置情報</small>
+      <b>The Location Infometions of Your Device's</b>
       `
     }
 
@@ -46,6 +45,7 @@ document.addEventListener('readystatechange', event => {
     readmeMD();
   } else if (event.target.readyState === 'complete') {
     const storage = document.querySelector('#storage');
+    const storageOl = document.querySelector('#storage ol');
 
     // localStorage から 投稿 を取得
     if(localStorage.getItem('map')) {
@@ -60,7 +60,7 @@ document.addEventListener('readystatechange', event => {
         // #storage に 投稿ごとの id名を付けた li要素 を生成
         const storageLi = document.createElement('li');
         storageLi.id = `log-${i}`;
-        storage.appendChild(storageLi);
+        storageOl.appendChild(storageLi);
 
         // li 要素内に 投稿を出力
         storageLi.innerHTML = `
@@ -70,27 +70,14 @@ document.addEventListener('readystatechange', event => {
         <time>${thisOn}</time>
         `
 
+        // li 要素を クリックすると 投稿した位置に地図の中心が移動
         storageLi.addEventListener('click', () => {
           flyToStore(thisLongitude, thisLatitude);
         })
       };
     } else {
-      let thisLng = 135.50433479522678;
-      let thisLat = 34.69699057458179;
-
-      // まだ投稿がない場合、#storage に li要素 を生成
-      const storageLi = document.createElement('li');
-      storage.appendChild(storageLi);
-
-      // li 要素内に HTML を出力
-      storageLi.innerHTML = `
-      <h2>No Posts Yet</h2>
-      <p>投稿はまだありません</p>
-      `
-
-      storageLi.addEventListener('click', () => {
-        flyToStore(thisLng, thisLat);
-      })
+      // まだ投稿がない場合、#storage を 削除
+      storage.remove()
     }
 
     function flyToStore(longitude, latitude) {

@@ -1,8 +1,30 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  min-height: 100vh;
+}
+
+header {
+  margin: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+article {
+  width: 100%;
+}
+
 input[type="button"],
 #map {
   position: fixed;
   top: 0;
   right: 0;
+}
+
+#storage li,
+#storage li::marker {
+  transition: 1s;
 }
 
 h1,
@@ -50,14 +72,23 @@ summary {
   text-decoration: none;
 }
 
+#storage li:hover {
+  cursor: help;
+  background: lemonchiffon;
+  color: lightskyblue;
+}
+
 h1 {
   color: lemonchiffon;
 }
 
-input[type="button"],
 #storage li::marker,
 #storage li time {
   color: lightskyblue;
+}
+
+details {
+  background: #fff7;
 }
 
 #storage li h2,
@@ -82,8 +113,7 @@ summary,
   font-weight: lighter;
 }
 
-#storage {
-  background: #fff7;
+#storage ol {
   display: flex;
   flex-direction: row-reverse;
   padding: 0;
@@ -118,9 +148,8 @@ summary,
   h1,
   input[type="button"],
   #storage li,
-  #readme summary,
-  #readme section,
-  #storage section {
+  summary,
+  #readme section {
     padding: 0.5rem;
   }
 
@@ -129,6 +158,7 @@ summary,
   }
 
   h1 b,
+  input[type="button"],
   #storage li h2 {
     color: lemonchiffon;
     text-shadow:
@@ -147,9 +177,8 @@ summary,
   h1,
   input[type="button"],
   #storage li,
-  #readme summary,
-  #readme section,
-  #storage section {
+  summary,
+  #readme section {
     padding: 1vw;
   }
 
@@ -158,6 +187,7 @@ summary,
   }
 
   h1 b,
+  input[type="button"],
   #storage li h2 {
     color: lemonchiffon;
     text-shadow:
