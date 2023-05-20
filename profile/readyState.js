@@ -74,7 +74,6 @@ document.addEventListener('readystatechange', event => {
         <p>${thisDate}</p>
         <time>${thisOn}</time>
         `
-
         storageLi.addEventListener('click', (e) => {
           map.flyTo({
             center: thisCoordinates,
