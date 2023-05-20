@@ -33,17 +33,13 @@ input[type="button"] {
   font-weight: 400;
 }
 
-h1,
-input[type="button"] {
+h1 {
   font-size: 200%;
 }
 
-#storage li h2 {
-  font-size: 150%;
-}
-
+#storage li h2,
 summary {
-  font-size: 125%;
+  font-size: 150%;
 }
 
 h1 b,
@@ -139,6 +135,12 @@ summary,
 
 input[type="button"] {
   right: 0;
+  height: 70px;
+  width: 70px;
+  background-image: url('../profile/icon.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   z-index: 10;
 }
 
