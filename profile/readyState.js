@@ -5,7 +5,7 @@ document.addEventListener('readystatechange', event => {
     const title = document.querySelector('h1');
 
     // localStorage から 最新の現在地 を取得
-    if(localStorage.getItem("geolocation")) {
+    if(localStorage.getItem('geolocation')) {
       const geoJSON = JSON.parse(localStorage.getItem('geolocation'));
       let latitude = geoJSON.latitude;
       let longitude = geoJSON.longitude;
@@ -44,18 +44,15 @@ document.addEventListener('readystatechange', event => {
       });
     }
     readmeMD();
-  }
-
-  else if (event.target.readyState === 'complete') {
+  } else if (event.target.readyState === 'complete') {
     const storage = document.querySelector('#storage');
 
     // localStorage から 投稿 を取得
-    if(localStorage.getItem("map")) {
+    if(localStorage.getItem('map')) {
       const mapJSON = JSON.parse(localStorage.getItem('map'));
       for (let i = 0; i < mapJSON.length; i++) {
         let thisLongitude = mapJSON[i].longitude;
         let thisLatitude = mapJSON[i].latitude;
-        let thisCoordinates = [`${thisLongitude}, ${thisLatitude}`];
         let thisAddress = mapJSON[i].address;
         let thisDate = mapJSON[i].date;
         let thisOn = mapJSON[i].timestamp;
@@ -63,8 +60,6 @@ document.addEventListener('readystatechange', event => {
         // #storage に 投稿ごとの id名を付けた li要素 を生成
         const storageLi = document.createElement('li');
         storageLi.id = `log-${i}`;
-        storageLi.setAttribute('date-lng', thisLongitude);
-        storageLi.setAttribute('date-lat', thisLatitude);
         storage.appendChild(storageLi);
 
         // li 要素内に 投稿を出力
@@ -74,14 +69,15 @@ document.addEventListener('readystatechange', event => {
         <p>${thisDate}</p>
         <time>${thisOn}</time>
         `
-        storageLi.addEventListener('click', (e) => {
-          map.flyTo({
-            center: thisCoordinates,
-            zoom: 15
-          });
+
+        storageLi.addEventListener('click', () => {
+          flyToStore(thisLongitude, thisLatitude);
         })
       };
     } else {
+      let thisLng = 135.50433479522678;
+      let thisLat = 34.69699057458179;
+
       // まだ投稿がない場合、#storage に li要素 を生成
       const storageLi = document.createElement('li');
       storage.appendChild(storageLi);
@@ -91,6 +87,18 @@ document.addEventListener('readystatechange', event => {
       <h2>No Posts Yet</h2>
       <p>投稿はまだありません</p>
       `
+
+      storageLi.addEventListener('click', () => {
+        flyToStore(thisLng, thisLat);
+      })
+    }
+
+    function flyToStore(longitude, latitude) {
+      map.flyTo({
+        center: [longitude, latitude],
+        zoom: 15,
+        essential: true
+      });
     }
   }
 });
