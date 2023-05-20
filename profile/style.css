@@ -72,7 +72,7 @@ summary {
 h1.geo:hover,
 #storage li:hover {
   cursor: help;
-  background: rgba(255,250,205,0.9);
+  background: rgba(255,250,205,0.5);
   color: lightskyblue;
 }
 
@@ -85,7 +85,6 @@ h1 {
   color: lightskyblue;
 }
 
-#storage ol li,
 #readme section {
   background: #fff9;
 }
