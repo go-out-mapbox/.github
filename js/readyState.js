@@ -115,7 +115,7 @@ document.addEventListener('readystatechange', event => {
       <span id="longitude">${geolocation.longitude}</span>,
       <span id="latitude">${geolocation.latitude}</span>
       `;
-      yourAddress.textContent = `Last Known Location ${geolocation.timestamp}`
+      yourAddress.textContent = `Your Device's Last Known Location ${geolocation.timestamp}`
 
       let center = [geolocation.longitude, geolocation.latitude];
       map.flyTo({
@@ -188,8 +188,7 @@ document.addEventListener('readystatechange', event => {
     function flyToStore(currentFeature) {
       map.flyTo({
         center: currentFeature.geometry.coordinates,
-        zoom: 15,
-        scrollZoom: false
+        zoom: 15
       });
     }
   }

@@ -18,7 +18,7 @@ document.addEventListener('readystatechange', event => {
       });
 
       title.innerHTML = `
-      <u>Your Device's Location Infomations</u><br/>
+      <u>Your Device's Last Known Location</u><br/>
       <b>${latitude}</b>,
       <b>${longitude}</b><br/>
       <small>${timestamp}</small>
@@ -26,7 +26,7 @@ document.addEventListener('readystatechange', event => {
     } else {
       title.innerHTML = `
       <u>Web Storage API</u><br/>
-      <b>Your Device's Location Infomations</b><br/>
+      <b>The Location Infometions of Your Device's</b><br/>
       <small>あなたのデバイスのウェブストレージに記録されたあなたの位置情報</small>
       `
     }
@@ -55,16 +55,18 @@ document.addEventListener('readystatechange', event => {
       for (let i = 0; i < mapJSON.length; i++) {
         let thisLongitude = mapJSON[i].longitude;
         let thisLatitude = mapJSON[i].latitude;
+        let thisCoordinates = [thisLongitude, thisLatitude]
         let thisAddress = mapJSON[i].address;
         let thisDate = mapJSON[i].date;
         let thisOn = mapJSON[i].timestamp;
 
         // #storage に 投稿ごとの id名を付けた li要素 を生成
         const storageLi = document.createElement('li');
-        storageLi.id = `post-${i}`;
+        storageLi.id = `log-${i}`;
         storageLi.setAttribute('date-lng', thisLongitude);
         storageLi.setAttribute('date-lat', thisLatitude);
         storage.appendChild(storageLi);
+        .setLngLat(thisCoordinates)
 
         // li 要素内に 投稿を出力
         storageLi.innerHTML = `
@@ -73,19 +75,14 @@ document.addEventListener('readystatechange', event => {
         <p>${thisDate}</p>
         <time>${thisOn}</time>
         `
-      };
 
-      const storageAll = document.querySelectorAll('#storage li');
-      storageAll.forEach(storageEach => {
-        storageEach.addEventListener('click', function () {
-          let thisLng = storageEach.dataset.longitude
-          let thisLat = storageEach.dataset.latitude
+        storageLi.addEventListener('click', (e) => {
           map.flyTo({
-            center: [thisLng, thisLat],
-            zoom: 11.11
+            center: thisCoordinates,
+            zoom: 15
           });
-        });
-      });
+        })
+      };
     } else {
       // まだ投稿がない場合、#storage に li要素 を生成
       const storageLi = document.createElement('li');
