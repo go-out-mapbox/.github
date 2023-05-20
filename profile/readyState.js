@@ -55,7 +55,7 @@ document.addEventListener('readystatechange', event => {
       for (let i = 0; i < mapJSON.length; i++) {
         let thisLongitude = mapJSON[i].longitude;
         let thisLatitude = mapJSON[i].latitude;
-        let thisCoordinates = [thisLongitude, thisLatitude]
+        let thisCoordinates = [`${thisLongitude}, ${thisLatitude}`];
         let thisAddress = mapJSON[i].address;
         let thisDate = mapJSON[i].date;
         let thisOn = mapJSON[i].timestamp;
@@ -66,7 +66,6 @@ document.addEventListener('readystatechange', event => {
         storageLi.setAttribute('date-lng', thisLongitude);
         storageLi.setAttribute('date-lat', thisLatitude);
         storage.appendChild(storageLi);
-        .setLngLat(thisCoordinates)
 
         // li 要素内に 投稿を出力
         storageLi.innerHTML = `
