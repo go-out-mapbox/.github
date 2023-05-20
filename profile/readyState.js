@@ -27,10 +27,10 @@ document.addEventListener('readystatechange', event => {
       });
 
       title.innerHTML = `
-      <u>Your Device's Last Known Location</u><br/>
+      <u>あなたのデバイスの位置情報</u><br/>
       <b>${longitude}</b>,
       <b>${latitude}</b><br/>
-      <small>${timestamp}</small>
+      <small>Your Device's Last Known Location ${timestamp}</small>
       `
 
       // li 要素を クリックすると 投稿した位置に地図の中心が移動
