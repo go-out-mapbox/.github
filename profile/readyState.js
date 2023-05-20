@@ -62,8 +62,8 @@ document.addEventListener('readystatechange', event => {
         // #storage に 投稿ごとの id名を付けた li要素 を生成
         const storageLi = document.createElement('li');
         storageLi.id = `post-${i}`;
-        storageLi.setAttribute('date-longitude', thisLongitude);
-        storageLi.setAttribute('date-latitude', thisLatitude);
+        storageLi.setAttribute('date-lng', thisLongitude);
+        storageLi.setAttribute('date-lat', thisLatitude);
         storage.appendChild(storageLi);
 
         // li 要素内に 投稿を出力
@@ -78,9 +78,9 @@ document.addEventListener('readystatechange', event => {
       const storageAll = document.querySelectorAll('#storage li');
       storageAll.forEach(storageEach => {
         storageEach.addEventListener('click', function () {
-          let thisLon = storageEach.dataset.longitude
-          let thisLat = storageEach.dataset.latitude
-          let center = [thisLon, thisLat];
+          let lng = storageEach.dataset.longitude
+          let lat = storageEach.dataset.latitude
+          let center = [`${lng}, ${lat}`];
           map.flyTo({
             center: center,
             zoom: 11.11
