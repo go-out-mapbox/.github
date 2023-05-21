@@ -56,46 +56,17 @@
     <footer id="credit" class="goout"></footer>
   </main>
   <script type="text/javascript">
-  const mapbox = document.querySelector('#map');
-  const yourHere = document.querySelector('#date #geolocation');
-  const yourAddress = document.querySelector('#date address');
-  const dateSection = document.querySelector('#date section');
-  const title = document.querySelector('#title');
-  const enter = document.querySelector('#enter');
-  const submitForm = document.querySelector('#submit form');
-  const submitButton = document.querySelector('#submit button');
-  const submitDetails = document.querySelector('#submit details');
-  const submitSummary = document.querySelector('#submit summary');
+  const mapbox = document.querySelector('#map'),
+  yourHere = document.querySelector('#date #geolocation'),
+  yourAddress = document.querySelector('#date address'),
+  dateSection = document.querySelector('#date section'),
+  title = document.querySelector('#title'),
+  enter = document.querySelector('#enter'),
+  submitForm = document.querySelector('#submit form'),
+  submitButton = document.querySelector('#submit button'),
+  submitDetails = document.querySelector('#submit details'),
+  submitSummary = document.querySelector('#submit summary');
 
-  async function indexHTML() {
-    fetch('readme.html')
-    .then(response => response.text())
-    .then(innerHTML => {
-      document.querySelector('#readme').innerHTML = innerHTML;
-    });
-
-    fetch('credit.html')
-    .then(response => response.text())
-    .then(innerHTML => {
-      document.querySelector('#credit').innerHTML = innerHTML;
-    });
-  }
-
-  async function errorMD() {
-    fetch('readme.md')
-    .then(response => response.text())
-    .then(innerText => {
-      document.querySelector('#readme').innerText = innerText;
-    });
-
-    fetch('credit.html')
-    .then(response => response.text())
-    .then(innerHTML => {
-      document.querySelector('#credit').innerHTML = innerHTML;
-    });
-  }
-
-  /* ページにMapboxを埋め込む */
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
   let center = [135.50433479522678, 34.69699057458179];
 
@@ -105,6 +76,78 @@
     center: center,
     zoom: 1.75,
     scrollZoom: true
+  });
+
+  map.on('load', () => {
+    // Add a data source containing GeoJSON data.
+    map.addSource('heard', {
+      'type': 'geojson',
+      'data': {
+        'type': 'FeatureCollection',
+        'features': [
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              // These coordinates outline Maine.
+              'coordinates': [
+                [
+                  [135.7610870139788,35.003577397910576],
+                  [135.77127222646072,35.00395605842333],
+                  [135.77182001546186,34.99863256550397],
+                  [135.7695921021695,34.995663687378766],
+                  [135.76610542193487,34.99538439351177],
+                  [135.7610870139788,35.003577397910576]
+                ]
+              ]
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Polygon',
+              // These coordinates outline Maine.
+              'coordinates': [
+                [
+                  [135.41570459932808, 34.6444498906305],
+                  [135.40108965184288, 34.634712067653496],
+                  [135.4016286962231, 34.61486617414742],
+                  [135.46833474746012, 34.603447361713776],
+                  [135.47666421864864, 34.60006459036512],
+                  [135.49227968288875, 34.605819819360846],
+                  [135.50391050613052, 34.64546789712162],
+                  [135.49603212288486, 34.64744739591383],
+                  [135.41570459932808, 34.6444498906305]
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    });
+
+    // Add a new layer to visualize the polygon.
+    map.addLayer({
+      'id': 'heard',
+      'type': 'fill',
+      'source': 'heard', // reference the data source
+      'layout': {},
+      'paint': {
+        'fill-color': '#CDCBCC',
+        'fill-opacity': 0.7
+      }
+    });
+    // Add a outline around the polygon.
+    map.addLayer({
+      'id': 'around',
+      'type': 'line',
+      'source': 'heard', // reference the data source
+      'layout': {},
+      'paint': {
+        'line-color': '#fff',
+        'line-width': 2
+      }
+    });
   });
 
   let stores = {
@@ -155,10 +198,12 @@
     ]
   }
 
+
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
   </script>
   <script src="js/readyState.js"></script>
   <script src="js/submit.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

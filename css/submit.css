@@ -110,6 +110,7 @@ h3 b,
   }
 
   #submit form {
+    border-radius: 0.5rem;
     margin: 20vh auto 5.5rem;
   }
 
@@ -138,6 +139,7 @@ h3 b,
   }
 
   #submit form {
+    border-radius: 1vw;
     margin: 35vw auto 17.5vw;
   }
 
