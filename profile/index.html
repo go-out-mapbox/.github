@@ -83,7 +83,7 @@
         e *= (5 - zoom) / 2
       }
       const lng = map.getCenter();
-      lng.lng += e,
+      lng.lng -= e,
       map.easeTo({
         center: lng,
         easing: zoom => zoom
