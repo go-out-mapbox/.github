@@ -22,6 +22,9 @@
   <link rel="apple-touch-icon-precomposed" href="profile/icon.png" sizes="180x180" type="image/png">
 </head>
 <body>
+  <h1 id="title" class="goout">Go Out</h1>
+  <button type="button" id="enter" class="goout" onclick="geoFindMe()">Let's have some fun</button>
+  <article id="map"></article>
   <main id="date">
     <h2 id="geolocation">
       Life is precious. Every minute. And more precious with you in it.
@@ -36,13 +39,15 @@
       </h3>
     </section>
   </main>
-  <main id="submit">
+  <main id="submit" hidden>
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
     <form>
       <section id="readme"></section>
+      <section id="howto"></section>
       <p style="text-align: center;">
         <button type="submit" class="goout">I'm Here !</button>
       </p>
+      <hr>
       <details>
         <summary><b>Submit A Comment コメントを残す</b></summary>
         <textarea rows="7" id="comment"></textarea>
@@ -60,8 +65,9 @@
   const submitForm = document.querySelector('#submit form');
   const submitButton = document.querySelector('#submit button');
   const submitDetails = document.querySelector('#submit details');
+  const submitSummary = document.querySelector('#submit summary');
 
-  async function submitHTML() {
+  async function indexHTML() {
     fetch('readme.html')
     .then(response => response.text())
     .then(innerHTML => {
@@ -74,13 +80,12 @@
       document.querySelector('#credit').innerHTML = innerHTML;
     });
   }
-  submitHTML();
 
   async function errorMD() {
     fetch('readme.md')
     .then(response => response.text())
-    .then(innerHTML => {
-      document.querySelector('#readme').innerHTML = innerHTML;
+    .then(innerText => {
+      document.querySelector('#readme').innerText = innerText;
     });
 
     fetch('credit.html')
@@ -89,8 +94,24 @@
       document.querySelector('#credit').innerHTML = innerHTML;
     });
   }
+
+  /* ページにMapboxを埋め込む */
+  mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
+  let center = [135.50433479522678, 34.69699057458179];
+
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
+    center: center,
+    zoom: 1.75,
+    scrollZoom: true
+  });
+
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
   </script>
-  <script src="js/submit.js"></script>
+  <script src="submit/stores.json"></script>
   <script src="js/readyState.js"></script>
+  <script src="submit/script.js"></script>
 </body>
 </html>
