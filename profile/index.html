@@ -67,7 +67,7 @@
       .setPopup(
         new mapboxgl.Popup({ offset: 25 })
         .setHTML(`
-          <strong>${marker.properties.timestamp}</strong>
+          <time>${marker.properties.timestamp}</time>
           <p>${marker.properties.date}</p>
           `
         )
