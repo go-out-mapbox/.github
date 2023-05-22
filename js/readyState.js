@@ -1,6 +1,6 @@
 'use strict'
 
-if(!storage.getItem('yourInfo')) {
+if(!localStorage.getItem('yourInfo')) {
   // アイテムが存在しない場合に実行する文
   errorMD();
   enter.remove();
