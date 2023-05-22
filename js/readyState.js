@@ -3,6 +3,7 @@
 if(!localStorage.getItem('yourInfo')) {
   // アイテムが存在しない場合に実行する文
   errorMD();
+  title.remove();
   enter.remove();
   submitButton.remove();
   submitDetails.remove();
