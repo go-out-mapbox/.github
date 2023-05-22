@@ -11,10 +11,14 @@ function flyToStore(longitude, latitude) {
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
     const title = document.querySelector('h1');
+    const back = document.querySelector('#back');
+    back.addEventListener('click', function () {
+      location.assign('../');
+    });
 
     // localStorage から 最新の現在地 を取得
     if(localStorage.getItem('geolocation')) {
-      title.className = "geo"
+      title.className = "geo";
       const geoJSON = JSON.parse(localStorage.getItem('geolocation'));
       let longitude = geoJSON.longitude,
       latitude = geoJSON.latitude,
@@ -27,7 +31,7 @@ document.addEventListener('readystatechange', event => {
       });
 
       title.innerHTML = `
-      <u>あなたのデバイスの位置情報</u><br/>
+      <u>あなたの位置情報</u><br/>
       <b>${longitude}</b>,
       <b>${latitude}</b><br/>
       <small>Last Known Location ${timestamp}</small>
@@ -36,30 +40,29 @@ document.addEventListener('readystatechange', event => {
       // li 要素を クリックすると 投稿した位置に地図の中心が移動
       title.addEventListener('click', () => {
         flyToStore(longitude, latitude);
-      })
+      });
     } else {
       title.innerHTML = `
       <u>Web Storage API</u><br/>
-      <b>The Location Infometions of Your Device's</b>
-      `
-    }
+      <b>The Location Informations of Your Device's</b>
+      `;
 
-    const back = document.querySelector('#back');
-    back.addEventListener('click', function () {
-      location.assign('../');
-    })
+      const storageTitle = document.querySelector('#storage summary');
+      const storageSection = document.querySelector('#storage section');
+      storageSection.className = 'readme';
+      storageTitle.innerText = 'About This Page このページについて';
 
-    async function readmeMD() {
-      fetch('../README.md')
-      .then(response => response.text())
-      .then(innerText => {
-        document.querySelector('#readme section').innerText = innerText;
-      });
+      async function readmeMD() {
+        fetch('../README.md')
+        .then(response => response.text())
+        .then(innerText => {
+          storageSection.innerText = innerText;
+        });
+      }
+      readmeMD()
     }
-    readmeMD();
   } else if (event.target.readyState === 'complete') {
-    const storage = document.querySelector('#storage'),
-    storageOl = document.querySelector('#storage ol');
+    const storageItems = document.querySelector('#storage ol');
 
     // localStorage から 投稿 を取得
     if(localStorage.getItem('map')) {
@@ -86,15 +89,15 @@ document.addEventListener('readystatechange', event => {
             'tags': 'marker',
           }
         }
-        stores.features.push(yourMarker)
+        stores.features.push(yourMarker);
 
         // #storage に 投稿ごとの id名を付けた li要素 を生成
-        const storageLi = document.createElement('li');
-        storageLi.id = `log-${i}`;
-        storageOl.appendChild(storageLi);
+        const storageItem = document.createElement('li');
+        storageItem.id = `log-${i}`;
+        storageItems.appendChild(storageItem);
 
         // li 要素内に 投稿を出力
-        storageLi.innerHTML = `
+        storageItem.innerHTML = `
         <h2>${thisLongitude}, ${thisLatitude}</h2><br/>
         <address>${thisAddress}</address>
         <p>${thisDate}</p>
@@ -103,12 +106,9 @@ document.addEventListener('readystatechange', event => {
 
         // li 要素を クリックすると 投稿した位置に地図の中心が移動
         storageLi.addEventListener('click', () => {
-          flyToStore(thisLongitude, thisLatitude);
+          flyToStore(thisLongitude, thisLatitude)
         })
-      };
-    } else {
-      // まだ投稿がない場合、#storage を 削除
-      storage.remove()
+      }
     }
   }
 });

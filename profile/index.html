@@ -18,13 +18,11 @@
     <h1></h1>
   </header>
   <article>
-    <details id="readme">
-      <summary>About This Page このページについて</summary>
-      <section></section>
-    </details>
     <details id="storage">
       <summary>Your Local Storage あなたのローカルストレージ</summary>
-      <ol></ol>
+      <section>
+        <ol></ol>
+      </section>
     </details>
   </article>
   <main id="map"></main>
@@ -65,16 +63,29 @@
       const el = document.createElement('div');
       el.id = `marker-${marker.properties.id}`;
       el.className = marker.properties.tags;
-      new mapboxgl.Marker(el, {
-        offset: [0, 0]
-      })
+
+      new mapboxgl.Marker(el)
       .setLngLat(marker.geometry.coordinates)
+      .setPopup(
+        new mapboxgl.Popup({ offset: 25 })
+        .setHTML(`
+          <strong>${marker.properties.address}</strong>
+          <p>${marker.properties.date}</p>
+          `
+        )
+      )
       .addTo(map)
+
+      el.addEventListener('click', (e) => {
+        map.flyTo({
+          center: marker.geometry.coordinates,
+          zoom: 3
+        })
+      })
     }
   }
 
   let userInteracting = 0;
-
   function spinGlobe(){
     const zoom = map.getZoom();
     if(!userInteracting && zoom < 5) {
