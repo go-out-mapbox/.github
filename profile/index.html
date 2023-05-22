@@ -26,8 +26,7 @@
   if (!storageAvailable('localStorage')) {
     window.location.replace('/map/')
   }
-  if ('geolocation' in navigator) {
-  } else {
+  if (!'geolocation' in navigator) {
     window.location.replace('/map/')
   }
   </script>
