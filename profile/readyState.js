@@ -51,7 +51,7 @@ document.addEventListener('readystatechange', event => {
 
     // localStorage から 投稿 を取得
     if(localStorage.getItem('map')) {
-      storageTitle.innerText = 'あなたの位置情報 Your Device Locations';
+      storageTitle.innerText = 'The Collection of Your Location あなたのウェブストレージに保存された位置情報';
       storageSection.innerHTML = '<ol></ol>';
 
       const mapJSON = JSON.parse(localStorage.getItem('map'));
@@ -98,7 +98,7 @@ document.addEventListener('readystatechange', event => {
         })
       }
     } else {
-      storageTitle.innerText = 'このウェブサイトについて About This Website';
+      storageTitle.innerText = 'About This Website このウェブサイトについて';
       storageSection.className = 'readme';
 
       async function readmeMD() {
