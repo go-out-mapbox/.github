@@ -1,5 +1,4 @@
 map.on('load', () => {
-  // Add a data source containing GeoJSON data.
   map.addSource('heard', {
     'type': 'geojson',
     'data': {
@@ -9,7 +8,6 @@ map.on('load', () => {
           'type': 'Feature',
           'geometry': {
             'type': 'Polygon',
-            // These coordinates outline Maine.
             'coordinates': [
               [
                 [135.7610870139788,35.003577397910576],
@@ -26,7 +24,6 @@ map.on('load', () => {
           'type': 'Feature',
           'geometry': {
             'type': 'Polygon',
-            // These coordinates outline Maine.
             'coordinates': [
               [
                 [135.41570459932808, 34.6444498906305],
@@ -46,11 +43,11 @@ map.on('load', () => {
     }
   });
 
-  // Add a new layer to visualize the polygon.
+  // 新しいレイヤーを追加してポリゴンを視覚化
   map.addLayer({
     'id': 'heard',
     'type': 'fill',
-    'source': 'heard', // reference the data source
+    'source': 'heard',
     'layout': {},
     'paint': {
       'fill-color': '#CDCBCC',
@@ -58,11 +55,11 @@ map.on('load', () => {
     }
   });
 
-  // Add a outline around the polygon.
+  // ポリゴンにアウトラインを追加
   map.addLayer({
     'id': 'around',
     'type': 'line',
-    'source': 'heard', // reference the data source
+    'source': 'heard',
     'layout': {},
     'paint': {
       'line-color': '#fff',

@@ -1,11 +1,17 @@
 'use strict'
 
-if(!localStorage.getItem('yourInfo')) {
-  // アイテムが存在しない場合に実行する文
+if(localStorage.getItem('yourInfo')) {
+  enter.addEventListener('click', (e) => {
+    geoFindMe()
+  })
+} else {
   errorMD();
   submitButton.remove();
   submitDetails.remove();
-};
+  enter.addEventListener('click', (e) => {
+    ChangeHidden();
+  })
+}
 
 // 現在地を取得する
 function geoFindMe() {
@@ -35,14 +41,14 @@ function geoFindMe() {
       return data;
     };
 
-    // 現在地へ地図の中心を移動する
+    // 地図の中心を現在地へ移動
     let center = [longitude, latitude];
     map.flyTo({
       center: center,
       zoom: 20
     });
 
-    // localStorageに現在地を保存する
+    // localStorageに現在地を保存
     let date = new Date();
     const geolocation = {
       latitude : latitude,
@@ -117,7 +123,7 @@ function ChangeHidden() {
 
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
-    /* ローカルストレージに現在地の記録があるかを確認 */
+    /* localStorageに現在地の記録があるかを確認 */
     if(localStorage.getItem("geolocation")) {
       const geolocation = JSON.parse(localStorage.getItem("geolocation"));
       yourHere.innerHTML = `

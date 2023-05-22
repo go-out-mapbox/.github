@@ -23,7 +23,7 @@
 </head>
 <body>
   <h1 id="title" class="goout">Go Out</h1>
-  <button type="button" id="enter" class="goout" onclick="geoFindMe()">Let's have some fun</button>
+  <button type="button" id="enter" class="goout">Let's have some fun</button>
 
   <main id="date">
     <h2 id="geolocation">
@@ -80,7 +80,6 @@
     scrollZoom: true
   });
 
-  // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
 
   async function indexHTML() {
