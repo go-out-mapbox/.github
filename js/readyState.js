@@ -1,5 +1,16 @@
 'use strict'
 
+if(!storage.getItem('yourInfo')) {
+  // アイテムが存在しない場合に実行する文
+  errorMD();
+  enter.remove();
+  submitButton.remove();
+  submitDetails.remove();
+} else {
+  // アイテムが存在する場合に実行する文
+  indexHTML();
+}
+
 // 現在地を取得する
 function geoFindMe() {
   function success(position) {
@@ -123,9 +134,9 @@ document.addEventListener('readystatechange', event => {
       })
     };
 
-    const submitClose = document.querySelector('#submit #close');
+    const submitClose = document.querySelector('#submit #close')
     submitClose.addEventListener('click', function () {
-      const geolocation = JSON.parse(localStorage.getItem("geolocation"));
+      const geolocation = JSON.parse(localStorage.getItem("geolocation"))
       let center = [geolocation.longitude, geolocation.latitude];
       map.flyTo({
         center: center,
@@ -142,7 +153,7 @@ document.addEventListener('readystatechange', event => {
         thisDate = mapJSON[i].date,
         thisOn = mapJSON[i].timestamp;
 
-        let thisCenter = [thisLongitude, thisLatitude];
+        let thisCenter = [thisLongitude, thisLatitude]
         let yourMarker = {
           'type': 'Feature',
           'geometry': {
