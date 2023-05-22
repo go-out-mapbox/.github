@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
   <script src="../js/index.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
   <link href="../font/style.css" rel="stylesheet" />
   <link href="../css/reset.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
@@ -19,15 +19,13 @@
   </header>
   <article>
     <details id="storage">
-      <summary>Your Local Storage あなたのローカルストレージ</summary>
-      <section>
-        <ol></ol>
-      </section>
+      <summary></summary>
+      <section></section>
     </details>
   </article>
   <main id="map"></main>
   <script type="text/javascript">
-  /* ページにMapboxを埋め込む */
+  // ページにMapboxを埋め込む
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
   let center = [135.50433479522678, 34.69699057458179];
 
@@ -85,6 +83,7 @@
     }
   }
 
+  // 回転する地球儀を作成
   let userInteracting = 0;
   function spinGlobe(){
     const zoom = map.getZoom();
