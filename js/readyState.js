@@ -3,13 +3,9 @@
 if(!localStorage.getItem('yourInfo')) {
   // アイテムが存在しない場合に実行する文
   errorMD();
-  title.remove();
-  enter.remove();
   submitButton.remove();
   submitDetails.remove();
-  mapbox.style.pointerEvents = "auto";
-  mapbox.style.userSelect = "auto";
-}
+};
 
 // 現在地を取得する
 function geoFindMe() {
@@ -25,17 +21,19 @@ function geoFindMe() {
 
     // 緯度経度から住所を検索
     let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?language=ja&access_token=${mapboxgl.accessToken}`;
-    fetchData(uri).then(function(response){ return response.text().then(function(jsonStr){
-      var data = JSON.parse(jsonStr);
-      var context = data.features[0].place_name;
-      yourAddress.textContent = context;
-    });}).catch(err => { console.log(err); })
+    fetchData(uri).then(function(response) {
+      return response.text().then(function(jsonStr) {
+        var data = JSON.parse(jsonStr);
+        var context = data.features[0].place_name;
+        yourAddress.textContent = context;
+      });
+    }).catch(err => { console.log(err); });
 
     async function fetchData(_uri) {
       const res = await fetch(_uri);
       const data = await res;
       return data;
-    }
+    };
 
     // 地図の中心を現在地へ移動
     let center = [longitude, latitude];
@@ -64,7 +62,7 @@ function geoFindMe() {
 
     indexHTML();
     ChangeHidden();
-  }
+  };
 
   function error() {
     mapbox.style.pointerEvents = "auto";
@@ -76,7 +74,7 @@ function geoFindMe() {
     submitButton.remove();
     submitDetails.remove();
     ChangeHidden();
-  }
+  };
 
   if(!navigator.geolocation) {
     mapbox.style.pointerEvents = "auto";
@@ -99,9 +97,9 @@ function geoFindMe() {
     title.style.opacity = "0";
     setTimeout(() => {
       title.remove();
-    }, 2500)
+    }, 2500);
   }
-}
+};
 
 function ChangeHidden() {
   const mainAll = document.querySelectorAll('main');
@@ -113,8 +111,8 @@ function ChangeHidden() {
       main.hidden = false;
       enter.textContent = "You Are Here";
     }
-  })
-}
+  });
+};
 
 
 document.addEventListener('readystatechange', event => {
@@ -126,36 +124,36 @@ document.addEventListener('readystatechange', event => {
       <span id="longitude">${geolocation.longitude}</span>,
       <span id="latitude">${geolocation.latitude}</span>
       `;
-      yourAddress.textContent = `Your Device's Last Known Location ${geolocation.timestamp}`
+      yourAddress.textContent = `Your Device's Last Known Location ${geolocation.timestamp}`;
 
       let center = [geolocation.longitude, geolocation.latitude];
       map.flyTo({
         center: center
-      })
+      });
     };
 
-    const submitClose = document.querySelector('#submit #close')
+    const submitClose = document.querySelector('#submit #close');
     submitClose.addEventListener('click', function () {
-      const geolocation = JSON.parse(localStorage.getItem("geolocation"))
+      const geolocation = JSON.parse(localStorage.getItem("geolocation"));
       let center = [geolocation.longitude, geolocation.latitude];
       map.flyTo({
         center: center,
         zoom: 11.11
-      })
-    })
+      });
+    });
   } else if (event.target.readyState === 'complete') {
     // 地図にマーカーを追加
     map.on('load', () => {
       map.addSource('places', {
         'type': 'geojson',
         'data': stores
-      })
-      addMarkers()
-    })
+      });
+      addMarkers();
+    });
 
     stores.features.forEach((store, i) => {
       store.properties.id = i;
-    })
+    });
 
     function addMarkers() {
       for (const marker of stores.features) {
@@ -200,7 +198,7 @@ document.addEventListener('readystatechange', event => {
       map.flyTo({
         center: currentFeature.geometry.coordinates,
         zoom: 15
-      });
+      })
     }
   }
 });
