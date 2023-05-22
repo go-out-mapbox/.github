@@ -21,7 +21,8 @@ h3 {
   font-family: "Osaka", sans-serif;
 }
 
-h3 span {
+h3 span,
+#submit #readme a {
   color: #000;
   font-size: 125%;
   text-decoration: lightskyblue wavy underline;
