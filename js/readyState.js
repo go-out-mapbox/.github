@@ -3,11 +3,11 @@
 if(!localStorage.getItem('yourInfo')) {
   // アイテムが存在しない場合に実行する文
   errorMD();
+  enter.remove();
   submitButton.remove();
   submitDetails.remove();
-} else {
-  // アイテムが存在する場合に実行する文
-  indexHTML();
+  mapbox.style.pointerEvents = "auto";
+  mapbox.style.userSelect = "auto";
 }
 
 // 現在地を取得する
