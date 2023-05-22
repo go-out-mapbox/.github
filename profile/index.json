@@ -1,6 +1,6 @@
 {
   "title" : "The Collection of Your Location | Go Out",
-  "description" : "ウェブストレージAPIが利用できないブラウザは、このページを閲覧できません。",
+  "description" : "ウェブストレージAPI・位置情報APIが利用できないブラウザでは、このページを閲覧できません。",
   "author" : "creative-community.space",
   "email" : "pehu@creative-community.space",
   "type" : "website",

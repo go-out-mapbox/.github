@@ -26,6 +26,9 @@
   if (!storageAvailable('localStorage')) {
     window.location.replace('/map/')
   }
+  if (!'geolocation' in navigator) {
+    window.location.replace('/map/')
+  }
   </script>
   <script src="../js/index.js" async></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
