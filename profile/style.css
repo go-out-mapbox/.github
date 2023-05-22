@@ -218,3 +218,17 @@ header {
   width: 15px;
   height: 15px;
 }
+
+
+@media (orientation: landscape) {
+  .mapboxgl-popup-content p {
+    margin: 0.5rem 0 0;
+  }
+}
+
+
+@media (orientation: portrait) {
+  .mapboxgl-popup-content p {
+    margin: 1vw 0 0;
+  }
+}
