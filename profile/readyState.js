@@ -11,6 +11,9 @@ function flyToStore(longitude, latitude) {
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
     const title = document.querySelector('h1');
+    const storageTitle = document.querySelector('#storage summary');
+    const storageSection = document.querySelector('#storage section');
+
     const back = document.querySelector('#back');
     back.addEventListener('click', function () {
       location.assign('../');
@@ -36,21 +39,19 @@ document.addEventListener('readystatechange', event => {
       <b>${latitude}</b><br/>
       <small>Last Known Location ${timestamp}</small>
       `
-
-      // li 要素を クリックすると 投稿した位置に地図の中心が移動
       title.addEventListener('click', () => {
         flyToStore(longitude, latitude);
       });
+
+      storageTitle.innerText = 'Your Local Storage あなたのローカルストレージ';
+      storageSection.innerHTML = '<ol></ol>';
     } else {
       title.innerHTML = `
       <u>Web Storage API</u><br/>
       <b>The Location Informations of Your Device's</b>
       `;
-
-      const storageTitle = document.querySelector('#storage summary');
-      const storageSection = document.querySelector('#storage section');
-      storageSection.className = 'readme';
       storageTitle.innerText = 'About This Page このページについて';
+      storageSection.className = 'readme';
 
       async function readmeMD() {
         fetch('../README.md')
