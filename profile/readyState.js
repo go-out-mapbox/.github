@@ -93,7 +93,7 @@ document.addEventListener('readystatechange', event => {
         `;
 
         // li 要素を クリックすると 投稿した位置に地図の中心が移動
-        storageLi.addEventListener('click', () => {
+        storageItem.addEventListener('click', () => {
           flyToStore(thisLongitude, thisLatitude)
         })
       }
