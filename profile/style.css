@@ -214,6 +214,7 @@ header {
   background: lemonchiffon;
   border: lightskyblue solid 2px;
   border-radius: 50%;
+  cursor: pointer;
   width: 15px;
   height: 15px;
 }
