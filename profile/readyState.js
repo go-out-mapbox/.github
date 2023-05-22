@@ -49,63 +49,77 @@ document.addEventListener('readystatechange', event => {
     const storageTitle = document.querySelector('#storage summary');
     const storageSection = document.querySelector('#storage section');
 
-    // localStorage から 投稿 を取得
-    if(localStorage.getItem('map')) {
-      storageTitle.innerText = 'The Collection of Your Location あなたのウェブストレージに保存された位置情報';
-      storageSection.innerHTML = '<ol></ol>';
+    if(localStorage.getItem('yourInfo')) {
+      // localStorage から 投稿 を取得
+      if(localStorage.getItem('map')) {
+        storageTitle.innerText = 'あなたの位置情報 The Collection of Your Location';
+        storageSection.innerHTML = '<ol></ol>';
 
-      const mapJSON = JSON.parse(localStorage.getItem('map'));
-      for (let i = 0; i < mapJSON.length; i++) {
-        let thisLongitude = mapJSON[i].longitude,
-        thisLatitude = mapJSON[i].latitude,
-        thisAddress = mapJSON[i].address,
-        thisDate = mapJSON[i].date,
-        thisOn = mapJSON[i].timestamp,
-        thisCenter = [thisLongitude, thisLatitude];
+        const mapJSON = JSON.parse(localStorage.getItem('map'));
+        for (let i = 0; i < mapJSON.length; i++) {
+          let thisLongitude = mapJSON[i].longitude,
+          thisLatitude = mapJSON[i].latitude,
+          thisAddress = mapJSON[i].address,
+          thisDate = mapJSON[i].date,
+          thisOn = mapJSON[i].timestamp,
+          thisCenter = [thisLongitude, thisLatitude];
 
-        let yourMarker = {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': thisCenter
-          },
-          'properties': {
-            'title': `${thisLongitude}, ${thisLatitude}`,
-            'address': thisAddress,
-            'date': thisDate,
-            'timestamp': thisOn,
-            'tags': 'marker',
+          let yourMarker = {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': thisCenter
+            },
+            'properties': {
+              'title': `${thisLongitude}, ${thisLatitude}`,
+              'address': thisAddress,
+              'date': thisDate,
+              'timestamp': thisOn,
+              'tags': 'marker',
+            }
           }
+          stores.features.push(yourMarker);
+
+          // #storage に 投稿ごとの id名を付けた li要素 を生成
+          const storageItem = document.createElement('li');
+          storageItem.id = `log-${i}`;
+          document.querySelector('#storage ol').appendChild(storageItem);
+
+          // li 要素内に 投稿を出力
+          storageItem.innerHTML = `
+          <h2>${thisLongitude}, ${thisLatitude}</h2><br/>
+          <address>${thisAddress}</address>
+          <p>${thisDate}</p>
+          <time>${thisOn}</time>
+          `;
+
+          // li 要素を クリックすると 投稿した位置に地図の中心が移動
+          storageItem.addEventListener('click', () => {
+            flyToStore(thisLongitude, thisLatitude)
+          })
         }
-        stores.features.push(yourMarker);
+      } else {
+        storageTitle.innerText = 'このウェブサイトについて About This Website';
+        storageSection.className = 'readme';
 
-        // #storage に 投稿ごとの id名を付けた li要素 を生成
-        const storageItem = document.createElement('li');
-        storageItem.id = `log-${i}`;
-        document.querySelector('#storage ol').appendChild(storageItem);
-
-        // li 要素内に 投稿を出力
-        storageItem.innerHTML = `
-        <h2>${thisLongitude}, ${thisLatitude}</h2><br/>
-        <address>${thisAddress}</address>
-        <p>${thisDate}</p>
-        <time>${thisOn}</time>
-        `;
-
-        // li 要素を クリックすると 投稿した位置に地図の中心が移動
-        storageItem.addEventListener('click', () => {
-          flyToStore(thisLongitude, thisLatitude)
-        })
+        async function readmeMD() {
+          fetch('../README.md')
+          .then(response => response.text())
+          .then(innerText => {
+            storageSection.innerText = innerText;
+          });
+        }
+        readmeMD()
       }
     } else {
-      storageTitle.innerText = 'About This Website このウェブサイトについて';
+      storageTitle.innerText = 'このウェブサイトについて About This Website';
       storageSection.className = 'readme';
 
       async function readmeMD() {
-        fetch('../README.md')
+        fetch('login.html')
         .then(response => response.text())
-        .then(innerText => {
-          storageSection.innerText = innerText;
+        .then(innerHTML => {
+          storageSection.innerHTML = innerHTML;
         });
       }
       readmeMD()
