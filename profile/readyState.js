@@ -115,7 +115,7 @@ document.addEventListener('readystatechange', event => {
       storageTitle.innerText = 'このウェブサイトについて About This Website';
       storageSection.className = 'readme';
 
-      storageSection.innerHTML = `To Browsing This Site, Please Enter <a href="/">creative-community.space</a>`;
+      storageSection.innerHTML = `Please Enter to <a href="/">creative-community.space</a> for Browsing This Site`;
     }
   }
 });
