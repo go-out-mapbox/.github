@@ -16,10 +16,10 @@ document.addEventListener('readystatechange', event => {
     if(localStorage.getItem('geolocation')) {
       title.className = "geo"
       const geoJSON = JSON.parse(localStorage.getItem('geolocation'));
-      let longitude = geoJSON.longitude;
-      let latitude = geoJSON.latitude;
-      let accuracy = geoJSON.accuracy;
-      let timestamp = geoJSON.timestamp;
+      let longitude = geoJSON.longitude,
+      latitude = geoJSON.latitude,
+      accuracy = geoJSON.accuracy,
+      timestamp = geoJSON.timestamp;
 
       let center = [longitude, latitude];
       map.flyTo({
@@ -50,7 +50,7 @@ document.addEventListener('readystatechange', event => {
     })
 
     async function readmeMD() {
-      fetch('README.md')
+      fetch('../README.md')
       .then(response => response.text())
       .then(innerText => {
         document.querySelector('#readme section').innerText = innerText;
@@ -58,18 +58,18 @@ document.addEventListener('readystatechange', event => {
     }
     readmeMD();
   } else if (event.target.readyState === 'complete') {
-    const storage = document.querySelector('#storage');
-    const storageOl = document.querySelector('#storage ol');
+    const storage = document.querySelector('#storage'),
+    storageOl = document.querySelector('#storage ol');
 
     // localStorage から 投稿 を取得
     if(localStorage.getItem('map')) {
       const mapJSON = JSON.parse(localStorage.getItem('map'));
       for (let i = 0; i < mapJSON.length; i++) {
-        let thisLongitude = mapJSON[i].longitude;
-        let thisLatitude = mapJSON[i].latitude;
-        let thisAddress = mapJSON[i].address;
-        let thisDate = mapJSON[i].date;
-        let thisOn = mapJSON[i].timestamp;
+        let thisLongitude = mapJSON[i].longitude,
+        thisLatitude = mapJSON[i].latitude,
+        thisAddress = mapJSON[i].address,
+        thisDate = mapJSON[i].date,
+        thisOn = mapJSON[i].timestamp;
 
         let thisCenter = [thisLongitude, thisLatitude];
         let yourMarker = {

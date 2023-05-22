@@ -44,10 +44,6 @@ h3 b,
   font-size: 250%;
 }
 
-#submit form {
-  background: #fff7;
-}
-
 #submit textarea {
   border: 1px solid lightskyblue;
   box-sizing: border-box;

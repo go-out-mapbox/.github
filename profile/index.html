@@ -78,12 +78,12 @@
   function spinGlobe(){
     const zoom = map.getZoom();
     if(!userInteracting && zoom < 5) {
-      let e = 5;
+      let speed = 1;
       if(zoom > 3) {
-        e *= (5 - zoom) / 2
+        speed *= (5 - zoom) / 2
       }
       const lng = map.getCenter();
-      lng.lng -= e,
+      lng.lng -= speed,
       map.easeTo({
         center: lng,
         easing: zoom => zoom

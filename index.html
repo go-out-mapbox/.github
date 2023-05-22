@@ -13,18 +13,18 @@
   <link href="css/marker.css" rel="stylesheet" />
   <link href="css/title.css" rel="stylesheet" />
   <link href="css/submit.css" rel="stylesheet" />
+  <link rel="icon" href="profile/icon.png" type="image/png">
+  <link rel="icon" href="profile/icon.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon-precomposed" href="profile/icon.png" sizes="180x180" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
-  <link rel="icon" href="profile/icon.png" type="image/png">
-  <link rel="icon" href="profile/icon.png" sizes="192x192" type="image/png">
-  <link rel="apple-touch-icon-precomposed" href="profile/icon.png" sizes="180x180" type="image/png">
 </head>
 <body>
   <h1 id="title" class="goout">Go Out</h1>
   <button type="button" id="enter" class="goout" onclick="geoFindMe()">Let's have some fun</button>
-  <article id="map"></article>
+
   <main id="date">
     <h2 id="geolocation">
       Life is precious. Every minute. And more precious with you in it.
@@ -39,6 +39,7 @@
       </h3>
     </section>
   </main>
+
   <main id="submit" hidden>
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
     <form>
@@ -55,6 +56,9 @@
     </form>
     <footer id="credit" class="goout"></footer>
   </main>
+
+  <article id="map"></article>
+  
   <script type="text/javascript">
   const mapbox = document.querySelector('#map'),
   yourHere = document.querySelector('#date #geolocation'),
@@ -96,7 +100,7 @@
   }
 
   async function errorMD() {
-    fetch('readme.md')
+    fetch('profile/README.md')
     .then(response => response.text())
     .then(innerText => {
       document.querySelector('#readme').innerText = innerText;
