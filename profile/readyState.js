@@ -42,7 +42,7 @@ document.addEventListener('readystatechange', event => {
     } else {
       title.innerHTML = `
       <u>Web Storage API</u><br/>
-      <b>The Location Informations of Your Device's</b>
+      <b>Create a Collection of Your Location</b>
       `;
     }
   } else if (event.target.readyState === 'complete') {
@@ -51,7 +51,7 @@ document.addEventListener('readystatechange', event => {
 
     // localStorage から 投稿 を取得
     if(localStorage.getItem('map')) {
-      storageTitle.innerText = 'Your Local Storage あなたのローカルストレージ';
+      storageTitle.innerText = 'あなたの位置情報 Your Device Locations';
       storageSection.innerHTML = '<ol></ol>';
 
       const mapJSON = JSON.parse(localStorage.getItem('map'));
@@ -98,7 +98,7 @@ document.addEventListener('readystatechange', event => {
         })
       }
     } else {
-      storageTitle.innerText = 'About This Page このページについて';
+      storageTitle.innerText = 'このウェブサイトについて About This Website';
       storageSection.className = 'readme';
 
       async function readmeMD() {

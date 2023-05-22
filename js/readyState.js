@@ -19,7 +19,7 @@ function geoFindMe() {
     <span id="latitude">${latitude}</span>
     `;
 
-    // 緯度経度から住所を検索
+    // Mapbox リバースジオコーディング
     let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?language=ja&access_token=${mapboxgl.accessToken}`;
     fetchData(uri).then(function(response) {
       return response.text().then(function(jsonStr) {
@@ -35,14 +35,14 @@ function geoFindMe() {
       return data;
     };
 
-    // 地図の中心を現在地へ移動
+    // 現在地へ地図の中心を移動する
     let center = [longitude, latitude];
     map.flyTo({
       center: center,
       zoom: 20
     });
 
-    // ローカルストレージへ現在地を記録
+    // localStorageに現在地を保存する
     let date = new Date();
     const geolocation = {
       latitude : latitude,

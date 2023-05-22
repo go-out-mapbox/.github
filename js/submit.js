@@ -1,6 +1,6 @@
 'use strict'
 
-// localStorage に 投稿 を追加
+// localStorage に 位置情報 を 保存する
 let array = JSON.parse(localStorage.getItem("map")) || [];
 const addData = (longitude, latitude, address, date, timestamp) => {
   array.push({
@@ -10,18 +10,16 @@ const addData = (longitude, latitude, address, date, timestamp) => {
     date,
     timestamp
   })
-
   localStorage.setItem("map", JSON.stringify(array))
   return {longitude, latitude, address, date, timestamp}
 }
 
-
-// 現在地を投稿する
+// 位置情報 を 投稿する
 submitForm.addEventListener('submit', submitThis)
 async function submitThis() {
   event.preventDefault()
 
-  // localStorage に 投稿 を追加する
+  // localStorage に 投稿 を 追加する
   const thisLongitude = document.querySelector('#date #longitude').textContent
   const thisLatitude = document.querySelector('#date #latitude').textContent
   const thisAddress = yourAddress.textContent

@@ -1,6 +1,6 @@
 {
-  "title" : "Go Out | 行ったことのない場所へ行く",
-  "description" : "知っている場所の 外へ わからないところまで 出かける",
+  "title" : "The Collection of Your Location | Go Out",
+  "description" : "ウェブストレージAPIが利用できないブラウザは、このページを閲覧できません。",
   "author" : "creative-community.space",
   "email" : "pehu@creative-community.space",
   "type" : "website",
@@ -9,23 +9,5 @@
   "src" : "profile/card.png",
 
   "contents" : [
-    {
-      "title" : "things that i (we) heard",
-      "date" : "私（わたしたち）が聞いた言葉",
-      "url" : "heard/",
-      "type" : "heard"
-    },
-    {
-      "title" : "Fancy and Relaxin'",
-      "date" : "優雅にゆっくり落ち着ける場所",
-      "url" : "relax/",
-      "type" : "relax"
-    },
-    {
-      "title" : "やるぞ ‼",
-      "date" : "大阪ヘルスバンクニュース掲示板",
-      "url" : "do/",
-      "type" : "do"
-    }
   ]
 }
