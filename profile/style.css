@@ -11,7 +11,7 @@ article {
   overflow: auto;
   width: 100%;
   max-height: 100%;
-  z-index: 5;
+  z-index: 10;
 }
 
 input[type="button"],
@@ -142,7 +142,7 @@ input[type="button"] {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 10;
+  z-index: 5;
 }
 
 header {
