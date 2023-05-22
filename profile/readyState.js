@@ -42,7 +42,7 @@ document.addEventListener('readystatechange', event => {
     } else {
       title.innerHTML = `
       <u>Web Storage API</u><br/>
-      <b>Create a Collection of Your Location</b>
+      <b>The Collection of Your Location</b>
       `;
     }
   } else if (event.target.readyState === 'complete') {
