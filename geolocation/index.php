@@ -53,6 +53,13 @@
   // ページにMapboxを埋め込む
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
   let center = [0, 0];
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
+    center: center,
+    zoom: 10,
+    scrollZoom: true
+  })
 
   // 現在位置を取得できた場合の処理
   function success(position) {
@@ -69,13 +76,10 @@
   // 現在位置を取得する
   navigator.geolocation.getCurrentPosition(success, error);
 
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
+  map.flyTo({
     center: center,
-    zoom: 10,
-    scrollZoom: true
-  })
+    zoom: 15
+  });
 
   // Add the control to the map.
   const geocoder = new MapboxGeocoder({
