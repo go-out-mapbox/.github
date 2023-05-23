@@ -69,11 +69,6 @@
   // 現在位置を取得する
   navigator.geolocation.getCurrentPosition(success, error);
 
-  map.flyTo({
-    center: center,
-    zoom: 15
-  });
-
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
