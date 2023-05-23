@@ -1,10 +1,4 @@
-# Mapbox GL JS を 使った カスタム地図 の 作り方
-[How to Coding a Custom Map with Mapbox GL JS](https://go-out-mapbox.github.io/)
-* Mapbox GL JS を 使った カスタム地図 の 作り方
-* 地図 に カスタムマーカー と ポップアップ を追加する
----
-
-##このサイトで使用しているJavaScript
+# このサイトで使用しているJavaScript
 
 [readyState.js](js/readyState.js)
 * 位置情報API を使って デバイスの位置情報(緯度・経度)[^4] を取得
