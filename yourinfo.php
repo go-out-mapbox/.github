@@ -1,3 +1,4 @@
+<u>あなたの通信情報／ブラウザ等情報</u>
 <p>
   <?php
   $ip = $_SERVER["REMOTE_ADDR"];

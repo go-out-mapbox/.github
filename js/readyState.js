@@ -10,7 +10,7 @@ if(localStorage.getItem('yourInfo')) {
     .then(response => response.text())
     .then(innerHTML => {
       document.querySelector('#readme').innerHTML = `
-      <strong>Submit Your Info to Enter This Site</strong>
+      <strong>Submit Your Info to Enter This Site</strong><br/>
       ${innerHTML}
       `;
     });
