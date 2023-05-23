@@ -66,20 +66,23 @@
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
     let center = [longitude, latitude];
+    map.flyTo({
+      center: center,
+      zoom: 15
+    });
   };
 
   // 現在位置を取得できなかった場合の処理
   function error() {
     let center = [135.50433479522678, 34.69699057458179];
+    map.flyTo({
+      center: center,
+      zoom: 15
+    });
   };
 
   // 現在位置を取得する
   navigator.geolocation.getCurrentPosition(success, error);
-
-  map.flyTo({
-    center: center,
-    zoom: 15
-  });
 
   // Add the control to the map.
   const geocoder = new MapboxGeocoder({
