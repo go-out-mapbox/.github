@@ -8,7 +8,9 @@ let stores = {
 function flyToStore(longitude, latitude) {
   map.flyTo({
     center: [longitude, latitude],
-    zoom: 11.11,
+    bearing: 0,
+    pitch: 60,
+    zoom: 15,
     essential: true
   });
 }
