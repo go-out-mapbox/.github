@@ -1,4 +1,4 @@
-# This is a Collection of Location You have clicked "I'm Here" on This Site and more.
+# This is a Collection of Location where you have clicked "I'm Here" on this site and more.
 
 このウェブサイトに投稿[^1] された位置情報などを ウェブストレージ[^2] と CSV に保存し、私たちがいた場所のコレクションを制作します。
 
