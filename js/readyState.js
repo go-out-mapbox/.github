@@ -16,6 +16,12 @@ if(localStorage.getItem('yourInfo')) {
   submitButton.remove();
   submitDetails.remove();
   enter.addEventListener('click', (e) => {
+    mapbox.style.pointerEvents = "auto";
+    mapbox.style.userSelect = "auto";
+    title.style.opacity = "0";
+    setTimeout(() => {
+      title.remove();
+    }, 2500);
     ChangeHidden();
   })
 }
@@ -23,6 +29,9 @@ if(localStorage.getItem('yourInfo')) {
 // 現在地を取得する
 function geoFindMe() {
   function success(position) {
+    mapbox.style.pointerEvents = "auto";
+    mapbox.style.userSelect = "auto";
+
     // 緯度経度を変数に代入
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
@@ -70,9 +79,6 @@ function geoFindMe() {
 
     dateSection.innerHTML = `<p class="goout"><time>${date}</time></p>`;
     enter.textContent = "You Are Here";
-    mapbox.style.pointerEvents = "auto";
-    mapbox.style.userSelect = "auto";
-
     indexHTML();
     ChangeHidden();
   };
@@ -137,7 +143,7 @@ document.addEventListener('readystatechange', event => {
       <span id="longitude">${geolocation.longitude}</span>,
       <span id="latitude">${geolocation.latitude}</span>
       `;
-      yourAddress.textContent = `Your Device's Last Known Location ${geolocation.timestamp}`;
+      yourAddress.textContent = `Last Known Location ${geolocation.timestamp}`;
 
       let center = [geolocation.longitude, geolocation.latitude];
       map.flyTo({

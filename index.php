@@ -78,7 +78,6 @@
 
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
   let center = [135.50433479522678, 34.69699057458179];
-
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
