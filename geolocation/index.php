@@ -44,7 +44,6 @@
   }
   </style>
 
-  <input type="button" name="button" id="back">
   <div id="geocoder" class="geocoder"></div>
   <pre id="coordinates" class="coordinates"></pre>
 
@@ -100,25 +99,50 @@
   // 現在位置を取得する
   navigator.geolocation.getCurrentPosition(success, error);
 
-  // Add the control to the map.
+  // 現在位置を取得するボタンを追加
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      // デバイスの位置の変更に応じて位置情報を更新
+      trackUserLocation: true,
+      // デバイスが向いている方向を矢印で描画
+      showUserHeading: true
+    })
+  );
+
+  // 場所を検索するジオコーダーコントロールを追加
   const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
-    marker: {
-      color: 'lightskyblue',
-      draggable: true
-    },
+    marker: false,
     mapboxgl: mapboxgl
   })
 
+  // ジオコーダー を #geocoder に配置
   document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
-  const coordinates = document.getElementById('coordinates');
-  function onDragEnd() {
-    const lngLat = marker.getLngLat();
-    coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
-  }
 
-  marker.on('dragend', onDragEnd);
+
+  // ジオコーダーの結果後にドラッグ可能マーカーを設定
+  geocoder.on('result', function(e) {
+    var marker = new mapboxgl.Marker({
+      draggable: true,
+      color: "red"
+    })
+    .setLngLat(e.result.center)
+    .addTo(map);
+
+    // マーカーの座標を #coordinates に表示
+    const coordinates = document.getElementById('coordinates');
+    function onDragEnd() {
+      const lngLat = marker.getLngLat();
+      coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+    }
+
+    marker.on('dragend', onDragEnd);
+    onDragEnd();
+  });
 </script>
 </body>
 </html>
