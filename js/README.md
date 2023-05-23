@@ -39,6 +39,8 @@ if (!storageAvailable('localStorage')) {
 }
 ```
 
+--- 
+
 ブラウザが位置情報サービスを利用できるかを確認するコード
 ```
 if (!'geolocation' in navigator) {
