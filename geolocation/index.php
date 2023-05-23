@@ -11,62 +11,23 @@
   <link href="../font/style.css" rel="stylesheet" />
   <link href="../css/reset.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
-  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="icon" href="../profile/icon.png" type="image/png">
 </head>
 <body>
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 
-  <style>
-  .geocoder {
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    width: calc(100% - 85px);
-    max-width: 300px;
-    z-index: 10;
-  }
-
-  .coordinates {
-    background: #fff;
-    border-radius: 5px;
-    box-sizing: border-box;
-    color: #000;
-    font-size: 1rem;
-    padding: 5px 10px;
-    margin: 0 auto;
-    position: absolute;
-    bottom: 40px;
-    left: 0.5rem;
-    max-width: calc(100% - 1rem);
-    z-index: 5;
-  }
-
-  .coordinates address {
-    font-style: normal;
-    font-size: 75%;
-    margin: 0.25rem;
-  }
-
-  .coordinates p {
-    padding: 0;
-    margin: 0.25rem;
-  }
-
-  .coordinates p b {
-    font-size: 125%;
-  }
-  </style>
-
   <input type="button" name="button" id="back">
-  <div id="geocoder" class="geocoder"></div>
-  <div id="coordinates" class="coordinates">
-    <p class="relax">経度: <b id="lng" class="goout">Longitude</b></p>
-    <p class="relax">緯度: <b id="lat" class="goout">Latitude</b></p>
-    <address id="address" class="relax"></address>
-  </div>
+  <main>
+    <div id="geocoder"></div>
+    <h1 id="coordinates">
+      <address id="address" class="relax"><u>Geolocation API</u></address>
+      <b id="lng" class="goout">Longitude</b>
+      <b id="lat" class="goout">Latitude</b>
+    </h1>
+  </main>
 
-  <main id="map"></main>
+  <article id="map"></article>
   <script type="text/javascript">
   const thisLng = document.querySelector('#coordinates #lng');
   const thisLat = document.querySelector('#coordinates #lat');
