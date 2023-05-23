@@ -57,7 +57,7 @@
     container: 'map',
     style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
     center: center,
-    zoom: 10,
+    zoom: 1.23,
     scrollZoom: true
   })
 
