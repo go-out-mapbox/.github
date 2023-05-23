@@ -9,4 +9,4 @@
   echo "<span><small>USER AGENT <code id='os'>" . $os . "</code></small></span>";
   ?>
 </p>
-<button type="button" onclick="setLOG()" class="osaka" id="enter-btn">Submit</button>
+<button type="button" onclick="setLOG()" class="osaka" id="enter-btn">Enter</button>
