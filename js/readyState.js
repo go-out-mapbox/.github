@@ -155,8 +155,8 @@ async function errorMD() {
   document.querySelector('#readme').innerHTML = `
   <h3><span>This Site does not work well in your browser.</span></h3>
   <h4>To use all contents, please enable the use of location information in your browser.</h4>
-  <p>このウェブサイトでは位置情報サービスを使用するため、あなたのブラウザでは一部のコンテンツが利用できません。</p>
-  <p>デバイスの設定を変更し、ブラウザによる位置情報サービスの利用を許可すると、すべてのコンテンツが利用できます。</p>
+  <p>このウェブサイトでは位置情報サービスを使用するため、あなたのブラウザでは一部の機能が動作しません。</p>
+  <p>デバイスの設定を変更し、ブラウザによる位置情報サービスの利用を許可すると、すべての機能が利用できます。</p>
   `;
 
   fetch('credit.html')
