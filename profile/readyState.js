@@ -63,10 +63,9 @@ document.addEventListener('readystatechange', event => {
       });
 
       title.innerHTML = `
-      <u>Last Known Location</u><br/>
+      <u>Last Known Location ${timestamp}</u><br/>
       <b>${longitude}</b>,
-      <b>${latitude}</b><br/>
-      <small>${timestamp}</small>
+      <b>${latitude}</b>
       `;
       title.addEventListener('click', () => {
         flyToStore(longitude, latitude)
