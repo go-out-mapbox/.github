@@ -65,8 +65,8 @@ document.addEventListener('readystatechange', event => {
       addMarkers()
     })
 
-    stores.features.forEach((store, i) => {
-      store.properties.id = i;
+    stores.features.forEach((marker, i) => {
+      marker.properties.id = i;
     })
 
     function addMarkers() {
