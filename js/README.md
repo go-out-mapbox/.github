@@ -1,15 +1,28 @@
 # このサイトで使用しているJavaScript
 
-[readyState.js](js/readyState.js)
+[readyState.js](../js/readyState.js)
 * 位置情報API を使って デバイスの位置情報(緯度・経度)[^4] を取得
 * リバースジオコーディング[^5] を使って座標を住所に変換する
 
 [^4]:位置情報の取得と合わせて、位置情報を取得した日時をウェブストレージに記録します。
 [^5]:[Mapboxのリバースジオコーディングを使って、座標(緯度・経度)を住所(地域、会社名、対象地など)に変換する](https://docs.mapbox.com/api/search/geocoding/#reverse-geocoding)
 
-[submit.js](js/submit.js)
+
+[submit.js](../js/submit.js)
 * ウェブストレージ(localStorage) に 位置情報 を 保存
 * PHP で CSVファイル に 位置情報 の 投稿を追加する
+
+[localStorage.js](../js/localStorage.js)
+* ウェブストレージ(localStorage) から 位置情報 を 取得
+* 位置情報の投稿をオブジェクトに変換し GeoJSON に 追加する
+
+---
+
+[markers.js](../js/markers.js)
+* 地図に追加するマーカーの情報を記述する GeoJSONファイル
+
+[polygon.js](../js/polygon.js)
+* 地図に追加するポリゴンの情報を記述する GeoJSONファイル
 
 ***
 
@@ -39,7 +52,7 @@ if (!storageAvailable('localStorage')) {
 }
 ```
 
---- 
+---
 
 ブラウザが位置情報サービスを利用できるかを確認するコード
 ```
