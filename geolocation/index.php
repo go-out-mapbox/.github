@@ -74,10 +74,27 @@
 
   // 現在位置を取得できなかった場合の処理
   function error() {
-    map.flyTo({
-      center: center,
-      zoom: 11.11
-    });
+    // 回転する地球儀を作成
+    let userInteracting = 0;
+    function spinGlobe(){
+      const zoom = map.getZoom();
+      if(!userInteracting && zoom < 5) {
+        let speed = 1;
+        if(zoom > 3) {
+          speed *= (5 - zoom) / 2
+        }
+        const lng = map.getCenter();
+        lng.lng -= speed,
+        map.easeTo({
+          center: lng,
+          easing: zoom => zoom
+        })
+      }
+    }
+    map.on("mousedown",()=>{userInteracting=!0}),
+    map.on("dragstart",()=>{userInteracting=!0}),
+    map.on("moveend",()=>{spinGlobe()}),
+    spinGlobe()
   };
 
   // 現在位置を取得する
