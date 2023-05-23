@@ -100,19 +100,20 @@ h1 {
 }
 
 h1,
-#storage li {
+#storage li,
+.mapboxgl-popup-content time {
   font-family: "Kristina", "Osaka", sans-serif;
 }
 
 h1 u,
 h1 small,
 summary,
-#storage li address,
-.mapboxgl-map {
+#storage li address {
   font-family: "DiaPro", sans-serif;
 }
 
-#storage li p {
+#storage li p,
+.mapboxgl-popup-content p {
   font-family: "Osaka", sans-serif;
   font-weight: lighter;
 }
