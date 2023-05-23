@@ -108,12 +108,12 @@ h1,
 h1 u,
 h1 small,
 summary,
-#storage li address {
+#storage li address,
+.mapboxgl-popup-content p {
   font-family: "DiaPro", sans-serif;
 }
 
-#storage li p,
-.mapboxgl-popup-content p {
+#storage li p {
   font-family: "Osaka", sans-serif;
   font-weight: lighter;
 }
