@@ -49,8 +49,8 @@
         <button type="submit" class="goout">I'm Here !</button>
       </p>
       <details>
-        <summary><b>Submit A Comment with Your Location 位置情報にコメントを追加する</b></summary>
-        <textarea rows="7" id="comment"></textarea>
+        <summary><b>Submit A Comment with Your Location</b></summary>
+        <textarea rows="7" id="comment" placeholder="位置情報にコメントを追加する"></textarea>
       </details>
     </form>
     <footer id="credit" class="goout"></footer>
