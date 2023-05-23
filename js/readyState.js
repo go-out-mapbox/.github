@@ -155,7 +155,7 @@ async function errorMD() {
   <p>このウェブサイトでは位置情報サービスを使用するため、このブラウザでは一部のコンテンツが利用できません。</p>
   <p>あなたのデバイスの設定を変更し、ブラウザによる位置情報サービスの利用を許可すると、このウェブサイトのすべてのコンテンツが利用できます。</p>
   `;
-
+  
   fetch('credit.html')
   .then(response => response.text())
   .then(innerHTML => {
