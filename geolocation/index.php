@@ -113,33 +113,33 @@
     .setLngLat(e.result.center)
     .addTo(map);
 
+    // マーカーの座標を表示
+    function onDragEnd() {
+      const lngLat = marker.getLngLat();
+      thisLng.innerText = `${lngLat.lng}`;
+      thisLat.innerText = `${lngLat.lat}`;
+
+      // Mapbox リバースジオコーディング
+      let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lngLat.lng},${lngLat.lat}.json?language=ja&access_token=${mapboxgl.accessToken}`;
+      fetchData(uri).then(function(response) {
+        return response.text().then(function(jsonStr) {
+          var data = JSON.parse(jsonStr);
+          var context = data.features[0].place_name;
+          const thisAddress= document.querySelector('#address');
+          thisAddress.textContent = context;
+        });
+      }).catch(err => { console.log(err); });
+
+      async function fetchData(_uri) {
+        const res = await fetch(_uri);
+        const data = await res;
+        return data;
+      };
+    }
+
     marker.on('dragend', onDragEnd);
     onDragEnd();
   });
-
-  // マーカーの座標を表示
-  function onDragEnd() {
-    const lngLat = marker.getLngLat();
-    thisLng.innerText = `${lngLat.lng}`;
-    thisLat.innerText = `${lngLat.lat}`;
-
-    // Mapbox リバースジオコーディング
-    let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lngLat.lng},${lngLat.lat}.json?language=ja&access_token=${mapboxgl.accessToken}`;
-    fetchData(uri).then(function(response) {
-      return response.text().then(function(jsonStr) {
-        var data = JSON.parse(jsonStr);
-        var context = data.features[0].place_name;
-        const thisAddress= document.querySelector('#address');
-        thisAddress.textContent = context;
-      });
-    }).catch(err => { console.log(err); });
-
-    async function fetchData(_uri) {
-      const res = await fetch(_uri);
-      const data = await res;
-      return data;
-    };
-  }
 </script>
 </body>
 </html>
