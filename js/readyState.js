@@ -9,7 +9,10 @@ if(localStorage.getItem('yourInfo')) {
     fetch('yourinfo.php')
     .then(response => response.text())
     .then(innerHTML => {
-      document.querySelector('#readme').innerHTML = innerHTML;
+      document.querySelector('#readme').innerHTML = `
+      <strong>Submit Your Info to Enter This Site</strong>
+      ${innerHTML}
+      `;
     });
   }
   readmeMD();

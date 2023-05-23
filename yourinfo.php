@@ -1,4 +1,3 @@
-<strong>Submit Your Info to Enter This Site</strong>
 <p>
   <?php
   $ip = $_SERVER["REMOTE_ADDR"];
