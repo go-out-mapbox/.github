@@ -74,10 +74,9 @@
 
   // 現在位置を取得できなかった場合の処理
   function error() {
-    let center = [135.50433479522678, 34.69699057458179];
     map.flyTo({
       center: center,
-      zoom: 15
+      zoom: 11.11
     });
   };
 
