@@ -84,7 +84,8 @@ h1 {
 }
 
 #storage li::marker,
-#storage li time {
+#storage li time,
+.mapboxgl-map {
   color: lightskyblue;
 }
 
@@ -106,7 +107,8 @@ h1,
 h1 u,
 h1 small,
 summary,
-#storage li address {
+#storage li address,
+.mapboxgl-map {
   font-family: "DiaPro", sans-serif;
 }
 
@@ -218,6 +220,23 @@ header {
   .mapboxgl-popup-content p {
     margin: 1vw 0 0;
   }
+}
+
+.mapboxgl-popup-tip,
+.mapboxgl-popup-content {
+  background: lemonchiffon;
+}
+
+.mapboxgl-popup-close-button {
+  padding: 0.25rem
+}
+
+.mapboxgl-popup-content time {
+  font-size: 90%;
+}
+
+.mapboxgl-popup-content p {
+  font-size: 111%;
 }
 
 #map .marker {
