@@ -108,12 +108,12 @@ h1,
 h1 u,
 h1 small,
 summary,
-#storage li address,
-.mapboxgl-popup-content p {
+#storage li address {
   font-family: "DiaPro", sans-serif;
 }
 
-#storage li p {
+#storage li p,
+.mapboxgl-popup-content p {
   font-family: "Osaka", sans-serif;
   font-weight: lighter;
 }
@@ -223,9 +223,12 @@ header {
   }
 }
 
-.mapboxgl-popup-tip,
 .mapboxgl-popup-content {
   background: lemonchiffon;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  border-top-color: lemonchiffon;
 }
 
 .mapboxgl-popup-close-button {
