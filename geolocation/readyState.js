@@ -43,6 +43,8 @@ document.addEventListener('readystatechange', event => {
       let center = [longitude, latitude];
       map.flyTo({
         center: center,
+        bearing: 0,
+        pitch: 60,
         zoom: 15
       });
     };

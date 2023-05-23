@@ -29,6 +29,7 @@
 
   .coordinates {
     background: #fff;
+    border-radius: 5px;
     box-sizing: border-box;
     color: #000;
     font-size: 1rem;
@@ -75,10 +76,12 @@
   let center = [0, 0];
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
+    style: 'mapbox://styles/mapbox/satellite-streets-v11',
     center: center,
     zoom: 1.23,
-    scrollZoom: true
+    projection: 'globe',
+    bearing: 0,
+    pitch: 60
   })
 
   // 現在位置を取得するボタンを追加
