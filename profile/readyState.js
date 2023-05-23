@@ -10,7 +10,7 @@ function flyToStore(longitude, latitude) {
     center: [longitude, latitude],
     bearing: 0,
     pitch: 60,
-    zoom: 15,
+    zoom: 17.5,
     essential: true
   });
 }
