@@ -63,9 +63,10 @@ document.addEventListener('readystatechange', event => {
       });
 
       title.innerHTML = `
-      <u>Last Known Location ${timestamp}</u><br/>
+      <u>あなたの位置情報</u><br/>
       <b>${longitude}</b>,
-      <b>${latitude}</b>
+      <b>${latitude}</b><br/>
+      <small>Last Known Location ${timestamp}</small>
       `;
       title.addEventListener('click', () => {
         flyToStore(longitude, latitude)
@@ -126,7 +127,7 @@ document.addEventListener('readystatechange', event => {
     if(localStorage.getItem('yourInfo')) {
       // localStorage から 投稿 を取得
       if(localStorage.getItem('map')) {
-        storageTitle.innerText = 'あなたの位置情報 The Collection of Your Location';
+        storageTitle.innerText = 'The Collection of Your Location';
         storageSection.innerHTML = '<ol></ol>';
 
         const mapJSON = JSON.parse(localStorage.getItem('map'));
