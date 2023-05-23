@@ -49,7 +49,7 @@
         <button type="submit" class="goout">I'm Here !</button>
       </p>
       <details>
-        <summary><b>Submit A Comment コメントを残す</b></summary>
+        <summary><b>Submit A Comment with Your Location 位置情報にコメントを追加する</b></summary>
         <textarea rows="7" id="comment"></textarea>
       </details>
     </form>
