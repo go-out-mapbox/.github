@@ -102,7 +102,6 @@
     coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
   }
 
-  geocoder.on('load', onDragEnd());
   marker.on('dragend', onDragEnd);
 </script>
 </body>
