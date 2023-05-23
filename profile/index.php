@@ -31,6 +31,7 @@
   }
   </script>
   <script src="../js/index.js" async></script>
+  <script src="/js/log.js" async></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
   <link href="../font/style.css" rel="stylesheet" />

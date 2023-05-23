@@ -112,10 +112,17 @@ document.addEventListener('readystatechange', event => {
         readmeMD()
       }
     } else {
-      storageTitle.innerText = 'このウェブサイトについて About This Website';
+      storageTitle.innerText = 'あなたの情報を送信してください';
       storageSection.className = 'readme';
 
-      storageSection.innerHTML = `Please Enter to <a href="/">creative-community.space</a> for Browsing This Site`;
+      async function readmeMD() {
+        fetch('yourinfo.php')
+        .then(response => response.text())
+        .then(innerHTML => {
+          storageSection.innerHTML = innerHTML;
+        });
+      }
+      readmeMD()
     }
   }
 });
