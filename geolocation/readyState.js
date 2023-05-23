@@ -49,7 +49,8 @@ document.addEventListener('readystatechange', event => {
       });
 
       let marker = new mapboxgl.Marker({
-        draggable: true
+        draggable: true,
+        color: "red"
       })
       .setLngLat(center)
       .addTo(map);
