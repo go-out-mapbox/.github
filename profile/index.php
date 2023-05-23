@@ -4,32 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
-  <script type="text/javascript">
-  function storageAvailable(type) {
-    var storage;
-    try {
-      storage = window[type];
-      var x = '__storage_test__';
-      storage.setItem(x, x);
-      storage.removeItem(x);
-      return true;
-    } catch(e) {
-      return e instanceof DOMException && (
-        e.code === 22 ||
-        e.code === 1014 ||
-        e.name === 'QuotaExceededError' ||
-        e.name === 'NS_ERROR_DOM_QUOTA_REACHED'
-      ) && (storage && storage.length !== 0);
-    }
-  }
-
-  if (!storageAvailable('localStorage')) {
-    window.location.replace('/map/')
-  }
-  if (!'geolocation' in navigator) {
-    window.location.replace('/map/')
-  }
-  </script>
+  <script src="readyState.js"></script>
   <script src="../js/index.js" async></script>
   <script src="/js/log.js" async></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
@@ -81,12 +56,10 @@
       })
     }
   }
-
   map.on("mousedown",()=>{userInteracting=!0}),
   map.on("dragstart",()=>{userInteracting=!0}),
   map.on("moveend",()=>{spinGlobe()}),
   spinGlobe()
   </script>
-  <script src="readyState.js"></script>
 </body>
 </html>
