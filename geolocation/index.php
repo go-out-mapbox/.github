@@ -81,20 +81,7 @@
     zoom: 1.23
   });
 
-  // 現在位置を取得するボタンを追加
-  map.addControl(
-    new mapboxgl.GeolocateControl({
-      positionOptions: {
-        enableHighAccuracy: true
-      },
-      // デバイスの位置の変更に応じて位置情報を更新
-      trackUserLocation: true,
-      // デバイスが向いている方向を矢印で描画
-      showUserHeading: true
-    })
-  );
-
-  // 場所を検索するジオコーダーコントロールを追加
+  // ジオコーダーコントロールを追加
   const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     marker: false,

@@ -55,7 +55,6 @@
   // ページにMapboxを埋め込む
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
   let center = [135.50433479522678, 34.69699057458179];
-
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
@@ -64,6 +63,19 @@
     zoom: 1.75,
     scrollZoom: true
   })
+
+  // 現在位置を取得するボタンを追加
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      // デバイスの位置の変更に応じて位置情報を更新
+      trackUserLocation: true,
+      // デバイスが向いている方向を矢印で描画
+      showUserHeading: true
+    })
+  );
 
   let stores = {
     'type': 'FeatureCollection',

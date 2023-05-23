@@ -112,7 +112,7 @@ document.addEventListener('readystatechange', event => {
         readmeMD()
       }
     } else {
-      storageTitle.innerText = 'あなたの情報を送信してください Submit Your Info to Enter This Site';
+      storageTitle.innerText = 'Submit Your Info to Enter This Site';
       storageSection.className = 'readme';
 
       async function readmeMD() {

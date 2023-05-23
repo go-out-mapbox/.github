@@ -11,14 +11,26 @@ article {
   overflow: auto;
   width: 100%;
   max-height: 100%;
-  z-index: 10;
+  z-index: 5;
+}
+
+#storage section {
+  padding-right: 40px;
 }
 
 input[type="button"],
 header,
 #map {
   position: fixed;
+}
+
+header,
+#map {
   top: 0;
+}
+
+input[type="button"] {
+  bottom: 0;
 }
 
 h1.hover,
@@ -143,7 +155,7 @@ input[type="button"] {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
-  z-index: 5;
+  z-index: 10;
 }
 
 header {
