@@ -44,14 +44,7 @@
   <main id="submit" hidden>
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
     <form>
-      <section id="readme">
-        <h3>
-          <span>We Create a Collection of Where We Were on this Map.</span>
-        </h3>
-        <h4>この地図に、わたしたちがいた場所を記録します。</h4>
-        <p>「I'm here !」をクリックすると、あなたの位置情報がコレクションに投稿されます。</p>
-        <p><small>※ あなたが投稿した 位置情報 は、<a href="profile/">プロフィール</a> ページから閲覧できます。</small></p>
-      </section>
+      <section id="readme"></section>
       <p style="text-align: center;">
         <button type="submit" class="goout">I'm Here !</button>
       </p>
@@ -87,28 +80,6 @@
   });
 
   map.addControl(new mapboxgl.NavigationControl());
-
-  async function indexHTML() {
-    fetch('credit.html')
-    .then(response => response.text())
-    .then(innerHTML => {
-      document.querySelector('#credit').innerHTML = innerHTML;
-    });
-  }
-
-  async function errorMD() {
-    fetch('profile/README.md')
-    .then(response => response.text())
-    .then(innerText => {
-      document.querySelector('#readme').innerText = innerText;
-    });
-
-    fetch('credit.html')
-    .then(response => response.text())
-    .then(innerHTML => {
-      document.querySelector('#credit').innerHTML = innerHTML;
-    });
-  }
   </script>
   <script src="js/markers.js"></script>
   <script src="js/polygon.js"></script>

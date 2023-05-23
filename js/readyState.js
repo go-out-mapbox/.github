@@ -99,7 +99,7 @@ function geoFindMe() {
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
     yourHere.textContent = 'Geolocation is not supported by your browser';
-    yourAddress.textContent = 'このブラウザは現在地を取得できません';
+    yourAddress.textContent = 'このブラウザは位置情報サービスがサポートされていません';
     errorMD();
     enter.remove();
     submitButton.remove();
@@ -132,6 +132,36 @@ function ChangeHidden() {
     }
   });
 };
+
+async function indexHTML() {
+  document.querySelector('#readme').innerHTML = `
+  <h3><span>We Create a Collection of Where We Were.</span></h3>
+  <h4>この地図に、わたしたちがいた場所を記録します。</h4>
+  <p>「I'm here !」をクリックすると、あなたの位置情報がコレクションに投稿されます。</p>
+  <p><small>※ あなたが投稿した 位置情報 は、<a href="profile/">プロフィール</a> ページから閲覧できます。</small></p>
+  `;
+
+  fetch('credit.html')
+  .then(response => response.text())
+  .then(innerHTML => {
+    document.querySelector('#credit').innerHTML = innerHTML;
+  });
+}
+
+async function errorMD() {
+  document.querySelector('#readme').innerHTML = `
+  <h3><span>This Site does not work well in your browser.</span></h3>
+  <h4>To use all contents, please enable the use of location information in your browser.</h4>
+  <p>このウェブサイトでは位置情報サービスを使用するため、このブラウザでは一部のコンテンツが利用できません。</p>
+  <p>あなたのデバイスの設定を変更し、ブラウザによる位置情報サービスの利用を許可すると、このウェブサイトのすべてのコンテンツが利用できます。</p>
+  `;
+
+  fetch('credit.html')
+  .then(response => response.text())
+  .then(innerHTML => {
+    document.querySelector('#credit').innerHTML = innerHTML;
+  });
+}
 
 
 document.addEventListener('readystatechange', event => {
