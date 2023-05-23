@@ -9,7 +9,7 @@
 
 ---
 
-## This Site Creates a Collection of Where We Were (Your Device Locations) with Mapbox GL JS.
+## This Site Creates a Collection of Where We Were (Your Device Locations) build on top of Mapbox GL JS.
 
 [このページ](profile/) には、あなたのウェブストレージ[^3] に保存された あなたの位置情報[^4] などが表示されます。
 
