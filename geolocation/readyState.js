@@ -47,6 +47,12 @@ document.addEventListener('readystatechange', event => {
         pitch: 60,
         zoom: 15
       });
+
+      let marker = new mapboxgl.Marker({
+        draggable: true
+      })
+      .setLngLat(center)
+      .addTo(map);
     };
 
     // 現在位置を取得できなかった場合の処理

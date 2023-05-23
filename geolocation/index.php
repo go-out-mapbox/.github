@@ -106,7 +106,7 @@
 
   // ジオコーダーの結果後にドラッグ可能マーカーを設定
   geocoder.on('result', function(e) {
-    var marker = new mapboxgl.Marker({
+    let marker = new mapboxgl.Marker({
       draggable: true,
       color: "red"
     })
