@@ -236,7 +236,7 @@ header {
 }
 
 .mapboxgl-popup-content time {
-  font-size: 90%;
+  font-size: 75%;
 }
 
 .mapboxgl-popup-content p {
