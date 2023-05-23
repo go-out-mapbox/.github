@@ -96,18 +96,13 @@
 
   document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
-  const marker = new mapboxgl.Marker({
-    draggable: true
-  })
-  .setLngLat(center)
-  .addTo(map);
-
   const coordinates = document.getElementById('coordinates');
   function onDragEnd() {
     const lngLat = marker.getLngLat();
     coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
   }
 
+  geocoder.on('load', onDragEnd());
   marker.on('dragend', onDragEnd);
 </script>
 </body>
