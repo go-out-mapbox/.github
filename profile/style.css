@@ -34,12 +34,12 @@ input[type="button"] {
   font-weight: 400;
 }
 
-h1 {
+h1,
+summary {
   font-size: 200%;
 }
 
-#storage li h2,
-summary {
+#storage li h2 {
   font-size: 150%;
 }
 
