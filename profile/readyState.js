@@ -65,8 +65,8 @@ document.addEventListener('readystatechange', event => {
       addMarkers()
     })
 
-    stores.features.forEach((marker, i) => {
-      marker.properties.id = i;
+    stores.features.forEach((store, i) => {
+      store.properties.id = i;
     })
 
     function addMarkers() {
@@ -74,8 +74,9 @@ document.addEventListener('readystatechange', event => {
         const el = document.createElement('div');
         el.id = `marker-${marker.properties.id}`;
         el.className = marker.properties.tags;
-
-        new mapboxgl.Marker(el)
+        new mapboxgl.Marker(el, {
+          offset: [0, 0]
+        })
         .setLngLat(marker.geometry.coordinates)
         .setPopup(
           new mapboxgl.Popup({ offset: 25 })
@@ -90,7 +91,9 @@ document.addEventListener('readystatechange', event => {
         el.addEventListener('click', (e) => {
           map.flyTo({
             center: marker.geometry.coordinates,
-            zoom: 15
+            bearing: 0,
+            pitch: 60,
+            zoom: 20
           })
         })
       }

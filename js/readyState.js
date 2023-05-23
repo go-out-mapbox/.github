@@ -169,7 +169,6 @@ async function errorMD() {
   });
 }
 
-
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
     /* localStorageに現在地の記録があるかを確認 */
@@ -204,11 +203,11 @@ document.addEventListener('readystatechange', event => {
         'data': stores
       });
       addMarkers();
-    });
+    })
 
     stores.features.forEach((store, i) => {
       store.properties.id = i;
-    });
+    })
 
     function addMarkers() {
       for (const marker of stores.features) {
@@ -219,7 +218,7 @@ document.addEventListener('readystatechange', event => {
           offset: [0, 0]
         })
         .setLngLat(marker.geometry.coordinates)
-        .addTo(map);
+        .addTo(map)
 
         el.addEventListener('click', (e) => {
           flyToStore(marker);
