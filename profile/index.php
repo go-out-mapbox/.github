@@ -64,51 +64,6 @@
     scrollZoom: true
   })
 
-  let stores = {
-    'type': 'FeatureCollection',
-    'features': []
-  }
-
-  // 地図にマーカーを追加
-  map.on('load', () => {
-    map.addSource('places', {
-      'type': 'geojson',
-      'data': stores
-    })
-    addMarkers()
-  })
-
-  stores.features.forEach((store, i) => {
-    store.properties.id = i;
-  })
-
-  function addMarkers() {
-    for (const marker of stores.features) {
-      const el = document.createElement('div');
-      el.id = `marker-${marker.properties.id}`;
-      el.className = marker.properties.tags;
-
-      new mapboxgl.Marker(el)
-      .setLngLat(marker.geometry.coordinates)
-      .setPopup(
-        new mapboxgl.Popup({ offset: 25 })
-        .setHTML(`
-          <time>${marker.properties.timestamp}</time>
-          <p>${marker.properties.date}</p>
-          `
-        )
-      )
-      .addTo(map)
-
-      el.addEventListener('click', (e) => {
-        map.flyTo({
-          center: marker.geometry.coordinates,
-          zoom: 15
-        })
-      })
-    }
-  }
-
   // 回転する地球儀を作成
   let userInteracting = 0;
   function spinGlobe(){
