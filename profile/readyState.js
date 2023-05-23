@@ -116,7 +116,7 @@ document.addEventListener('readystatechange', event => {
       storageSection.className = 'readme';
 
       async function readmeMD() {
-        fetch('yourinfo.php')
+        fetch('../yourinfo.php')
         .then(response => response.text())
         .then(innerHTML => {
           storageSection.innerHTML = innerHTML;

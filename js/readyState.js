@@ -5,7 +5,14 @@ if(localStorage.getItem('yourInfo')) {
     geoFindMe()
   })
 } else {
-  errorMD();
+  async function readmeMD() {
+    fetch('yourinfo.php')
+    .then(response => response.text())
+    .then(innerHTML => {
+      document.querySelector('#readme').innerHTML = innerHTML;
+    });
+  }
+  readmeMD();
   submitButton.remove();
   submitDetails.remove();
   enter.addEventListener('click', (e) => {

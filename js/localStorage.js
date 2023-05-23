@@ -1,7 +1,6 @@
 'use strict'
 
 // localStorage から 投稿 を取得
-
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'complete') {
     if(localStorage.getItem("map")) {
