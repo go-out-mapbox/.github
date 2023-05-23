@@ -232,7 +232,7 @@ header {
 }
 
 .mapboxgl-popup-close-button {
-  padding: 0.25rem
+  padding: 0.25rem 0.5rem;
 }
 
 .mapboxgl-popup-content time {
