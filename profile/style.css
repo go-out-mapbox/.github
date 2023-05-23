@@ -14,10 +14,6 @@ article {
   z-index: 10;
 }
 
-#storage section {
-  padding-right: 40px;
-}
-
 input[type="button"],
 header,
 #map {
