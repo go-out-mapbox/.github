@@ -7,10 +7,9 @@ body {
 }
 
 input[type="button"],
-header,
 #map {
   position: fixed;
-  top: 0;
+  bottom: 0;
 }
 
 #storage li,
@@ -81,7 +80,8 @@ input[type="button"] {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
-  z-index: 5;
+  margin-bottom: 35px;
+  z-index: 10;
 }
 
 header {

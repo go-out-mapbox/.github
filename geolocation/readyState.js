@@ -33,5 +33,46 @@ document.addEventListener('readystatechange', event => {
       location.assign('../');
     });
   } else if (event.target.readyState === 'complete') {
+    // 現在位置を取得できた場合の処理
+    function success(position) {
+      const latitude  = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      thisLng.innerText = longitude;
+      thisLat.innerText = latitude;
+
+      let center = [longitude, latitude];
+      map.flyTo({
+        center: center,
+        zoom: 15
+      });
+    };
+
+    // 現在位置を取得できなかった場合の処理
+    function error() {
+      // 回転する地球儀を作成
+      let userInteracting = 0;
+      function spinGlobe(){
+        const zoom = map.getZoom();
+        if(!userInteracting && zoom < 5) {
+          let speed = 1;
+          if(zoom > 3) {
+            speed *= (5 - zoom) / 2
+          }
+          const lng = map.getCenter();
+          lng.lng -= speed,
+          map.easeTo({
+            center: lng,
+            easing: zoom => zoom
+          })
+        }
+      }
+      map.on("mousedown",()=>{userInteracting=!0}),
+      map.on("dragstart",()=>{userInteracting=!0}),
+      map.on("moveend",()=>{spinGlobe()}),
+      spinGlobe()
+    };
+
+    // 現在位置を取得する
+    navigator.geolocation.getCurrentPosition(success, error);
   }
 });

@@ -29,26 +29,47 @@
 
   .coordinates {
     background: #fff;
+    box-sizing: border-box;
     color: #000;
     font-size: 1rem;
     padding: 5px 10px;
-    margin: 0;
+    margin: 0 auto;
     position: absolute;
     bottom: 40px;
     left: 0.5rem;
-    z-index: 10;
+    max-width: calc(100% - 1rem);
+    z-index: 5;
   }
 
-  .mapboxgl-ctrl-geocoder {
-    min-width: 100%;
+  .coordinates address {
+    font-style: normal;
+    font-size: 75%;
+    margin: 0.25rem;
+  }
+
+  .coordinates p {
+    padding: 0;
+    margin: 0.25rem;
+  }
+
+  .coordinates p b {
+    font-size: 125%;
   }
   </style>
 
+  <input type="button" name="button" id="back">
   <div id="geocoder" class="geocoder"></div>
-  <pre id="coordinates" class="coordinates"></pre>
+  <div id="coordinates" class="coordinates">
+    <p class="relax">経度: <b id="lng" class="goout">Longitude</b></p>
+    <p class="relax">緯度: <b id="lat" class="goout">Latitude</b></p>
+    <address id="address" class="relax"></address>
+  </div>
 
   <main id="map"></main>
   <script type="text/javascript">
+  const thisLng = document.querySelector('#coordinates #lng');
+  const thisLat = document.querySelector('#coordinates #lat');
+
   // ページにMapboxを埋め込む
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
   let center = [0, 0];
@@ -59,45 +80,6 @@
     zoom: 1.23,
     scrollZoom: true
   })
-
-  // 現在位置を取得できた場合の処理
-  function success(position) {
-    const latitude  = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    let center = [longitude, latitude];
-    map.flyTo({
-      center: center,
-      zoom: 15
-    });
-  };
-
-  // 現在位置を取得できなかった場合の処理
-  function error() {
-    // 回転する地球儀を作成
-    let userInteracting = 0;
-    function spinGlobe(){
-      const zoom = map.getZoom();
-      if(!userInteracting && zoom < 5) {
-        let speed = 1;
-        if(zoom > 3) {
-          speed *= (5 - zoom) / 2
-        }
-        const lng = map.getCenter();
-        lng.lng -= speed,
-        map.easeTo({
-          center: lng,
-          easing: zoom => zoom
-        })
-      }
-    }
-    map.on("mousedown",()=>{userInteracting=!0}),
-    map.on("dragstart",()=>{userInteracting=!0}),
-    map.on("moveend",()=>{spinGlobe()}),
-    spinGlobe()
-  };
-
-  // 現在位置を取得する
-  navigator.geolocation.getCurrentPosition(success, error);
 
   // 現在位置を取得するボタンを追加
   map.addControl(
@@ -122,8 +104,6 @@
   // ジオコーダー を #geocoder に配置
   document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
-
-
   // ジオコーダーの結果後にドラッグ可能マーカーを設定
   geocoder.on('result', function(e) {
     var marker = new mapboxgl.Marker({
@@ -133,11 +113,28 @@
     .setLngLat(e.result.center)
     .addTo(map);
 
-    // マーカーの座標を #coordinates に表示
-    const coordinates = document.getElementById('coordinates');
+    // マーカーの座標を表示
     function onDragEnd() {
       const lngLat = marker.getLngLat();
-      coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+      thisLng.innerText = `${lngLat.lng}`;
+      thisLat.innerText = `${lngLat.lat}`;
+
+      // Mapbox リバースジオコーディング
+      let uri = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lngLat.lng},${lngLat.lat}.json?language=ja&access_token=${mapboxgl.accessToken}`;
+      fetchData(uri).then(function(response) {
+        return response.text().then(function(jsonStr) {
+          var data = JSON.parse(jsonStr);
+          var context = data.features[0].place_name;
+          const thisAddress= document.querySelector('#address');
+          thisAddress.textContent = context;
+        });
+      }).catch(err => { console.log(err); });
+
+      async function fetchData(_uri) {
+        const res = await fetch(_uri);
+        const data = await res;
+        return data;
+      };
     }
 
     marker.on('dragend', onDragEnd);
