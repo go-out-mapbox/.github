@@ -72,7 +72,7 @@ document.addEventListener('readystatechange', event => {
         map.flyTo({
           center: [longitude, latitude],
           bearing: 0,
-          pitch: 60,
+          pitch: 0,
           zoom: 11.11,
           essential: true
         });
