@@ -4,17 +4,6 @@ if (!'geolocation' in navigator) {
   window.location.replace('/map/')
 }
 
-function ChangeHidden() {
-  const mainAll = document.querySelectorAll('main');
-  mainAll.forEach(main => {
-    if (main.hidden == false) {
-      main.hidden = true;
-    } else {
-      main.hidden = false;
-    }
-  });
-};
-
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
     const back = document.querySelector('#back');
@@ -23,6 +12,10 @@ document.addEventListener('readystatechange', event => {
     });
 
     const datetime = document.querySelector('#datetime');
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    datetime.value = now.toISOString().slice(0, -1);
+
     datetime.addEventListener('change', event => {
       let setTime = new Date(event.target.value).toString();
       document.querySelector('#timestamp').textContent = setTime;
@@ -111,3 +104,14 @@ document.addEventListener('readystatechange', event => {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 });
+
+function ChangeHidden() {
+  const mainAll = document.querySelectorAll('main');
+  mainAll.forEach(main => {
+    if (main.hidden == false) {
+      main.hidden = true;
+    } else {
+      main.hidden = false;
+    }
+  });
+};
