@@ -57,7 +57,6 @@ h1 b,
 }
 
 h1 u {
-  display: inline-block;
   font-size: 100%;
   font-style: normal;
 }
@@ -112,8 +111,7 @@ h2 {
   z-index: 10;
 }
 
-#geocoder,
-h1 u {
+#geocoder {
   max-width: calc(100% - 85px);
 }
 
