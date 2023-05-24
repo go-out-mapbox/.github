@@ -165,10 +165,13 @@ h1 address {
 
 
 @media (orientation: landscape) {
-  input[type="button"],
   #coordinates summary,
   #coordinates section {
     padding: 0.5rem;
+  }
+
+  input[type="button"] {
+    padding: 0 0.5rem;
   }
 
   h1 b,
@@ -184,10 +187,13 @@ h1 address {
 
 
 @media (orientation: portrait) {
-  input[type="button"],
   #coordinates summary,
   #coordinates section {
     padding: 1vw;
+  }
+
+  input[type="button"] {
+    padding: 0 1vw;
   }
 
   h1 b,
