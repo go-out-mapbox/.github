@@ -83,14 +83,15 @@ h1 small,
   font-family: "DiaPro", sans-serif;
 }
 
-#geocoder {
-  margin: 0.5rem
-}
-
 h1,
 h2 {
   box-sizing: border-box;
   padding: 0.5rem;
+}
+
+#geocoder,
+#datetime {
+  margin: 0.5rem
 }
 
 #back {
