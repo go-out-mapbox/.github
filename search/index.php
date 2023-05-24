@@ -36,7 +36,7 @@
   </main>
   <main id="submit" hidden>
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
-    <input type="datetime-local" id="datetime" name="datetime">
+    <input type="datetime-local" id="datetime" name="datetime"><br/>
     <h2><time id="timestamp">Select The Date and Time When You Were</time></h2>
     <form>
       <p style="text-align: center;">
