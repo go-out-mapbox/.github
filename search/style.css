@@ -83,14 +83,14 @@ h1 small,
   font-family: "DiaPro", sans-serif;
 }
 
+#geocoder {
+  margin: 0.5rem
+}
+
 h1,
 h2 {
   box-sizing: border-box;
-  padding: 1rem 0.5rem;
-}
-
-h1 address {
-  max-width: calc(100% - 80px)
+  padding: 0.5rem;
 }
 
 #back {
@@ -109,7 +109,8 @@ h1 address {
   z-index: 10;
 }
 
-#geocoder {
+#geocoder,
+h1 address {
   max-width: calc(100% - 85px);
 }
 
