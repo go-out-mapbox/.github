@@ -106,7 +106,11 @@
     marker.on('dragend', onDragEnd);
     onDragEnd();
 
+    const submit = document.querySelector('#coordinates h1');
     submit.classList.add('submit');
+    submit.addEventListener('click', function () {
+      ChangeHidden()
+    });
   });
   </script>
   <script src="../js/submit.js"></script>
