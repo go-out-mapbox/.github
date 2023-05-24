@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<!-- 'll play first and tell what it is later -->
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -10,6 +12,7 @@
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
   <link href="../font/style.css" rel="stylesheet" />
   <link href="../css/reset.css" rel="stylesheet" />
+  <link href="../css/submit.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
   <link rel="icon" href="../profile/icon.png" type="image/png">
 </head>
@@ -17,20 +20,36 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 
-  <input type="button" name="button" id="back">
-  <main>
+  <main id="coordinates">
+    <input type="button" name="button" id="back">
     <div id="geocoder"></div>
-    <h1 id="coordinates">
+    <h1>
       <address id="address" class="relax"><u>Geolocation API</u></address>
-      <b id="lng" class="goout">Longitude</b>,
-      <b id="lat" class="goout">Latitude</b>
+      <b id="longitude" class="goout">Longitude</b>,
+      <b id="latitude" class="goout">Latitude</b>
     </h1>
+  </main>
+  <main id="submit" hidden>
+    <input id="close" type="button" onclick="ChangeHidden()" value="×">
+    <input type="datetime-local" id="datetime" name="datetime">
+    <h2><time id="timestamp">Select The Date and Time When You Were</time></h2>
+    <form>
+      <p style="text-align: center;">
+        <button type="submit" class="goout">I was here !</button>
+      </p>
+      <details open>
+        <summary><b>Submit A Comment with Your Location</b></summary>
+        <textarea rows="7" id="comment" placeholder="位置情報にコメントを追加する"></textarea>
+      </details>
+    </form>
   </main>
 
   <article id="map"></article>
   <script type="text/javascript">
-  const thisLng = document.querySelector('#coordinates #lng');
-  const thisLat = document.querySelector('#coordinates #lat');
+  const submitForm = document.querySelector('#submit form'),
+  thisLng = document.querySelector('#coordinates #longitude'),
+  thisLat = document.querySelector('#coordinates #latitude'),
+  yourAddress = document.querySelector('#address');
 
   // ページにMapboxを埋め込む
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
@@ -84,10 +103,17 @@
         return data;
       };
     }
-
     marker.on('dragend', onDragEnd);
     onDragEnd();
+
+    const submit = document.querySelector('#coordinates h1');
+    submit.className = "submit";
+
+    submit.addEventListener('click', function () {
+      ChangeHidden()
+    });
   });
-</script>
+  </script>
+  <script src="../js/submit.js"></script>
 </body>
 </html>

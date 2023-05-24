@@ -20,15 +20,16 @@ async function submitThis() {
   event.preventDefault()
 
   // localStorage に 投稿 を 追加する
-  const thisLongitude = document.querySelector('#date #longitude').textContent
-  const thisLatitude = document.querySelector('#date #latitude').textContent
-  const thisAddress = yourAddress.textContent
+  const thisLongitude = document.querySelector('#longitude').textContent,
+  thisLatitude = document.querySelector('#latitude').textContent,
+  thisAddress = yourAddress.textContent;
 
   const thisTXT = document.querySelector('#submit #comment');
-  let text = thisTXT.value
-  let textArray = text.split('\n')
-  let thisDate = textArray.join('<br>')
-  const thisTime = document.querySelector('#date section time').textContent
+  let text = thisTXT.value,
+  textArray = text.split('\n'),
+  thisDate = textArray.join('<br>');
+
+  const thisTime = document.querySelector('#timestamp').textContent
   addData(thisLongitude, thisLatitude, thisAddress, thisDate, thisTime)
 
   // PHP で CSVファイル に 投稿 を追加する

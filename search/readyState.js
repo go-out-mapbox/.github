@@ -10,6 +10,13 @@ document.addEventListener('readystatechange', event => {
     back.addEventListener('click', function () {
       location.assign('../');
     });
+
+    const datetime = document.querySelector('#datetime');
+    datetime.addEventListener('change', event => {
+      let setTime = new Date(event.target.value).toString();
+      document.querySelector('#timestamp').textContent = setTime;
+      console.log(setTime)
+    })
   } else if (event.target.readyState === 'complete') {
     // 現在位置を取得できた場合の処理
     function success(position) {
@@ -52,7 +59,14 @@ document.addEventListener('readystatechange', event => {
           const data = await res;
           return data;
         };
-      }
+
+        const submit = document.querySelector('#coordinates h1');
+        submit.className = "submit";
+
+        submit.addEventListener('click', function () {
+          ChangeHidden()
+        });
+      };
 
       marker.on('dragend', onDragEnd);
       onDragEnd();
@@ -87,3 +101,14 @@ document.addEventListener('readystatechange', event => {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 });
+
+function ChangeHidden() {
+  const mainAll = document.querySelectorAll('main');
+  mainAll.forEach(main => {
+    if (main.hidden == false) {
+      main.hidden = true;
+    } else {
+      main.hidden = false;
+    }
+  });
+};

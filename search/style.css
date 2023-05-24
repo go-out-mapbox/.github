@@ -10,17 +10,25 @@ main {
   left: 0;
   overflow: auto;
   padding: 0.5rem;
-  pointer-events: none;
-  user-select: none;
   width: 100%;
   height: 100%;
+}
+
+#coordinates {
+  pointer-events: none;
+  user-select: none;
   z-index: 5;
+}
+
+#submit {
+  z-index: 10;
 }
 
 input[type="button"],
 #map {
   position: fixed;
   top: 0;
+  margin: 0;
 }
 
 h1,
@@ -29,11 +37,12 @@ input[type="button"] {
   font-weight: 400;
 }
 
-h1 {
+h1  {
   font-size: 222%;
 }
 
-h1 b {
+h1 b,
+#timestamp {
   font-size: 125%;
 }
 
@@ -52,7 +61,8 @@ h1 u {
   text-decoration: none;
 }
 
-h1 {
+h1,
+#timestamp {
   font-family: "Kristina", "Osaka", sans-serif;
 }
 
@@ -61,12 +71,13 @@ h1 small {
   font-family: "DiaPro", sans-serif;
 }
 
-h1 {
+h1,
+h2 {
   box-sizing: border-box;
   padding: 1rem 0;
 }
 
-input[type="button"] {
+#back {
   right: 0;
   height: 70px;
   width: 70px;
@@ -78,8 +89,22 @@ input[type="button"] {
   z-index: 10;
 }
 
+#close {
+  right: 0;
+  z-index: 10;
+}
+
 #geocoder {
   max-width: calc(100% - 85px);
+}
+
+#coordinates h1.submit {
+  pointer-events: auto;
+  user-select: auto;
+}
+
+#coordinates h1:hover {
+  cursor: pointer;
 }
 
 #coordinates address {
@@ -93,6 +118,16 @@ input[type="button"] {
   padding: 0;
   margin: 0.25rem 0;
   word-break: break-all;
+}
+
+#datetime {
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
+  color: rgba(0, 0, 0, 0.75);
+  font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  padding: 0.5rem;
 }
 
 #map {
@@ -111,7 +146,8 @@ input[type="button"] {
   }
 
   h1 b,
-  input[type="button"] {
+  #close,
+  #timestamp {
     color: lemonchiffon;
     text-shadow:
     1px 1px 1px lightskyblue,
@@ -127,7 +163,8 @@ input[type="button"] {
   }
 
   h1 b,
-  input[type="button"] {
+  #close,
+  #timestamp {
     color: lemonchiffon;
     text-shadow:
     0.1vw 0.1vw 0.1vw lightskyblue,
