@@ -98,10 +98,5 @@ document.addEventListener('readystatechange', event => {
 
     // 現在位置を取得する
     navigator.geolocation.getCurrentPosition(success, error);
-
-    if(!localStorage.getItem('yourInfo')) {
-      document.getElementById('geocoder').remove;
-      document.querySelector('#coordinates h1').classList.remove('submit');
-    }
   }
 });
