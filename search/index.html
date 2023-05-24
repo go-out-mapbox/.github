@@ -112,6 +112,17 @@
   document.querySelector('#coordinates h1').addEventListener('click', function () {
     ChangeHidden()
   });
+
+  function ChangeHidden() {
+    const mainAll = document.querySelectorAll('main');
+    mainAll.forEach(main => {
+      if (main.hidden == false) {
+        main.hidden = true;
+      } else {
+        main.hidden = false;
+      }
+    });
+  };
   </script>
   <script src="../js/submit.js"></script>
 </body>

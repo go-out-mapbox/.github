@@ -67,9 +67,6 @@ document.addEventListener('readystatechange', event => {
       onDragEnd();
 
       document.querySelector('#coordinates h1').classList.add('submit');
-      document.querySelector('#coordinates h1').addEventListener('click', function () {
-        ChangeHidden()
-      });
     };
 
     // 現在位置を取得できなかった場合の処理
@@ -103,14 +100,3 @@ document.addEventListener('readystatechange', event => {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 });
-
-function ChangeHidden() {
-  const mainAll = document.querySelectorAll('main');
-  mainAll.forEach(main => {
-    if (main.hidden == false) {
-      main.hidden = true;
-    } else {
-      main.hidden = false;
-    }
-  });
-};
