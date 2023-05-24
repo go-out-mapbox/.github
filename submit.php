@@ -6,7 +6,7 @@ date_default_timezone_set('Asia/Tokyo');
 $year = date("Y");
 $month = date("m");
 
-$source_file = "submit/". $year . $month .".csv";
+$source_file = "log/". $year . $month .".csv";
 $ip = $_SERVER["REMOTE_ADDR"];
 
 define("LOGFILE", $source_file);
