@@ -22,7 +22,7 @@
     <div id="geocoder"></div>
     <h1 id="coordinates">
       <address id="address" class="relax"><u>Geolocation API</u></address>
-      <b id="lng" class="goout">Longitude</b>
+      <b id="lng" class="goout">Longitude</b>,
       <b id="lat" class="goout">Latitude</b>
     </h1>
   </main>
@@ -37,7 +37,7 @@
   let center = [0, 0];
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+    style: 'mapbox://styles/pehu/ckx1e2xhw13kw14s4rjhaiv17',
     center: center,
     zoom: 1.23
   });

@@ -69,7 +69,13 @@ document.addEventListener('readystatechange', event => {
       <small>Last Known Location ${timestamp}</small>
       `;
       title.addEventListener('click', () => {
-        flyToStore(longitude, latitude)
+        map.flyTo({
+          center: [longitude, latitude],
+          bearing: 0,
+          pitch: 60,
+          zoom: 11.11,
+          essential: true
+        });
       });
     } else {
       title.innerHTML = `
