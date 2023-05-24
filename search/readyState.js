@@ -67,6 +67,7 @@ document.addEventListener('readystatechange', event => {
       marker.on('dragend', onDragEnd);
       onDragEnd();
 
+      document.querySelector('#coordinates h1').classList.add('submit');
       document.querySelector('#coordinates h1').addEventListener('click', function () {
         ChangeHidden()
       });
