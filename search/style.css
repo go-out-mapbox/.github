@@ -20,6 +20,12 @@ main {
   z-index: 5;
 }
 
+#back,
+#coordinates h1.submit {
+  pointer-events: auto;
+  user-select: auto;
+}
+
 #submit {
   z-index: 10;
 }
@@ -96,11 +102,6 @@ h2 {
 
 #geocoder {
   max-width: calc(100% - 85px);
-}
-
-#coordinates h1.submit {
-  pointer-events: auto;
-  user-select: auto;
 }
 
 #coordinates h1:hover {
