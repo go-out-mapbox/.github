@@ -1,7 +1,12 @@
-# Under Construction 🚧
+# This is a web form for submitting your location.
 
-## Mapbox GL JS を 使った カスタム地図 の 作り方
-[How to Coding a Custom Map with Mapbox GL JS](https://go-out-mapbox.github.io/)
+Mapbox Geocoding API[^1] を使って検索した位置情報に コメント・日時 を追加して投稿する
+* 現在地・検索結果に追加されるマーカーはドラッグで移動可能
+* マーカーの移動に応じて座標・住所を更新
+* 座標・住所をクリックすると投稿フォームが表示されます。
+* あなたがそこにいた日時を選択
+* I Was Here をクリックすると、位置情報・コメント・日時が投稿されます。
 
 ---
 
+[^1]:Mapbox Geocoding API は、座標を住所に(フォワードジオコーディング)、または住所を座標に(リバースジオコーディング) 変換します。

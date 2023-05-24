@@ -73,6 +73,7 @@
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       marker: false,
+      zoom: 11.11,
       mapboxgl: mapboxgl
     })
 
@@ -132,7 +133,7 @@
       });
     };
 
-    readme.innerText = "'ll play first and tell what it is later"
+    readme.innerText = "このウェブサイトについて About This Website"
     fetch('README.md')
     .then(response => response.text())
     .then(innerText => {
