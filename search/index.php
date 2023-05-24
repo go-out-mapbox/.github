@@ -133,7 +133,7 @@
       });
     };
 
-    readme.innerText = "このウェブサイトについて About This Website"
+    readme.innerText = "このページについて About This Page"
     fetch('README.md')
     .then(response => response.text())
     .then(innerText => {
