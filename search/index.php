@@ -23,7 +23,7 @@
   <main id="coordinates">
     <input type="button" name="button" id="back">
     <div id="geocoder"></div>
-    <h1>
+    <h1 class="submit">
       <address id="address" class="relax"><u>Geolocation API</u></address>
       <b id="longitude" class="goout">Longitude</b>,
       <b id="latitude" class="goout">Latitude</b>
@@ -106,12 +106,7 @@
     marker.on('dragend', onDragEnd);
     onDragEnd();
 
-    const submit = document.querySelector('#coordinates h1');
-    submit.className = "submit";
-
-    submit.addEventListener('click', function () {
-      ChangeHidden()
-    });
+    submit.classList.add('submit');
   });
   </script>
   <script src="../js/submit.js"></script>

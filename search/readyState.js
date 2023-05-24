@@ -4,6 +4,22 @@ if (!'geolocation' in navigator) {
   window.location.replace('/map/')
 }
 
+const submit = document.querySelector('#coordinates h1');
+submit.addEventListener('click', function () {
+  ChangeHidden()
+});
+
+function ChangeHidden() {
+  const mainAll = document.querySelectorAll('main');
+  mainAll.forEach(main => {
+    if (main.hidden == false) {
+      main.hidden = true;
+    } else {
+      main.hidden = false;
+    }
+  });
+};
+
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
     const back = document.querySelector('#back');
@@ -59,13 +75,6 @@ document.addEventListener('readystatechange', event => {
           const data = await res;
           return data;
         };
-
-        const submit = document.querySelector('#coordinates h1');
-        submit.className = "submit";
-
-        submit.addEventListener('click', function () {
-          ChangeHidden()
-        });
       };
 
       marker.on('dragend', onDragEnd);
@@ -74,6 +83,8 @@ document.addEventListener('readystatechange', event => {
 
     // 現在位置を取得できなかった場合の処理
     function error() {
+      submit.classList.remove('submit');
+
       // 回転する地球儀を作成
       let userInteracting = 0;
       function spinGlobe(){
@@ -101,14 +112,3 @@ document.addEventListener('readystatechange', event => {
     navigator.geolocation.getCurrentPosition(success, error);
   }
 });
-
-function ChangeHidden() {
-  const mainAll = document.querySelectorAll('main');
-  mainAll.forEach(main => {
-    if (main.hidden == false) {
-      main.hidden = true;
-    } else {
-      main.hidden = false;
-    }
-  });
-};
