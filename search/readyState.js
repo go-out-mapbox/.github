@@ -60,8 +60,7 @@ document.addEventListener('readystatechange', event => {
           return response.text().then(function(jsonStr) {
             var data = JSON.parse(jsonStr);
             var context = data.features[0].place_name;
-            const thisAddress= document.querySelector('#address');
-            thisAddress.textContent = context;
+            yourAddress.textContent = context;
           });
         }).catch(err => { console.log(err); });
 
@@ -74,7 +73,7 @@ document.addEventListener('readystatechange', event => {
 
       marker.on('dragend', onDragEnd);
       onDragEnd();
-      
+
       const submit = document.querySelector('#coordinates h1');
       submit.addEventListener('click', function () {
         ChangeHidden()
