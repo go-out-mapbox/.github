@@ -112,7 +112,7 @@ h2 {
 }
 
 #geocoder,
-h1 address {
+h1 u {
   max-width: calc(100% - 85px);
 }
 
