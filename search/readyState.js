@@ -66,10 +66,6 @@ document.addEventListener('readystatechange', event => {
 
       marker.on('dragend', onDragEnd);
       onDragEnd();
-
-      document.querySelector('#coordinates h1').addEventListener('click', function () {
-        ChangeHidden()
-      });
     };
 
     // 現在位置を取得できなかった場合の処理
@@ -102,6 +98,11 @@ document.addEventListener('readystatechange', event => {
     // 現在位置を取得する
     navigator.geolocation.getCurrentPosition(success, error);
   }
+});
+
+const submit = document.querySelector('#coordinates h1');
+submit.addEventListener('click', function () {
+  ChangeHidden()
 });
 
 function ChangeHidden() {
