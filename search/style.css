@@ -9,7 +9,6 @@ main {
   top: 0;
   left: 0;
   overflow: auto;
-  padding: 0.5rem;
   width: 100%;
   height: 100%;
 }
@@ -21,7 +20,8 @@ main {
 }
 
 #back,
-#coordinates h1.submit {
+#coordinates h1.submit,
+#coordinates details {
   pointer-events: auto;
   user-select: auto;
 }
@@ -47,6 +47,10 @@ h1  {
   font-size: 222%;
 }
 
+#coordinates summary  {
+  font-size: 175%;
+}
+
 h1 b,
 #timestamp {
   font-size: 125%;
@@ -61,7 +65,8 @@ h1 {
   color: lemonchiffon;
 }
 
-h1 u {
+h1 u,
+#coordinates summary {
   background: lightskyblue;
   color: lemonchiffon;
   text-decoration: none;
@@ -73,14 +78,15 @@ h1,
 }
 
 h1 u,
-h1 small {
+h1 small,
+#coordinates summary {
   font-family: "DiaPro", sans-serif;
 }
 
 h1,
 h2 {
   box-sizing: border-box;
-  padding: 1rem 0;
+  padding: 1rem 0.5rem;
 }
 
 #back {
@@ -131,6 +137,17 @@ h2 {
   padding: 0.5rem;
 }
 
+#coordinates details {
+  background: #fff7;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  width: 100%;
+  max-height: 100%;
+}
+
 #map {
   left: 0;
   right: 0;
@@ -142,7 +159,9 @@ h2 {
 
 
 @media (orientation: landscape) {
-  input[type="button"] {
+  input[type="button"],
+  #coordinates summary,
+  #coordinates section {
     padding: 0.5rem;
   }
 
@@ -159,7 +178,9 @@ h2 {
 
 
 @media (orientation: portrait) {
-  input[type="button"] {
+  input[type="button"],
+  #coordinates summary,
+  #coordinates section {
     padding: 1vw;
   }
 

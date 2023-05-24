@@ -8,6 +8,7 @@
   <meta name="format-detection" content="telephone=no" />
   <script src="readyState.js"></script>
   <script src="../js/index.js" async></script>
+  <script src="/js/log.js" async></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
   <link href="../font/style.css" rel="stylesheet" />
@@ -28,6 +29,10 @@
       <b id="longitude" class="goout">Longitude</b>,
       <b id="latitude" class="goout">Latitude</b>
     </h1>
+    <details>
+      <summary></summary>
+      <section id="readme"></section>
+    </details>
   </main>
   <main id="submit" hidden>
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
@@ -50,6 +55,8 @@
   thisLng = document.querySelector('#coordinates #longitude'),
   thisLat = document.querySelector('#coordinates #latitude'),
   yourAddress = document.querySelector('#address');
+
+  const readme = document.querySelector('#coordinates summary');
 
   // ページにMapboxを埋め込む
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
@@ -124,6 +131,20 @@
         }
       });
     };
+
+    readme.innerText = "'ll play first and tell what it is later"
+    fetch('README.md')
+    .then(response => response.text())
+    .then(innerText => {
+      document.querySelector('#readme').innerText = innerText;
+    });
+  } else {
+    readme.innerText = "Submit Your Info to Enter This Site"
+    fetch('../yourinfo.php')
+    .then(response => response.text())
+    .then(innerHTML => {
+      document.querySelector('#readme').innerHTML = innerHTML;
+    });
   }
   </script>
   <script src="../js/submit.js"></script>
