@@ -19,7 +19,6 @@ document.addEventListener('readystatechange', event => {
     datetime.addEventListener('change', event => {
       let setTime = new Date(event.target.value).toString();
       document.querySelector('#timestamp').textContent = setTime;
-      console.log(setTime)
     })
   } else if (event.target.readyState === 'complete') {
     // 現在位置を取得できた場合の処理
