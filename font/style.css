@@ -62,6 +62,12 @@
   font-family: 'Mochiy Pop One', sans-serif;
 }
 
+.do a {
+  color: #B1302B;
+  background-color: #166BB6;
+  text-decoration: 2px #eee underline;
+}
+
 .sports {
   font-weight: 500;
   font-size: 75%;
@@ -119,4 +125,12 @@
   background: #fff;
   color: #000;
   text-decoration: none;
+}
+
+.mapboxgl-popup p {
+  margin: 0.5rem 0 0;
+}
+
+.mapboxgl-popup-close-button {
+  margin: 0.25rem 0.5rem;
 }

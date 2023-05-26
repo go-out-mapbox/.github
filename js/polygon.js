@@ -53,7 +53,6 @@ map.on('load', () => {
     }
   });
 
-  // 新しいレイヤーを追加してポリゴンを視覚化
   map.addLayer({
     'id': 'heard',
     'type': 'fill',
@@ -65,7 +64,6 @@ map.on('load', () => {
     }
   });
 
-  // ポリゴンにアウトラインを追加
   map.addLayer({
     'id': 'around',
     'type': 'line',
@@ -75,5 +73,77 @@ map.on('load', () => {
       'line-color': '#fff',
       'line-width': 2
     }
+  });
+
+  // やるぞ ‼
+  map.addSource('do', {
+    'type': 'geojson',
+    'data': {
+      'type': 'FeatureCollection',
+      'features': [
+        {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [
+              [
+                [135.4953517829611, 34.62702765533572],
+                [135.4960245179385, 34.627339317979306],
+                [135.50391050613052, 34.64546789712162],
+                [135.48776750786493, 34.63920320769225],
+                [135.48717317682286, 34.63879986177503],
+                [135.48641471397286, 34.63357632592684],
+                [135.4953517829611, 34.62702765533572]
+              ]
+            ]
+          },
+          'properties': {
+            'title': 'やるぞ ‼',
+            'date': '<a href="https://go-out-mapbox.github.io/do/" target="_blank" rel="nofollow noreferrer">大阪ヘルスバンクニュース掲示板</a>',
+            'tags': 'do',
+          }
+        }
+      ]
+    }
+  });
+
+  map.addLayer({
+    'id': 'do',
+    'type': 'fill',
+    'source': 'do',
+    'layout': {},
+    'paint': {
+      'fill-color': '#166BB6',
+      'fill-opacity': 0.7
+    }
+  });
+
+  map.addLayer({
+    'id': 'it',
+    'type': 'line',
+    'source': 'do',
+    'layout': {},
+    'paint': {
+      'line-color': '#eee',
+      'line-width': 7
+    }
+  });
+
+  map.on('click', 'do', (e) => {
+    new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(`
+      <strong class="do">${e.features[0].properties.title}</strong>
+      <p class="do">${e.features[0].properties.date}</p>
+      `)
+    .addTo(map);
+  });
+
+  map.on('mouseenter', 'do', () => {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+
+  map.on('mouseleave', 'do', () => {
+    map.getCanvas().style.cursor = '';
   });
 });
