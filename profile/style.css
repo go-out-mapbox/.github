@@ -118,7 +118,8 @@ summary,
   font-weight: lighter;
 }
 
-#storage ol {
+#storage ol,
+#storage .readme {
   display: flex;
   flex-direction: row-reverse;
   padding: 0;
