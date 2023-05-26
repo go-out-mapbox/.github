@@ -74,13 +74,13 @@ h1 u,
 
 h1,
 #timestamp {
-  font-family: "Kristina", "Osaka", sans-serif;
+  font-family: "Kristina", 'IBM Plex Sans JP', sans-serif;
 }
 
 h1 u,
 h1 small,
 #coordinates summary {
-  font-family: "DiaPro", sans-serif;
+  font-family: "DiaPro", 'IBM Plex Sans JP', sans-serif;
 }
 
 h1,

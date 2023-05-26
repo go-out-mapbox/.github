@@ -68,7 +68,7 @@ a,
   1px 1px 1px lightskyblue,
   2px 2px 2px lightskyblue,
   3px 3px 3px lightskyblue;
-  font-family: "Kristina", "Osaka", sans-serif;
+  font-family: "Kristina", 'IBM Plex Sans JP', sans-serif;
   font-size: 200%;
   font-weight: 400;
 }

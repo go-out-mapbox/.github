@@ -1,21 +1,11 @@
 @font-face {
-  font-family: "Osaka";
-  src: url("Osaka.ttc");
-}
-
-.osaka {
-  font-family: "Osaka", sans-serif;
-  font-weight: lighter;
-}
-
-@font-face {
   font-family: "Kristina";
   src: url("Kristina.Bold.otf") format("opentype"),
   url("Kristina.Fine.otf") format("opentype");
 }
 
 .goout {
-  font-family: "Kristina", "Osaka", sans-serif;
+  font-family: "Kristina", 'IBM Plex Sans JP', sans-serif;
 }
 
 .goout a {
@@ -36,7 +26,7 @@
 }
 
 .relax {
-  font-family: "DiaPro", sans-serif;
+  font-family: "DiaPro", 'IBM Plex Sans JP', sans-serif;
 }
 
 .relax a {

@@ -13,6 +13,9 @@
   <link href="../css/reset.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
   <link rel="icon" href="icon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
   <input type="button" name="button" id="back">

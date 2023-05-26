@@ -10,7 +10,7 @@
 
 #submit summary,
 #submit #credit::after {
-  font-family: "Kristina", "Osaka", sans-serif;
+  font-family: "Kristina", 'IBM Plex Sans JP', sans-serif;
 }
 
 h3 {
@@ -18,7 +18,7 @@ h3 {
 }
 
 #submit textarea {
-  font-family: "Osaka", sans-serif;
+  font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
 h3 span,
