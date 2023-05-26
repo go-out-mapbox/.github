@@ -35,12 +35,12 @@ input[type="button"] {
 }
 
 h1,
+h3,
 summary {
   font-size: 200%;
 }
 
-#storage li h2,
-h3 {
+#storage li h2 {
   font-size: 150%;
 }
 
@@ -81,9 +81,12 @@ h1.hover:hover,
   color: lightskyblue;
 }
 
-h1,
-h3 {
+h1 {
   color: lemonchiffon;
+}
+
+h3 {
+  background: lemonchiffon;
 }
 
 #storage li::marker,
