@@ -14,7 +14,7 @@
 }
 
 h3 {
-  font-family: "DiaPro", sans-serif;
+  font-family: "DiaPro", 'IBM Plex Sans JP', sans-serif;
 }
 
 #submit textarea {

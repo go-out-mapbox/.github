@@ -79,7 +79,8 @@ h1.hover:hover,
   color: lightskyblue;
 }
 
-h1 {
+h1,
+h3 {
   color: lemonchiffon;
 }
 
@@ -107,9 +108,10 @@ h1,
 
 h1 u,
 h1 small,
+h3,
 summary,
 #storage li address {
-  font-family: "DiaPro", sans-serif;
+  font-family: "DiaPro", 'IBM Plex Sans JP', sans-serif;
 }
 
 #storage li p,
@@ -170,6 +172,7 @@ header {
 
 @media (orientation: landscape) {
   h1,
+  h3 a,
   input[type="button"],
   summary,
   #storage li,
@@ -182,6 +185,7 @@ header {
   }
 
   h1 b,
+  h3 a,
   input[type="button"],
   #storage li h2 {
     color: lemonchiffon;
@@ -195,6 +199,7 @@ header {
 
 @media (orientation: portrait) {
   h1,
+  h3 a,
   input[type="button"],
   summary,
   #storage li,
@@ -207,6 +212,7 @@ header {
   }
 
   h1 b,
+  h3 a,
   input[type="button"],
   #storage li h2 {
     color: lemonchiffon;
