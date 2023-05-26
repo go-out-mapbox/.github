@@ -29,23 +29,27 @@ h1.hover,
 
 h1,
 h2,
+h3,
 h1 b,
 input[type="button"] {
   font-weight: 400;
 }
 
 h1,
-h3,
 summary {
   font-size: 200%;
 }
 
+h3,
 #storage li h2 {
   font-size: 150%;
 }
 
+h3 a {
+  font-size: 125%;
+}
+
 h1 b,
-h3 a,
 #storage li::marker,
 #storage li p {
   font-size: 111%;
