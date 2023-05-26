@@ -33,7 +33,7 @@ document.addEventListener('readystatechange', event => {
       let center = [longitude, latitude];
       map.flyTo({
         center: center,
-        zoom: 17.5
+        zoom: 11.11
       });
 
       let marker = new mapboxgl.Marker({

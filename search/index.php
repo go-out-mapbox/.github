@@ -76,7 +76,7 @@
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       marker: false,
-      zoom: 11.11,
+      zoom: 12.345,
       language: 'ja',
       country: 'jp',
       mapboxgl: mapboxgl,
