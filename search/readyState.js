@@ -15,15 +15,12 @@ document.addEventListener('readystatechange', event => {
     const now = new Date();
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     datetime.value = now.toISOString().slice(0, -1);
-    setTime()
-
-    function setTime() {
-      let setTime = new Date(event.target.value).toString();
-      document.querySelector('#timestamp').textContent = setTime;
-    }
+    let setTime = new Date(datetime.value).toString();
+    document.querySelector('#timestamp').textContent = setTime;
 
     datetime.addEventListener('change', event => {
-      setTime()
+      let setTime = new Date(event.target.value).toString();
+      document.querySelector('#timestamp').textContent = setTime;
     })
   } else if (event.target.readyState === 'complete') {
     // 現在位置を取得できた場合の処理
