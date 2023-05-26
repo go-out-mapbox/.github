@@ -188,10 +188,6 @@ header {
     2px 2px 2px lightskyblue,
     3px 3px 3px lightskyblue;
   }
-
-  .mapboxgl-popup-content p {
-    margin: 0.5rem 0;
-  }
 }
 
 
@@ -219,10 +215,6 @@ header {
     0.4vw 0.4vw 0.4vw lightskyblue,
     0.5vw 0.5vw 0.5vw lightskyblue;
   }
-
-  .mapboxgl-popup-content p {
-    margin: 1vw 0;
-  }
 }
 
 .mapboxgl-popup-content {
@@ -243,6 +235,7 @@ header {
 
 .mapboxgl-popup-content p {
   font-size: 111%;
+  margin: 0 0 1rem;
 }
 
 #map .marker {
