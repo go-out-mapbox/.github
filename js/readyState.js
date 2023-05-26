@@ -142,7 +142,7 @@ async function indexHTML() {
   <h4>この地図に、わたしたちがいた場所を記録します。</h4>
   <p>「I'm here !」をクリックすると、あなたの位置情報がコレクションに投稿されます。</p>
   <p>
-  <small>※ あなたが投稿した 位置情報 は、<a href="profile/">あなたの位置情報</a> ページから閲覧できます。</small><br/>
+  <small>※ あなたの投稿は、<a href="profile/">あなたの位置情報</a> ページから一覧できます。</small><br/>
   <small>※ Submit your location by click "I'm here" and it will be added to <a href="profile/">The Collection of Your Location</a>.</small>
   </p>
   `;
