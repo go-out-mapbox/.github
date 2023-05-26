@@ -134,7 +134,7 @@ document.addEventListener('readystatechange', event => {
       // localStorage から 投稿 を取得
       if(localStorage.getItem('map')) {
         storageTitle.innerText = 'The Collection of Your Location';
-        storageSection.innerHTML = '<ol></ol>';
+        storageSection.innerHTML = '<ol></ol><a href="/map/seach/">Submit Your Location あなたがいた場所を投稿する</a>';
 
         const mapJSON = JSON.parse(localStorage.getItem('map'));
         for (let i = 0; i < mapJSON.length; i++) {
