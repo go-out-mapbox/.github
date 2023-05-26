@@ -112,8 +112,8 @@ document.addEventListener('readystatechange', event => {
         .setPopup(
           new mapboxgl.Popup({ offset: 25 })
           .setHTML(`
-            <time>${marker.properties.timestamp}</time>
             <p>${marker.properties.date}</p>
+            <time>${marker.properties.timestamp}</time>
             `
           )
         )
