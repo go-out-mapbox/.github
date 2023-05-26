@@ -197,7 +197,7 @@ document.addEventListener('readystatechange', event => {
       }
     } else {
       storageTitle.innerText = 'Submit Your Info to Enter This Site';
-      storageSection.className = 'readme';
+      storageSection.className = 'enter';
 
       async function readmeMD() {
         fetch('../yourinfo.php')
