@@ -1,8 +1,8 @@
 # This is a web form for submit your location using Mapbox Geocoding API[^1].
 
 - First, Drag the marker to get the location.
-- Select a date and add a comment to the location.
-- Submit your location by clicking "I Was Here".
+- Select the date and add comments to the location.
+- Click "I Was Here" to submit the location to your collection.
 
 ---
 

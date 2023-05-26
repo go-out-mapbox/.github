@@ -1,12 +1,12 @@
 {
   "title" : "The Collection of Your Location | Go Out",
-  "description" : "ウェブストレージAPI・位置情報APIが利用できないブラウザでは、このページを閲覧できません。",
+  "description" : "あなたのブラウザ（デバイス）にあなたの位置情報を記録する",
   "author" : "creative-community.space",
   "email" : "pehu@creative-community.space",
   "type" : "website",
   "twitter" : "@pe_hu_",
   "card" : "summary_large_image",
-  "src" : "profile/card.png",
+  "src" : "summary.png",
 
   "contents" : [
   ]
