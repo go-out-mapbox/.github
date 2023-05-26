@@ -77,7 +77,10 @@
       accessToken: mapboxgl.accessToken,
       marker: false,
       zoom: 11.11,
-      mapboxgl: mapboxgl
+      language: 'ja',
+      country: 'jp',
+      mapboxgl: mapboxgl,
+      reverseGeocode: true
     })
 
     // ジオコーダー を #geocoder に配置
