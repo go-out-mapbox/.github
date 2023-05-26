@@ -39,11 +39,13 @@ summary {
   font-size: 200%;
 }
 
-#storage li h2 {
+#storage li h2,
+h3 {
   font-size: 150%;
 }
 
 h1 b,
+h3 a,
 #storage li::marker,
 #storage li p {
   font-size: 111%;
@@ -121,11 +123,16 @@ summary,
 }
 
 #storage ol,
+#storage li,
+#storage section {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#storage ol,
 #storage .readme {
   display: flex;
   flex-direction: row-reverse;
-  padding: 0;
-  margin: 0;
   width: 100%;
   height: 111vw;
   max-height: 70vh;
@@ -135,9 +142,7 @@ summary,
 
 #storage li,
 #storage .readme {
-  box-sizing: border-box;
   list-style-position: inside;
-  margin: 0;
   overflow: auto;
   writing-mode: vertical-rl;
   text-orientation: mixed;
