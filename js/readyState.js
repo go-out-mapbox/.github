@@ -14,6 +14,12 @@ if(localStorage.getItem('yourInfo')) {
       ${innerHTML}
       `;
     });
+
+    fetch('credit.html')
+    .then(response => response.text())
+    .then(innerHTML => {
+      document.querySelector('#credit').innerHTML = innerHTML;
+    });
   }
   readmeMD();
   submitButton.remove();

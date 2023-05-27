@@ -82,8 +82,8 @@
 
   map.addControl(new mapboxgl.NavigationControl());
   </script>
-  <script src="js/markers.js"></script>
-  <script src="js/polygon.js"></script>
+  <script src="js/markers.v2.js"></script>
+  <script src="js/polygon.v2.js"></script>
   <script src="js/readyState.js"></script>
   <script src="js/submit.js"></script>
 </body>
