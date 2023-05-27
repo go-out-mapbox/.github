@@ -10,7 +10,7 @@ let stores = {
       'properties': {
         'title': "Hiroki Ito's Recommended Spots in Okayama",
         'address': '岡山県オススメ60スポット',
-        'date': '<a href="https://go-out-mapbox.github.io/okayama/">go-out-mapbox.github.io/okayama</a>',
+        'date': '<a href="https://go-out-mapbox.github.io/okayama/" target="_blank" rel="noopener">go-out-mapbox.github.io/okayama</a>',
         'timestamp': '',
         'tags': 'goout',
       }
@@ -52,7 +52,7 @@ let stores = {
       'properties': {
         'title': '135.50433479522678, 34.69699057458179',
         'address': '日本, 大阪府大阪市北区西天満4丁目8番1',
-        'date': '<a href="https://vg.pe.hu/jp/">∧°┐ | creative, community space</a>',
+        'date': '<a href="https://vg.pe.hu/jp/" target="_blank" rel="noopener">∧°┐ | creative, community space</a>',
         'timestamp': 'Sat Dec 16 2017 - Sun Apr 29 2018 | Sun Jan 6 2019 - Sun 15 Sep 2019',
         'tags': 'pehu',
       }
