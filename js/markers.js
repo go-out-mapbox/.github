@@ -5,6 +5,20 @@ let stores = {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
+        'coordinates': [133.91774108127242, 34.66596367986325]
+      },
+      'properties': {
+        'title': '133.91774108127242, 34.66596367986325',
+        'address': '岡山県オススメ60スポット',
+        'date': '<a href="https://go-out-mapbox.github.io/okayama/">Created by Hiroki Ito</a>',
+        'timestamp': '',
+        'tags': 'map',
+      }
+    },
+    {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'Point',
         'coordinates': [135.76854055131543, 35.00017558944718]
       },
       'properties': {
