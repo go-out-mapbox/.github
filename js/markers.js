@@ -12,7 +12,7 @@ let stores = {
         'address': '岡山県オススメ60スポット',
         'date': '<a href="https://go-out-mapbox.github.io/okayama/">Created by Hiroki Ito</a>',
         'timestamp': '',
-        'tags': 'map',
+        'tags': 'goout',
       }
     },
     {
