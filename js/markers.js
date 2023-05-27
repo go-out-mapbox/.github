@@ -8,9 +8,9 @@ let stores = {
         'coordinates': [133.91774108127242, 34.66596367986325]
       },
       'properties': {
-        'title': '133.91774108127242, 34.66596367986325',
+        'title': "Hiroki Ito's Recommended Spots in Okayama",
         'address': '岡山県オススメ60スポット',
-        'date': '<a href="https://go-out-mapbox.github.io/okayama/">Created by Hiroki Ito</a>',
+        'date': '<a href="https://go-out-mapbox.github.io/okayama/">go-out-mapbox.github.io/okayama</a>',
         'timestamp': '',
         'tags': 'goout',
       }
