@@ -33,6 +33,10 @@ h3 {
   input[type="button"] {
     padding: 0 0.75rem;
   }
+
+  hr {
+    margin: 1rem;
+  }
 }
 
 
@@ -48,6 +52,10 @@ h3 {
 
   input[type="button"] {
     padding: 0 1.5vw;
+  }
+
+  hr {
+    margin: 2vw;
   }
 }
 
