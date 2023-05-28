@@ -76,7 +76,7 @@ map.on('load', () => {
   });
 
   // やるぞ ‼
-  map.addSource('do', {
+  map.addSource('polygonPopup', {
     'type': 'geojson',
     'data': {
       'type': 'FeatureCollection',
@@ -99,8 +99,7 @@ map.on('load', () => {
           },
           'properties': {
             'title': 'やるぞ ‼',
-            'date': '<a href="https://go-out-mapbox.github.io/do/" target="_blank" rel="nofollow noreferrer">大阪ヘルスバンクニュース掲示板</a>',
-            'tags': 'do',
+            'date': '<a href="https://go-out-mapbox.github.io/do/" target="_blank" rel="nofollow noreferrer">go-out-mapbox.github.io/do/</a>',
           }
         }
       ]
@@ -108,42 +107,45 @@ map.on('load', () => {
   });
 
   map.addLayer({
-    'id': 'do',
+    'id': 'fillPolygon',
     'type': 'fill',
-    'source': 'do',
+    'source': 'polygonPopup',
     'layout': {},
     'paint': {
-      'fill-color': '#166BB6',
-      'fill-opacity': 0.7
+      'fill-color': 'lemonchiffon',
+      'fill-opacity': 0.75
     }
   });
 
   map.addLayer({
-    'id': 'it',
+    'id': 'linePolygon',
     'type': 'line',
-    'source': 'do',
+    'source': 'polygonPopup',
     'layout': {},
     'paint': {
-      'line-color': '#eee',
-      'line-width': 7
+      'line-color': 'lightskyblue',
+      'line-width': 4
     }
   });
 
-  map.on('click', 'do', (e) => {
+  map.on('click', 'fillPolygon', (e) => {
     new mapboxgl.Popup()
     .setLngLat(e.lngLat)
     .setHTML(`
-      <strong class="do">${e.features[0].properties.title}</strong>
-      <p class="do">${e.features[0].properties.date}</p>
+      <strong>${e.features[0].properties.title}</strong>
+      <p>${e.features[0].properties.date}</p>
       `)
     .addTo(map);
+    map.flyTo({
+      center: e.lngLat
+    });
   });
 
-  map.on('mouseenter', 'do', () => {
+  map.on('mouseenter', 'fillPolygon', () => {
     map.getCanvas().style.cursor = 'pointer';
   });
 
-  map.on('mouseleave', 'do', () => {
+  map.on('mouseleave', 'fillPolygon', () => {
     map.getCanvas().style.cursor = '';
   });
 });

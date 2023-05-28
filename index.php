@@ -13,7 +13,7 @@
   <link href="css/index.css" rel="stylesheet" />
   <link href="css/submit.css" rel="stylesheet" />
   <link href="css/title.css" rel="stylesheet" />
-  <link href="css/marker.v2.css" rel="stylesheet" />
+  <link href="css/marker.v3.css" rel="stylesheet" />
   <link rel="icon" href="profile/icon.png" type="image/png">
   <link rel="icon" href="profile/icon.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon-precomposed" href="profile/icon.png" sizes="180x180" type="image/png">
@@ -84,7 +84,7 @@
   map.addControl(new mapboxgl.NavigationControl());
   </script>
   <script src="js/markers.v2.js"></script>
-  <script src="js/polygon.v2.js"></script>
+  <script src="js/polygon.v3.js"></script>
   <script src="js/readyState.js"></script>
   <script src="js/submit.js"></script>
 </body>
