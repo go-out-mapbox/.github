@@ -40,3 +40,23 @@
   padding: 0.25rem;
   width: 100%;
 }
+
+#collection a {
+  color: lightskyblue;
+  background: lemonchiffon;
+  box-sizing: border-box;
+  display: block;
+  text-decoration: none;
+}
+
+#collection a:hover {
+  filter: grayscale(90%);
+}
+
+#collection a i {
+  font-size: 100%;
+}
+
+#collection a b {
+  font-size: 175%;
+}
