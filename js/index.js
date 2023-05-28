@@ -86,7 +86,7 @@ function indexCollection(obj) {
   const collection = document.querySelector('#collection');
   const contentsAll = obj.contents;
 
-  for (const content of collection) {
+  for (const content of contentsAll) {
     const contentA = document.createElement('a');
     const contentSmall = document.createElement('small');
     const contentB = document.createElement('b');
