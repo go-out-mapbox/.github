@@ -54,6 +54,10 @@
         <textarea rows="7" id="comment" placeholder="位置情報にコメントを追加する"></textarea>
       </details>
     </form>
+    <details id="collection">
+      <summary><b>View The Collection</b></summary>
+    </details>
+    <hr/>
     <footer id="credit" class="goout"></footer>
   </main>
 
