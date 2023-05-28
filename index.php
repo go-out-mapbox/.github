@@ -53,17 +53,6 @@
         <summary><b>Add A Comment to Your Location</b></summary>
         <textarea rows="7" id="comment" placeholder="位置情報にコメントを追加する"></textarea>
       </details>
-      <details id="collection">
-        <summary><b>View The Collection</b></summary>
-        <a href="/map/profile/">
-          <i class="relax">あなたの位置情報</i><br/>
-          <b class="goout">The Collection of Your Location</b>
-        </a>
-        <a href="/map/heard/">
-          <i class="relax">私（わたしたち）が聞いた言葉</i><br/>
-          <b class="goout">things that i (we) heard</b>
-        </a>
-      </details>
     </form>
     <footer id="credit" class="goout"></footer>
   </main>

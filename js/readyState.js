@@ -14,17 +14,10 @@ if(localStorage.getItem('yourInfo')) {
       ${innerHTML}
       `;
     });
-
-    fetch('credit.html')
-    .then(response => response.text())
-    .then(innerHTML => {
-      document.querySelector('#credit').innerHTML = innerHTML;
-    });
   }
   readmeMD();
   submitButton.remove();
   submitDetails.remove();
-  collection.remove();
   enter.addEventListener('click', (e) => {
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
@@ -102,7 +95,6 @@ function geoFindMe() {
     enter.remove();
     submitButton.remove();
     submitDetails.remove();
-    collection.remove();
     ChangeHidden();
   };
 
@@ -115,7 +107,6 @@ function geoFindMe() {
     enter.remove();
     submitButton.remove();
     submitDetails.remove();
-    collection.remove();
     ChangeHidden();
   } else {
     mapbox.style.pointerEvents = "none";
