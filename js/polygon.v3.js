@@ -75,7 +75,7 @@ map.on('load', () => {
     }
   });
 
-  // やるぞ ‼
+  // クリックするとポップアップが表示されるポリゴンを追加
   map.addSource('polygonPopup', {
     'type': 'geojson',
     'data': {
