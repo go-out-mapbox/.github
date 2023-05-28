@@ -64,7 +64,7 @@
   filter: grayscale(90%);
 }
 
-#collection a i {
+#collection a small {
   font-size: 100%;
 }
 
