@@ -116,11 +116,3 @@
   color: #000;
   text-decoration: none;
 }
-
-.mapboxgl-popup p {
-  margin: 0.5rem 0 0;
-}
-
-.mapboxgl-popup-close-button {
-  margin: 0.25rem 0.5rem;
-}

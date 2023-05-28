@@ -85,6 +85,10 @@
   text-decoration: none;
 }
 
+.mapboxgl-popup p {
+  margin: 0.5rem 0 0;
+}
+
 .mapboxgl-popup-content strong {
   font-family: "DiaPro", 'IBM Plex Sans JP', sans-serif;
 }
