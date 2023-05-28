@@ -82,7 +82,7 @@ function indexHead(obj) {
   head.appendChild(ogURL);
 }
 
-function indexObject(obj) {
+function indexCollection(obj) {
   const collection = document.querySelector('#collection');
   const contentsAll = obj.contents;
 
