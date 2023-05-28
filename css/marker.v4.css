@@ -64,6 +64,12 @@
   filter: grayscale(90%);
 }
 
+#collection a small,
+#collection a b {
+  display: block;
+  width: 100%;
+}
+
 #collection a small {
   font-size: 100%;
 }
