@@ -93,9 +93,9 @@ function indexCollection(obj) {
 
     contentA.href = content.url;
     contentSmall.innerText = content.date;
-    contentSmall.classList.add("relax");
+    contentSmall.className = "relax";
     contentB.innerText = content.name;
-    contentB.classList.add("goout");
+    contentB.className = "goout";
 
     collection.appendChild(contentA);
     contentA.appendChild(contentSmall);
