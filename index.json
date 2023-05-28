@@ -9,5 +9,15 @@
   "src" : "profile/card.png",
 
   "contents" : [
+    {
+      "date" : "あなたの位置情報",
+      "name" : "The Collection of Your Location",
+      "url" : "/map/profile/"
+    },
+    {
+      "date" : "私（わたしたち）が聞いた言葉",
+      "name" : "things that i (we) heard",
+      "url" : "/map/heard/"
+    }
   ]
 }

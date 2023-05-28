@@ -8,6 +8,7 @@ async function indexJSON() {
 
   const index = JSON.parse(indexJSON);
   indexHead(index);
+  indexCollection(index);
 }
 
 function indexHead(obj) {
@@ -79,6 +80,27 @@ function indexHead(obj) {
   ogURL.setAttribute("property", "og:url");
   ogURL.setAttribute("content", location.href);
   head.appendChild(ogURL);
+}
+
+function indexObject(obj) {
+  const collection = document.querySelector('#collection');
+  const contentsAll = obj.contents;
+
+  for (const content of collection) {
+    const contentA = document.createElement('a');
+    const contentSmall = document.createElement('small');
+    const contentB = document.createElement('b');
+
+    contentA.href = content.url;
+    contentSmall.innerText = content.date;
+    contentSmall.classList.add("relax");
+    contentB.innerText = content.name;
+    contentB.classList.add("goout");
+
+    collection.appendChild(contentA);
+    contentA.appendChild(contentSmall);
+    contentA.appendChild(contentB);
+  }
 }
 
 indexJSON();
