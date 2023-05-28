@@ -57,6 +57,7 @@
         <summary><b>View The Collection</b></summary>
       </details>
     </form>
+    <hr>
     <footer id="credit" class="goout"></footer>
   </main>
 
