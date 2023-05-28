@@ -60,3 +60,17 @@
 #collection a b {
   font-size: 175%;
 }
+
+
+@media (orientation: landscape) {
+  #collection a {
+    padding: 0.5rem;
+  }
+}
+
+
+@media (orientation: portrait) {
+  #collection a {
+    padding: 1vw;
+  }
+}

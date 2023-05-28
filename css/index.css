@@ -94,8 +94,7 @@ a,
 
 
 @media (orientation: landscape) {
-  #date,
-  #collection a {
+  #date {
     padding: 0.5rem;
   }
 
@@ -106,8 +105,7 @@ a,
 
 
 @media (orientation: portrait) {
-  #date,
-  #collection a {
+  #date {
     padding: 1vw;
   }
 

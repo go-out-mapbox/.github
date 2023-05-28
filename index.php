@@ -11,9 +11,9 @@
   <link href="font/style.css" rel="stylesheet" />
   <link href="css/reset.css" rel="stylesheet" />
   <link href="css/index.css" rel="stylesheet" />
-  <link href="css/marker.css" rel="stylesheet" />
   <link href="css/submit.css" rel="stylesheet" />
   <link href="css/title.css" rel="stylesheet" />
+  <link href="css/marker.v2.css" rel="stylesheet" />
   <link rel="icon" href="profile/icon.png" type="image/png">
   <link rel="icon" href="profile/icon.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon-precomposed" href="profile/icon.png" sizes="180x180" type="image/png">
