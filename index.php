@@ -45,11 +45,10 @@
   <main id="submit" hidden>
     <input id="close" type="button" onclick="ChangeHidden()" value="×">
     <form>
-      <section id="readme"></section>
       <p style="text-align: center;">
         <button type="submit" class="goout">I'm Here !</button>
       </p>
-      <details open>
+      <details id="add" open>
         <summary><b>Add A Comment to Your Location</b></summary>
         <textarea rows="7" id="comment" placeholder="位置情報にコメントを追加する"></textarea>
       </details>
@@ -71,7 +70,9 @@
   title = document.querySelector('#title'),
   enter = document.querySelector('#enter'),
   submitForm = document.querySelector('#submit form'),
-  submitButton = document.querySelector('#submit button');
+  submitButton = document.querySelector('#submit button'),
+  submitDetails = document.querySelector('#submit #add'),
+  collection = document.querySelector('#collection');
 
   mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
   let center = [135.50433479522678, 34.69699057458179];

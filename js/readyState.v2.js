@@ -16,7 +16,9 @@ if(localStorage.getItem('yourInfo')) {
     });
   }
   readmeMD();
-  submitForm.remove();
+  submitButton.remove();
+  submitDetails.remove();
+  collection.remove();
   enter.addEventListener('click', (e) => {
     mapbox.style.pointerEvents = "auto";
     mapbox.style.userSelect = "auto";
@@ -92,7 +94,9 @@ function geoFindMe() {
     yourAddress.textContent = '現在地を取得できませんでした';
     errorMD();
     enter.remove();
-    submitForm.remove();
+    submitButton.remove();
+    submitDetails.remove();
+    collection.remove();
     ChangeHidden();
   };
 
@@ -103,7 +107,9 @@ function geoFindMe() {
     yourAddress.textContent = 'このブラウザは位置情報サービスがサポートされていません';
     errorMD();
     enter.remove();
-    submitForm.remove();
+    submitButton.remove();
+    submitDetails.remove();
+    collection.remove();
     ChangeHidden();
   } else {
     mapbox.style.pointerEvents = "none";
