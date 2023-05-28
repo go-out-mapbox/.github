@@ -55,14 +55,6 @@
       </details>
       <details id="collection">
         <summary><b>View The Collection</b></summary>
-        <a href="/map/profile/">
-          <small class="relax">あなたの位置情報</small>
-          <b class="goout">The Collection of Your Location</b>
-        </a>
-        <a href="/map/heard/">
-          <small class="relax">私（わたしたち）が聞いた言葉</small>
-          <b class="goout">things that i (we) heard</b>
-        </a>
       </details>
     </form>
     <hr/>
