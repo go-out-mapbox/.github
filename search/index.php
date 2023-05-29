@@ -148,8 +148,10 @@
     })
 
     document.querySelector('#readme').insertAdjacentHTML('afterend',`
+    <h3>
     あなたの位置情報<br/>
     <a href="/map/profile/">The Collection of Your Location</a>
+    </h3>
     `);
   } else {
     readme.innerText = "Submit Your Info to Enter This Site";
