@@ -90,6 +90,15 @@ h2 {
   padding: 0.5rem;
 }
 
+h3 {
+  background: lemonchiffon;
+  font-size: 150%;
+}
+
+h3 a {
+  font-size: 125%;
+}
+
 #geocoder,
 #datetime {
   margin: 0.5rem
@@ -165,6 +174,7 @@ h2 {
 
 
 @media (orientation: landscape) {
+  h3,
   #coordinates summary,
   #coordinates section {
     padding: 0.5rem;
@@ -175,6 +185,7 @@ h2 {
   }
 
   h1 b,
+  h3 a,
   #close,
   #timestamp {
     color: lemonchiffon;
@@ -187,6 +198,7 @@ h2 {
 
 
 @media (orientation: portrait) {
+  h3,
   #coordinates summary,
   #coordinates section {
     padding: 1vw;
@@ -197,6 +209,7 @@ h2 {
   }
 
   h1 b,
+  h3 a,
   #close,
   #timestamp {
     color: lemonchiffon;
