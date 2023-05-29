@@ -92,11 +92,11 @@ h2 {
 
 h3 {
   background: lemonchiffon;
-  font-size: 150%;
+  font-size: 125%;
 }
 
 h3 a {
-  font-size: 125%;
+  font-size: 150%;
 }
 
 #geocoder,
