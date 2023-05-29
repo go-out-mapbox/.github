@@ -208,3 +208,11 @@ h2 {
     0.5vw 0.5vw 0.5vw lightskyblue;
   }
 }
+
+#readme.about {
+  height: 111vw;
+  max-height: 70vh;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  overflow: auto;
+}

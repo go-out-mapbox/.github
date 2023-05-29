@@ -151,7 +151,6 @@ summary,
 #storage li,
 #storage .readme {
   list-style-position: inside;
-  overflow: auto;
   writing-mode: vertical-rl;
   text-orientation: mixed;
 }
