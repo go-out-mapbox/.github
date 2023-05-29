@@ -1,1 +1,1 @@
-# This is a Collection of Essays by Editors
+# This is a Collection of Text Files by Editors

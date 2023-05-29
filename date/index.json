@@ -10,14 +10,19 @@
 
   "contents" : [
     {
+      "date" : "2020.4.7",
+      "name" : "行ったことのない場所へ行く",
+      "url" : "with/goout.html"
+    },
+    {
       "date" : "2019.4.7",
       "name" : "Going the other way than usual",
-      "url" : "en.html"
+      "url" : "with/why-i-take-the-same-way.html"
     },
     {
       "date" : "2019.4.7",
       "name" : "いつもと違う道を通る",
-      "url" : "ja.html"
+      "url" : "with/propose.html"
     }
   ]
 }

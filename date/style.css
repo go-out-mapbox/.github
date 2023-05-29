@@ -30,11 +30,20 @@
     max-height: -webkit-fill-available;
   }
 
-  article,
-  main {
-    width: 50%;
+  main,
+  article {
     height: 100%;
     overflow: auto;
+  }
+
+  main {
+    width: 40%;
+    max-width: 450px;
+  }
+
+  article {
+    width: calc(100% - 450px);
+    min-width: 60%;
   }
 
   #essay,
