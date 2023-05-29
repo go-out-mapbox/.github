@@ -140,14 +140,14 @@
     };
 
     readme.innerText = "このページについて About This Page"
+    document.querySelector('#readme').className = "about"
     fetch('README.md')
     .then(response => response.text())
     .then(innerText => {
-      document.querySelector('#readme').innerText = innerText;
+      document.querySelector('#readme').innerText = innerText
     });
   } else {
     readme.innerText = "Submit Your Info to Enter This Site";
-    document.querySelector('#readme').className = "about";
     fetch('../yourinfo.php')
     .then(response => response.text())
     .then(innerHTML => {
