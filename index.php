@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
-  <script src="js/index.js"></script>
-  <script src="/js/log.js" async></script>
+  <script src="js/index.js" defer></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
   <link href="font/style.css" rel="stylesheet" />
@@ -91,5 +90,6 @@
   <script src="js/polygon.v3.js"></script>
   <script src="js/readyState.v2.js"></script>
   <script src="js/submit.js"></script>
+  <script src="/js/log.js"></script>
 </body>
 </html>

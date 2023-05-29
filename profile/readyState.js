@@ -136,7 +136,11 @@ document.addEventListener('readystatechange', event => {
         storageTitle.innerText = 'The Collection of Your Location';
         storageSection.innerHTML = `
         <ol></ol>
-        <h3><a href="/map/search/">Submit Your Location あなたがいた場所を投稿する</a></h3>`
+        <h3>
+        <a href="/map/search/">
+        <small>Add Your Location to Collection</small><br/>
+        あなたがいた場所をコレクションに追加する</a>
+        </h3>`
         ;
 
         const mapJSON = JSON.parse(localStorage.getItem('map'));
