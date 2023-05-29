@@ -49,16 +49,6 @@
     margin: 0 0 1.25rem;
   }
 
-  #collection {
-    display: flex;
-flex-flow: wrap;
-    margin-top: 1rem;
-  }
-
-  #collection a {
-    flex: 1 300px;
-  }
-
   #back {
     padding: 0.25rem;
   }
