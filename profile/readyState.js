@@ -137,9 +137,8 @@ document.addEventListener('readystatechange', event => {
         storageSection.innerHTML = `
         <ol></ol>
         <h3>
-        <a href="/map/search/">
         <small>Add Your Location to Collection</small><br/>
-        あなたがいた場所をコレクションに追加する</a>
+        <a href="/map/search/">あなたがいた場所をコレクションに追加する</a>
         </h3>`
         ;
 
