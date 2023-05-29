@@ -185,7 +185,7 @@ header {
 
 @media (orientation: landscape) {
   h1,
-  h3 a,
+  h3,
   input[type="button"],
   summary,
   #storage li,
@@ -213,7 +213,7 @@ header {
 
 @media (orientation: portrait) {
   h1,
-  h3 a,
+  h3,
   input[type="button"],
   summary,
   #storage li,
