@@ -10,14 +10,14 @@
 
   "contents" : [
     {
-      "date" : "日本語",
-      "name" : "いつもと違う道を通る",
-      "url" : "ja.html"
-    },
-    {
-      "date" : "English",
+      "date" : "2019.4.7",
       "name" : "Going the other way than usual",
       "url" : "en.html"
+    },
+    {
+      "date" : "2019.4.7",
+      "name" : "いつもと違う道を通る",
+      "url" : "ja.html"
     }
   ]
 }

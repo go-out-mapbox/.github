@@ -18,29 +18,34 @@
 </head>
 <body>
   <main>
+    <h2>ESSAYS</h2>
+    <section></section>
     <nav id="collection"></nav>
   </main>
-  <article id="essay"></article>
+  <article id="essay">
+    <section></section>
+    <input id="back" type="button" value="↩︎" onclick="location.assign('../');">
+  </article>
   <script type="text/javascript">
-  const essay = document.querySelector('#essay')
+  const essay = document.querySelector('#essay section')
+
   async function index(url) {
     fetch(url)
     .then(response => response.text())
     .then(innerHTML => {
       essay.innerHTML = innerHTML;
-    })
-    smoothTo()
-  }
 
-  async function readme(md) {
-    fetch(md)
-    .then(response => response.text())
-    .then(innerText => {
-      essay.innerText = innerText;
     })
     smoothTo()
   }
-  readme('README.md')
+  index("about.html")
+
+  const collection = document.querySelector('main section')
+  fetch('README.md')
+  .then(response => response.text())
+  .then(innerText => {
+    collection.innerText += innerText;
+  })
 
   function smoothTo() {
     const targetOffsetTop = window.pageYOffset + essay.getBoundingClientRect().top;

@@ -2,6 +2,26 @@
   box-sizing: border-box;
 }
 
+#essay section {
+  background: #fff;
+}
+
+#essay h1 b,
+#essay mark {
+  color: lightskyblue;
+  background: lemonchiffon;
+  font-size: 111%;
+}
+
+#back:hover {
+  color: #fff;
+}
+
+#back {
+  font-size: 200%;
+  float: right
+}
+
 @media (orientation: landscape) {
   body {
     display: flex;
@@ -18,15 +38,44 @@
   }
 
   #essay,
-  #collection h2 {
+  main h2,
+  main section {
     padding: 0.5rem;
+  }
+
+  #essay section {
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0 0 1.25rem;
+  }
+
+  #collection {
+    margin-top: 1rem;
+  }
+
+  #back {
+    padding: 0.25rem;
   }
 }
 
 
 @media (orientation: portrait) {
-  #essay,
-  #collection h2 {
+  main h2,
+  main section {
+    padding: 1vw;
+  }
+
+  #essay section {
+    border-radius: 2.5vw;
+    padding: 2.5vw;
+    margin: 5vw 5vw 2.5vw;
+  }
+
+  #collection {
+    margin-top: 2vw;
+  }
+
+  #back {
     padding: 1vw;
   }
 }
