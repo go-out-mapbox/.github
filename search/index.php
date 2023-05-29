@@ -146,12 +146,12 @@
       document.querySelector('#readme').innerText = innerText;
     });
   } else {
-    readme.innerText = "Submit Your Info to Enter This Site"
+    readme.innerText = "Submit Your Info to Enter This Site";
+    document.querySelector('#readme').className = "about";
     fetch('../yourinfo.php')
     .then(response => response.text())
     .then(innerHTML => {
       document.querySelector('#readme').innerHTML = innerHTML;
-      document.querySelector('#readme').className = "about";
     });
   }
   </script>
