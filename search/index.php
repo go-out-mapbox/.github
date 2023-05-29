@@ -145,7 +145,12 @@
     .then(response => response.text())
     .then(innerText => {
       document.querySelector('#readme').innerText = innerText
-    });
+    })
+
+    document.querySelector('#readme').insertAdjacentHTML('afterend',`
+    あなたの位置情報<br/>
+    <a href="/map/profile/">The Collection of Your Location</a>
+    `);
   } else {
     readme.innerText = "Submit Your Info to Enter This Site";
     fetch('../yourinfo.php')
