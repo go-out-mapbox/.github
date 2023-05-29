@@ -50,7 +50,13 @@
   }
 
   #collection {
+    display: flex;
+flex-flow: wrap;
     margin-top: 1rem;
+  }
+
+  #collection a {
+    flex: 1 300px;
   }
 
   #back {
