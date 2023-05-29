@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
   <script src="js/index.js" defer></script>
+  <script type="text/javascript">
+  function index(url) {
+    window.open(url, "_parent")
+  }
+  </script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
   <link href="font/style.css" rel="stylesheet" />
   <link href="css/reset.css" rel="stylesheet" />
   <link href="css/index.css" rel="stylesheet" />
+  <link href="css/collection.css" rel="stylesheet" />
   <link href="css/submit.css" rel="stylesheet" />
   <link href="css/title.css" rel="stylesheet" />
   <link href="css/marker.v4.css" rel="stylesheet" />
@@ -20,7 +26,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1 id="title" class="goout">Go Out</h1>

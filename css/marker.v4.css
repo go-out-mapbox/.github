@@ -50,7 +50,6 @@
   width: 100%;
 }
 
-#collection a,
 .mapboxgl-popup-content a {
   color: lightskyblue;
   background: lemonchiffon;
@@ -59,19 +58,8 @@
   text-decoration: none;
 }
 
-#collection a:hover,
 .mapboxgl-popup-content a:hover {
   filter: grayscale(90%);
-}
-
-#collection a small,
-#collection a b {
-  display: block;
-  width: 100%;
-}
-
-#collection a small {
-  font-size: 100%;
 }
 
 .mapboxgl-popup-content strong {
@@ -80,10 +68,6 @@
 
 .mapboxgl-popup-content a {
   font-size: 125%;
-}
-
-#collection a b {
-  font-size: 150%;
 }
 
 .mapboxgl-popup-content {
@@ -110,7 +94,6 @@
 
 
 @media (orientation: landscape) {
-  #collection a,
   .mapboxgl-popup-close-button {
     padding: 0.5rem;
   }
@@ -118,7 +101,6 @@
 
 
 @media (orientation: portrait) {
-  #collection a,
   .mapboxgl-popup-close-button {
     padding: 1vw;
   }

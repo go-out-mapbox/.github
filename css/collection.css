@@ -1,0 +1,40 @@
+#collection a {
+  color: lightskyblue;
+  background: lemonchiffon;
+  box-sizing: border-box;
+  display: block;
+  text-decoration: none;
+}
+
+#collection a:hover {
+  color: lemonchiffon;
+  background: lightskyblue;
+}
+
+#collection a small,
+#collection a b {
+  display: block;
+  width: 100%;
+}
+
+#collection a small {
+  font-size: 100%;
+}
+
+#collection a b {
+  font-size: 150%;
+}
+
+
+@media (orientation: landscape) {
+  #collection a {
+    padding: 0.5rem;
+  }
+}
+
+
+@media (orientation: portrait) {
+  #collection a {
+    padding: 1vw;
+  }
+}

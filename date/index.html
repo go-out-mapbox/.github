@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no" />
+  <script src="../js/index.js" defer></script>
+  <link href="../font/style.css" rel="stylesheet" />
+  <link href="../css/reset.css" rel="stylesheet" />
+  <link href="../css/collection.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  <link rel="icon" href="../profile/icon.png" type="image/png">
+  <link rel="apple-touch-icon-precomposed" href="profile/icon.png" sizes="180x180" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <nav id="collection"></nav>
+  </main>
+  <article id="essay"></article>
+  <script type="text/javascript">
+  const essay = document.querySelector('#essay')
+  async function index(url) {
+    fetch(url)
+    .then(response => response.text())
+    .then(innerHTML => {
+      essay.innerHTML = innerHTML;
+    })
+    smoothTo()
+  }
+
+  async function readme(md) {
+    fetch(md)
+    .then(response => response.text())
+    .then(innerText => {
+      essay.innerText = innerText;
+    })
+    smoothTo()
+  }
+  readme('README.md')
+
+  function smoothTo() {
+    const targetOffsetTop = window.pageYOffset + essay.getBoundingClientRect().top;
+    window.scrollTo({
+      top: targetOffsetTop,
+      behavior: "smooth"
+    });
+  }
+  </script>
+</body>
+</html>

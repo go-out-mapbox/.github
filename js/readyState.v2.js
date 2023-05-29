@@ -5,17 +5,14 @@ if(localStorage.getItem('yourInfo')) {
     geoFindMe()
   })
 } else {
-  async function readmeMD() {
-    fetch('yourinfo.php')
-    .then(response => response.text())
-    .then(innerHTML => {
-      document.querySelector('#readme').innerHTML = `
-      <strong>Submit Your Info to Enter This Site</strong><br/>
-      ${innerHTML}
-      `;
-    });
-  }
-  readmeMD();
+  fetch('yourinfo.php')
+  .then(response => response.text())
+  .then(innerHTML => {
+    document.querySelector('#readme').innerHTML = `
+    <strong>Submit Your Info to Enter This Site</strong><br/>
+    ${innerHTML}
+    `;
+  })
   submitButton.remove();
   submitDetails.remove();
   enter.addEventListener('click', (e) => {
@@ -82,8 +79,8 @@ function geoFindMe() {
 
     dateSection.innerHTML = `<p class="goout"><time id="timestamp">${date}</time></p>`;
     enter.textContent = "You Are Here";
-    indexHTML();
     ChangeHidden();
+    indexHTML();
   };
 
   function error() {
@@ -91,11 +88,11 @@ function geoFindMe() {
     mapbox.style.userSelect = "auto";
     yourHere.textContent = 'Unable to retrieve your location';
     yourAddress.textContent = '現在地を取得できませんでした';
-    errorMD();
     enter.remove();
     submitButton.remove();
     submitDetails.remove();
     ChangeHidden();
+    errorMD();
   };
 
   if(!navigator.geolocation) {
@@ -103,11 +100,11 @@ function geoFindMe() {
     mapbox.style.userSelect = "auto";
     yourHere.textContent = 'Geolocation is not supported by your browser';
     yourAddress.textContent = 'このブラウザは位置情報サービスがサポートされていません';
-    errorMD();
     enter.remove();
     submitButton.remove();
     submitDetails.remove();
     ChangeHidden();
+    errorMD();
   } else {
     mapbox.style.pointerEvents = "none";
     mapbox.style.userSelect = "none";
@@ -244,10 +241,6 @@ document.addEventListener('readystatechange', event => {
       dateSection.appendChild(dateTime);
     }
 
-    /**
-    * Use Mapbox GL JS's `flyTo` to move the camera smoothly
-    * a given center point.
-    **/
     function flyToStore(currentFeature) {
       map.flyTo({
         center: currentFeature.geometry.coordinates,

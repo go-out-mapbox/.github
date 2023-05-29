@@ -91,7 +91,8 @@ function indexCollection(obj) {
     const contentSmall = document.createElement('small');
     const contentB = document.createElement('b');
 
-    contentA.href = content.url;
+    contentA.href = "#";
+    contentA.setAttribute('onClick', `index('${content.url}')`);
     contentSmall.innerText = content.date;
     contentSmall.className = "relax";
     contentB.innerText = content.name;

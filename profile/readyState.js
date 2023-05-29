@@ -68,6 +68,7 @@ document.addEventListener('readystatechange', event => {
       <b>${latitude}</b><br/>
       <small>Last Known Location ${timestamp}</small>
       `;
+
       title.addEventListener('click', () => {
         map.flyTo({
           center: [longitude, latitude],
