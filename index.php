@@ -20,8 +20,8 @@
   <link href="css/title.css" rel="stylesheet" />
   <link href="css/marker.v4.css" rel="stylesheet" />
   <link rel="icon" href="profile/icon.png" type="image/png">
-  <link rel="icon" href="profile/icon.png" sizes="192x192" type="image/png">
-  <link rel="apple-touch-icon-precomposed" href="profile/icon.png" sizes="180x180" type="image/png">
+  <link rel="icon" href="profile/mobile.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon-precomposed" href="profile/mobile.png" sizes="180x180" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300&display=swap" rel="stylesheet">
