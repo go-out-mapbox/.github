@@ -13,6 +13,29 @@ async function indexJSON() {
 
 function indexHead(obj) {
   const head = document.querySelector('head');
+
+  const icon = document.createElement( "link" );
+  icon.setAttribute("rel", "icon");
+  icon.setAttribute("type", "image/png");
+  icon.setAttribute("href", "/map/profile/icon.png");
+  head.appendChild(icon);
+
+  const googleapis = document.createElement( "link" );
+  googleapis.setAttribute("rel", "preconnect");
+  googleapis.setAttribute("href", "https://fonts.googleapis.com");
+  head.appendChild(googleapis);
+
+  const gstatic = document.createElement( "link" );
+  gstatic.setAttribute("rel", "preconnect");
+  gstatic.setAttribute("href", "https://fonts.gstatic.com");
+  gstatic.setAttribute("crossorigin", "anonymous");
+  head.appendChild(gstatic);
+
+  const fonts = document.createElement( "link" );
+  fonts.setAttribute("rel", "stylesheet");
+  fonts.setAttribute("href", "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans+JP:wght@300&display=swap");
+  head.appendChild(fonts);
+
   const indexTitle = document.createElement('title');
   const ogTitle = document.createElement('meta');
   const twittetTitle = document.createElement('meta');
