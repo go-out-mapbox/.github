@@ -33,7 +33,7 @@
     <address>cite lyrics from "Jon Brion – Little Person"</address>
     <section>
       <h3>
-        <span>知っている場所の</span>
+        <span>知っていることの</span>
         <b>外へ</b>
         <span>わからないところまで</span>
         <b>出かける</b>
@@ -86,8 +86,6 @@
 
   map.addControl(new mapboxgl.NavigationControl());
   </script>
-  <script src="js/markers.v2.js"></script>
-  <script src="js/polygon.v3.js"></script>
   <script src="js/readyState.v2.js"></script>
   <script src="js/submit.js"></script>
   <script src="/js/log.js"></script>
