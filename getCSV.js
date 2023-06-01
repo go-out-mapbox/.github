@@ -31,7 +31,7 @@ function getCSV(filePath = "") {
           'coordinates': addCenter
         },
         'properties': {
-          'title': cells[0], cells[1],
+          'title': `${cells[0]}, ${cells[1]}`,
           'address': cells[2],
           'date': cells[3],
           'timestamp': cells[4],
