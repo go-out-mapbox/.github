@@ -1,6 +1,5 @@
 const essay = document.querySelector('#essay section')
 async function index(url) {
-  event.preventDefault();
   fetch(url)
   .then(response => response.text())
   .then(innerHTML => {
@@ -8,7 +7,7 @@ async function index(url) {
   })
   smoothTo()
 }
-index("with/about.html")
+index("about.html")
 
 function smoothTo() {
   const targetOffsetTop = window.pageYOffset + essay.getBoundingClientRect().top
