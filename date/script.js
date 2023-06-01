@@ -7,7 +7,7 @@ async function index(url) {
   })
   smoothTo()
 }
-index("about.html")
+index("with/about.html")
 
 function smoothTo() {
   const targetOffsetTop = window.pageYOffset + essay.getBoundingClientRect().top
