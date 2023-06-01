@@ -1,5 +1,6 @@
-getCSV("date/2023.csv");
 'use strict'
+
+getCSV("date/2023.csv");
 
 // CSVファイルを取得
 function getCSV(filePath = "") {
