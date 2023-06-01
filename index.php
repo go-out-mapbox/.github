@@ -63,7 +63,6 @@
   <article id="map"></article>
 
   <script src="js/markers.v2.js"></script>
-  <script src="getCSV.js"></script>
   <script type="text/javascript">
   const mapbox = document.querySelector('#map'),
   yourHere = document.querySelector('#date #geolocation'),
