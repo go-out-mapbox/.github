@@ -14,7 +14,7 @@ document.addEventListener('readystatechange', event => {
     const datetime = document.querySelector('#datetime');
     const now = new Date();
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-    datetime.value = now.toISOString().slice(0, -1);
+    datetime.value = now.toISOString().slice(0, -8);
     let nowTime = new Date(datetime.value).toString();
     document.querySelector('#timestamp').textContent = nowTime;
 
@@ -53,7 +53,7 @@ document.addEventListener('readystatechange', event => {
         fetchData(uri).then(function(response) {
           return response.text().then(function(jsonStr) {
             var data = JSON.parse(jsonStr);
-            var context = data.features[0].place_name;
+            var context = data.features[0].place_name.replace(/\,/g,"");
             yourAddress.textContent = context;
           });
         }).catch(err => { console.log(err); });
