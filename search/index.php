@@ -106,7 +106,7 @@
             const thisAddress= document.querySelector('#address');
             thisAddress.textContent = context;
           });
-        }).catch(err => { console.log(err); });
+        }).catch(err => {console.log(err);});
 
         async function fetchData(_uri) {
           const res = await fetch(_uri);
