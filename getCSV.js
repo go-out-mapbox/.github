@@ -1,5 +1,3 @@
-'use strict'
-
 getCSV("date/2023.csv");
 
 // CSVファイルを取得
