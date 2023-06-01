@@ -32,7 +32,7 @@ function getCSV(filePath = "") {
         'properties': {
           'title': `${cells[0]}, ${cells[1]}`,
           'address': cells[2],
-          'date': cells[3],
+          'date': cells[5],
           'timestamp': cells[4],
           'tags': 'marker',
         }
@@ -40,5 +40,4 @@ function getCSV(filePath = "") {
       stores.features.push(addMarker)
     }
   }
-
 }
