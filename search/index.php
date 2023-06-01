@@ -43,7 +43,7 @@
       </p>
       <details open>
         <summary><b>Add A Comment to Your Location</b></summary>
-        <textarea rows="7" id="comment" placeholder="位置情報にコメントを追加する"></textarea>
+        <textarea rows="7" id="comment" placeholder="位置情報にコメントを追加する" required></textarea>
       </details>
     </form>
   </main>
