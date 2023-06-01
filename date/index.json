@@ -1,6 +1,6 @@
 {
-  "title" : "Go Out | 行ったことのない場所へ行く",
-  "description" : "知っていることの 外へ わからないところまで 出かける",
+  "title" : "The Collection of Editor's Note | Go Out",
+  "description" : "'ll play first and tell what it is later",
   "author" : "creative-community.space",
   "email" : "pehu@creative-community.space",
   "type" : "website",
@@ -11,7 +11,7 @@
   "contents" : [
     {
       "date" : "2021.10.13",
-      "name" : "行ったことのない場所へ行く",
+      "name" : "迷子になる",
       "url" : "with/goout.html"
     },
     {

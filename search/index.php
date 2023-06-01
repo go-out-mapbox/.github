@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-<!-- 'll play first and tell what it is later -->
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
