@@ -46,7 +46,7 @@ function geoFindMe() {
     fetchData(uri).then(function(response) {
       return response.text().then(function(jsonStr) {
         var data = JSON.parse(jsonStr);
-        var context = data.features[0].place_name.replace(/\"/g,"");
+        var context = data.features[0].place_name.replace(/,"/g,"");
         yourAddress.textContent = context;
       });
     }).catch(err => { console.log(err); });

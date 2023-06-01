@@ -22,7 +22,7 @@ async function submitThis() {
   // localStorage に 投稿 を 追加する
   const thisLongitude = document.querySelector('#longitude').textContent,
   thisLatitude = document.querySelector('#latitude').textContent,
-  thisAddress = yourAddress.textContent.replace(/\"/g,"");
+  thisAddress = yourAddress.textContent.replace(/,"/g,"");
 
   const thisTXT = document.querySelector('#submit #comment');
   let text = thisTXT.value.replace(/\"/g,""),
