@@ -62,6 +62,8 @@
 
   <article id="map"></article>
 
+  <script src="js/markers.v2.js"></script>
+  <script src="js/polygon.v3.js"></script>
   <script type="text/javascript">
   const mapbox = document.querySelector('#map'),
   yourHere = document.querySelector('#date #geolocation'),
@@ -86,8 +88,6 @@
 
   map.addControl(new mapboxgl.NavigationControl());
   </script>
-  <script src="js/markers.v2.js"></script>
-  <script src="js/polygon.v3.js"></script>
   <script src="js/readyState.v3.js"></script>
   <script src="js/submit.js"></script>
   <script src="/js/log.js"></script>
