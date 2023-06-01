@@ -4,12 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no" />
+  <script src="js/readyState.v3.js"></script>
   <script src="js/index.js" defer></script>
-  <script type="text/javascript">
-  function index(url) {
-    window.open(url, "_parent")
-  }
-  </script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
   <link href="font/style.css" rel="stylesheet" />
@@ -86,8 +82,62 @@
   });
 
   map.addControl(new mapboxgl.NavigationControl());
+
+  // 地図にマーカーを追加
+  map.on('load', () => {
+    map.addSource('places', {
+      'type': 'geojson',
+      'data': stores
+    });
+    addMarkers();
+  })
+
+  stores.features.forEach((store, i) => {
+    store.properties.id = i;
+  })
+
+  function addMarkers() {
+    for (const marker of stores.features) {
+      const el = document.createElement('div');
+      el.id = `marker-${marker.properties.id}`;
+      el.className = marker.properties.tags;
+      new mapboxgl.Marker(el, {
+        offset: [0, 0]
+      })
+      .setLngLat(marker.geometry.coordinates)
+      .addTo(map)
+
+      el.addEventListener('click', (e) => {
+        flyToStore(marker);
+        createPopUp(marker);
+      })
+    };
+  };
+
+  /* Create a Mapbox GL JS `Popup`. */
+  function createPopUp(currentFeature) {
+    dateSection.innerHTML = "";
+    yourHere.textContent = currentFeature.properties.title;
+    yourAddress.textContent = currentFeature.properties.address;
+
+    const dateTXT = document.createElement('p');
+    dateTXT.innerHTML = currentFeature.properties.date;
+    dateTXT.className = currentFeature.properties.tags;
+    dateSection.appendChild(dateTXT);
+
+    const dateTime = document.createElement('p');
+    dateTime.innerHTML = `<time>${currentFeature.properties.timestamp}</time>`;
+    dateTime.className = currentFeature.properties.tags;
+    dateSection.appendChild(dateTime);
+  }
+
+  function flyToStore(currentFeature) {
+    map.flyTo({
+      center: currentFeature.geometry.coordinates,
+      zoom: 15
+    })
+  }
   </script>
-  <script src="js/readyState.v3.js"></script>
   <script src="js/polygon.v3.js"></script>
   <script src="js/submit.js"></script>
   <script src="/js/log.js"></script>

@@ -1,31 +1,5 @@
 'use strict'
 
-if(localStorage.getItem('yourInfo')) {
-  enter.addEventListener('click', (e) => {
-    geoFindMe()
-  })
-} else {
-  fetch('yourinfo.php')
-  .then(response => response.text())
-  .then(innerHTML => {
-    document.querySelector('#readme').innerHTML = `
-    <strong>Submit Your Info to Enter This Site</strong><br/>
-    ${innerHTML}
-    `;
-  })
-  submitButton.remove();
-  submitDetails.remove();
-  enter.addEventListener('click', (e) => {
-    mapbox.style.pointerEvents = "auto";
-    mapbox.style.userSelect = "auto";
-    title.style.opacity = "0";
-    setTimeout(() => {
-      title.remove();
-    }, 2500);
-    ChangeHidden();
-  })
-}
-
 // 現在地を取得する
 function geoFindMe() {
   function success(position) {
@@ -168,6 +142,32 @@ async function errorMD() {
 
 document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
+    if(localStorage.getItem('yourInfo')) {
+      enter.addEventListener('click', (e) => {
+        geoFindMe()
+      })
+    } else {
+      fetch('yourinfo.php')
+      .then(response => response.text())
+      .then(innerHTML => {
+        document.querySelector('#readme').innerHTML = `
+        <strong>Submit Your Info to Enter This Site</strong><br/>
+        ${innerHTML}
+        `;
+      })
+      submitButton.remove();
+      submitDetails.remove();
+      enter.addEventListener('click', (e) => {
+        mapbox.style.pointerEvents = "auto";
+        mapbox.style.userSelect = "auto";
+        title.style.opacity = "0";
+        setTimeout(() => {
+          title.remove();
+        }, 2500);
+        ChangeHidden();
+      })
+    }
+  } else if (event.target.readyState === 'complete') {
     /* localStorageに現在地の記録があるかを確認 */
     if(localStorage.getItem("geolocation")) {
       const geolocation = JSON.parse(localStorage.getItem("geolocation"));
@@ -192,60 +192,5 @@ document.addEventListener('readystatechange', event => {
         zoom: 11.11
       });
     });
-  } else if (event.target.readyState === 'complete') {
-    // 地図にマーカーを追加
-    map.on('load', () => {
-      map.addSource('places', {
-        'type': 'geojson',
-        'data': stores
-      });
-      addMarkers();
-    })
-
-    stores.features.forEach((store, i) => {
-      store.properties.id = i;
-    })
-
-    function addMarkers() {
-      for (const marker of stores.features) {
-        const el = document.createElement('div');
-        el.id = `marker-${marker.properties.id}`;
-        el.className = marker.properties.tags;
-        new mapboxgl.Marker(el, {
-          offset: [0, 0]
-        })
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(map)
-
-        el.addEventListener('click', (e) => {
-          flyToStore(marker);
-          createPopUp(marker);
-        })
-      };
-    };
-
-    /* Create a Mapbox GL JS `Popup`. */
-    function createPopUp(currentFeature) {
-      dateSection.innerHTML = "";
-      yourHere.textContent = currentFeature.properties.title;
-      yourAddress.textContent = currentFeature.properties.address;
-
-      const dateTXT = document.createElement('p');
-      dateTXT.innerHTML = currentFeature.properties.date;
-      dateTXT.className = currentFeature.properties.tags;
-      dateSection.appendChild(dateTXT);
-
-      const dateTime = document.createElement('p');
-      dateTime.innerHTML = `<time>${currentFeature.properties.timestamp}</time>`;
-      dateTime.className = currentFeature.properties.tags;
-      dateSection.appendChild(dateTime);
-    }
-
-    function flyToStore(currentFeature) {
-      map.flyTo({
-        center: currentFeature.geometry.coordinates,
-        zoom: 15
-      })
-    }
   }
 });
