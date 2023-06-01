@@ -3,10 +3,7 @@ mb_language("ja");
 mb_internal_encoding("UTF-8");
 date_default_timezone_set('Asia/Tokyo');
 
-$year = date("Y");
-$month = date("m");
-
-$source_file = "../date/". $year . $month .".csv";
+$source_file = "../date/". date("Y") .".csv";
 $ip = $_SERVER["REMOTE_ADDR"];
 
 define("LOGFILE", $source_file);
