@@ -85,7 +85,6 @@ a,
 #date section {
   color: #000;
   font-weight: 400;
-  font-size: 111%;
 }
 
 #date section time {
@@ -99,7 +98,7 @@ a,
   }
 
   #date section {
-    font-size: 111%;
+    font-size: 125%;
   }
 }
 
@@ -110,6 +109,6 @@ a,
   }
 
   #date section {
-    font-size: 95%;
+    font-size: 100%;
   }
 }
