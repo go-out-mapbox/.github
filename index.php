@@ -8,6 +8,7 @@
   <script src="js/index.js" defer></script>
   <script type="text/javascript">
   function index(url) {
+    event.preventDefault()
     window.open(url, "_parent")
   }
   </script>
