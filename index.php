@@ -6,6 +6,11 @@
   <meta name="format-detection" content="telephone=no" />
   <script src="js/readyState.v3.js"></script>
   <script src="js/index.js" defer></script>
+  <script type="text/javascript">
+  function index(url) {
+    window.open(url, "_parent")
+  }
+  </script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
   <link href="font/style.css" rel="stylesheet" />
