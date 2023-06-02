@@ -45,7 +45,7 @@ document.addEventListener('readystatechange', event => {
     const title = document.querySelector('h1');
     const back = document.querySelector('#back');
     back.addEventListener('click', function () {
-      location.assign('../');
+      window.location.replace('/map/')
     });
 
     // localStorage から 最新の現在地 を取得

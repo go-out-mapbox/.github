@@ -8,7 +8,7 @@ document.addEventListener('readystatechange', event => {
   if (event.target.readyState === 'interactive') {
     const back = document.querySelector('#back');
     back.addEventListener('click', function () {
-      location.assign('../');
+      window.location.replace('/map/')
     });
 
     const datetime = document.querySelector('#datetime');
