@@ -9,7 +9,7 @@
   <script type="text/javascript">
   function index(url) {
     event.preventDefault()
-    replace(url)
+    window.location.replace(url)
   }
   </script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
