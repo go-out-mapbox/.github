@@ -22,7 +22,7 @@ function loadCSV(targetCSV) {
       cells[ii] = removDouble;
     }
 
-    let heardCenter = `[${cells[0]},${cells[1]}]`;
+    let heardCenter = [cells[0], cells[1]];
     let addMarker = {
       'type': 'Feature',
       'geometry': {
@@ -30,7 +30,7 @@ function loadCSV(targetCSV) {
         'coordinates': heardCenter
       },
       'properties': {
-        'title': `${cells[0], cells[1]}`,
+        'title': heardCenter,
         'date': cells[3],
         'address': cells[2],
         'timestamp': cells[4],
