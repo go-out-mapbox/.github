@@ -30,7 +30,7 @@ function loadCSV(targetCSV) {
         'coordinates': heardCenter
       },
       'properties': {
-        'title': cells[0], cells[1],
+        'title': `${cells[0], cells[1]}`,
         'date': cells[3],
         'address': cells[2],
         'timestamp': cells[4],
