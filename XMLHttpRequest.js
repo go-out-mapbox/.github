@@ -23,20 +23,20 @@ function loadCSV(targetCSV) {
     }
 
     let heardCenter = [cells[0], cells[1]];
-    let addHeard = {
+    let addMarker = {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
         'coordinates': heardCenter
       },
       'properties': {
-        'title': cells[3],
-        'date': cells[4],
+        'title': cells[0], cells[1],
+        'date': cells[3],
         'address': cells[2],
-        'timestamp': cells[5],
+        'timestamp': cells[4],
         'tags': 'marker'
       }
     }
-    stores.features.push(addHeard)
+    stores.features.push(addMarker)
   }
 }
