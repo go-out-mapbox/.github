@@ -30,7 +30,7 @@ async function loadCSV(targetCSV) {
         'coordinates': [lng, lat]
       },
       'properties': {
-        'title': lng, lat,
+        'title': [lng, lat],
         'address': address,
         'date': by,
         'timestamp': timestamp,
