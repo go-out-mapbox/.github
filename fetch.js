@@ -28,7 +28,7 @@ async function loadCSV(targetCSV) {
       'properties': {
         'title': addCenter,
         'address': cells[2],
-        'date': cells[3],
+        'date': cells[6],
         'timestamp': cells[4],
         'tags': 'marker',
       }
