@@ -144,9 +144,9 @@
     })
   }
   </script>
-  <script src="js/polygon.v3.js"></script>
   <script src="XMLHttpRequest.js"></script>
   <script src="js/submit.js"></script>
   <script src="/js/log.js"></script>
+  <script src="js/polygon.v3.js"></script>
 </body>
 </html>
