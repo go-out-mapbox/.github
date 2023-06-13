@@ -65,7 +65,6 @@
   <article id="map"></article>
 
   <script src="js/markers.v2.js"></script>
-  <script src="fetch.js"></script>
 
   <script type="text/javascript">
   const mapbox = document.querySelector('#map'),
