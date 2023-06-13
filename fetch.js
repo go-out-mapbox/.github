@@ -13,23 +13,27 @@ async function loadCSV(targetCSV) {
     // 1行ごとの処理
     let cells = lines[i].split(",");
     for( let ii = 0; ii < cells.length; ii++ ) {
-      var removDouble = cells[ii].replace(/\"/g,"");
+      let removDouble = cells[ii].replace(/\"/g,"");
       cells[ii] = removDouble;
+      
+      let lng = cells[0],
+      lat = cells[1],
+      address = cells[2],
+      timestamp = cells[4],
+      by = 'Posted by ' + cells[5];
     }
-
-    const addCenter = [cells[0], cells[1]]
 
     let addMarker = {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
-        'coordinates': [cells[0], cells[1]]
+        'coordinates': [lng, lat]
       },
       'properties': {
-        'title': addCenter,
-        'address': cells[2],
-        'date': 'Submit by ' + cells[5],
-        'timestamp': cells[4],
+        'title': lng, lat,
+        'address': address,
+        'date': by,
+        'timestamp': timestamp,
         'tags': 'marker',
       }
     }
