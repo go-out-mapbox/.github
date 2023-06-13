@@ -2,7 +2,7 @@
 
 loadCSV("date/2023.csv");
 
-function loadCSV(targetCSV) {
+async function loadCSV(targetCSV) {
   // XMLHttpRequestの用意
   const request = new XMLHttpRequest();
   request.open("get", targetCSV, false);
@@ -22,7 +22,7 @@ function loadCSV(targetCSV) {
       cells[ii] = removDouble;
     }
 
-    let heardCenter = [cells[0], cells[1]];
+    let heardCenter = '['+cells[0]+','+cells[1]+']';
     let addMarker = {
       'type': 'Feature',
       'geometry': {
