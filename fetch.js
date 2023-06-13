@@ -21,10 +21,10 @@ async function loadCSV(targetCSV) {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
-        'coordinates': [cells[0], cells[1]]
+        'coordinates': [135.4853389, 34.616728]
       },
       'properties': {
-        'title': cells[5],
+        'title': [cells[0], cells[1]],
         'address': cells[2],
         'date': cells[3],
         'timestamp': cells[4],
