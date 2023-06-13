@@ -6,6 +6,9 @@
   <meta name="format-detection" content="telephone=no" />
   <script src="js/readyState.v3.js"></script>
   <script src="js/index.js" defer></script>
+  <script src="js/markers.v2.js" defer></script>
+  <script src="XMLHttpRequest.js" defer></script>
+  
   <script type="text/javascript">
   function index(url) {
     event.preventDefault()
@@ -63,9 +66,6 @@
   </main>
 
   <article id="map"></article>
-
-  <script src="js/markers.v2.js"></script>
-  <script src="XMLHttpRequest.js"></script>
 
   <script type="text/javascript">
   const mapbox = document.querySelector('#map'),
