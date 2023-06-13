@@ -42,7 +42,7 @@ async function submitThis() {
   };
 
   const thisJSON = JSON.stringify(thisPin)
-  let url = 'markerjson.php'
+  let url = 'submit.php'
   let response = await fetch(url, {
     method: 'POST',
     headers: {

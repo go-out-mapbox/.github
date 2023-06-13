@@ -15,8 +15,9 @@ if(!file_exists(LOGFILE)) {
 }
 
 $json = file_get_contents(LOGFILE);
-$output = json_decode($json);
-$output .= .',' array(
+$a = json_decode($json);
+if(!is_array($a)) { $a = array(); }
+array_unshift($a, array(
   "type" => 'Feature',
   "geometry" => array(
     "type" => 'Point',
@@ -32,7 +33,7 @@ $output .= .',' array(
   )
 );
 
-$json = json_encode( $output, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES )
+$json = json_encode( $a, JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES )
 file_put_contents(LOGFILE, $json FILE_APPEND | LOCK_EX);
 echo json_encode($output);
 ?>
