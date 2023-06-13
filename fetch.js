@@ -24,7 +24,7 @@ async function loadCSV(targetCSV) {
         'coordinates': [cells[0], cells[1]]
       },
       'properties': {
-        'title': [cells[0], cells[1]],
+        'title': cells[5],
         'address': cells[2],
         'date': cells[3],
         'timestamp': cells[4],
