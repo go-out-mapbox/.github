@@ -23,7 +23,7 @@ async function loadCSV(targetCSV) {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
-        'coordinates': [cells[0], cells[1]]
+        'coordinates': [135.50433479522678, 34.69699057458179]
       },
       'properties': {
         'title': addCenter,
