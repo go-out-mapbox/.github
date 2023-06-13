@@ -15,9 +15,9 @@
       "url" : "/map/profile/"
     },
     {
-      "date" : "私（わたしたち）が聞いた言葉",
-      "name" : "things that i (we) heard",
-      "url" : "/map/heard/"
+      "date" : "コレクションに位置情報を追加",
+      "name" : "Add Your Location to Collection",
+      "url" : "/map/search/"
     }
   ]
 }
