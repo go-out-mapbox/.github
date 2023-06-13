@@ -15,14 +15,14 @@ async function loadCSV(targetCSV) {
     for( let ii = 0; ii < cells.length; ii++ ) {
       var removDouble = cells[ii].replace(/\"/g,"");
       cells[ii] = removDouble;
-      
+
       const addCenter = [cells[0], cells[1]]
 
       let addMarker = {
         'type': 'Feature',
         'geometry': {
           'type': 'Point',
-          'coordinates': [135.50433479522678, 34.69699057458179]
+          'coordinates': addCenter
         },
         'properties': {
           'title': addCenter,
