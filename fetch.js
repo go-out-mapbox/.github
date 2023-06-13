@@ -15,6 +15,7 @@ async function loadCSV(targetCSV) {
 
     for( let ii = 0; ii < cells.length; ii++ ) {
       var removDouble = cells[ii].replace(/\"/g,"");
+      cells[ii] = removDouble;
     }
 
     let addMarker = {
