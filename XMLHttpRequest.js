@@ -3,13 +3,9 @@
 loadCSV("date/2023.csv");
 
 async function loadCSV(targetCSV) {
-  // XMLHttpRequestの用意
-  const request = new XMLHttpRequest();
-  request.open("get", targetCSV, false);
-  request.send(null);
-
-  // 読み込んだCSVデータ
-  const csv = request.responseText;
+  const request = new Request(targetCSV);
+  const response = await fetch(request);
+  const csv = await response.text();
 
   // CSVの全行を取得
   const lines = csv.split("\n");
