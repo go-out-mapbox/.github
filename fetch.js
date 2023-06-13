@@ -15,13 +15,13 @@ async function loadCSV(targetCSV) {
     for( let ii = 0; ii < cells.length; ii++ ) {
       let removDouble = cells[ii].replace(/\"/g,"");
       cells[ii] = removDouble;
-      
-      let lng = cells[0],
-      lat = cells[1],
-      address = cells[2],
-      timestamp = cells[4],
-      by = 'Posted by ' + cells[5];
     }
+
+    let lng = cells[0],
+    lat = cells[1],
+    address = cells[2],
+    timestamp = cells[4],
+    by = 'Posted by ' + cells[5];
 
     let addMarker = {
       'type': 'Feature',
