@@ -12,13 +12,9 @@ async function loadCSV(targetCSV) {
   for (let i = 0; i < lines.length; i++) {
     // 1行ごとの処理
     let cells = lines[i].split(",");
-
     for( let ii = 0; ii < cells.length; ii++ ) {
       var removDouble = cells[ii].replace(/\"/g,"");
       cells[ii] = removDouble;
-      
-      var removSingle = cells[ii].replace(/\'/g,"");
-      cells[ii] = removSingle;
     }
 
     const addCenter = [cells[0], cells[1]]
