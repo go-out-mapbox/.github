@@ -15,7 +15,7 @@
       "url" : "/map/profile/"
     },
     {
-      "date" : "コレクションに位置情報を追加",
+      "date" : "場所をコレクションに追加",
       "name" : "Add Your Location to Collection",
       "url" : "/map/search/"
     }
