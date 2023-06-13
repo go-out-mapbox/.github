@@ -18,14 +18,17 @@ async function loadCSV(targetCSV) {
       cells[ii] = removDouble;
     }
 
+    const lng = cells[0]
+    const lat = cells[1]
+
     let addMarker = {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
-        'coordinates': [cells[0], cells[1]]
+        'coordinates': `${lng}, ${lat}`
       },
       'properties': {
-        'title': [cells[0], cells[1]],
+        'title': `${lng}, ${lat}`,
         'address': cells[2],
         'date': cells[3],
         'timestamp': cells[4],
