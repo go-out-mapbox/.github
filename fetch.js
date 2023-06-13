@@ -18,19 +18,18 @@ async function loadCSV(targetCSV) {
       cells[ii] = removDouble;
     }
 
-    let heardCenter = [cells[0], cells[1]];
     let addMarker = {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
-        'coordinates': heardCenter
+        'coordinates': [cells[0], cells[1]]
       },
       'properties': {
-        'title': heardCenter,
-        'date': cells[3],
+        'title': [cells[0], cells[1]],
         'address': cells[2],
+        'date': cells[3],
         'timestamp': cells[4],
-        'tags': 'marker'
+        'tags': 'marker',
       }
     }
     stores.features.push(addMarker)
