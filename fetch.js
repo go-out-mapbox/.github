@@ -15,24 +15,24 @@ async function loadCSV(targetCSV) {
     for( let ii = 0; ii < cells.length; ii++ ) {
       var removDouble = cells[ii].replace(/\"/g,"");
       cells[ii] = removDouble;
-
-      const addCenter = [cells[0], cells[1]]
-
-      let addMarker = {
-        'type': 'Feature',
-        'geometry': {
-          'type': 'Point',
-          'coordinates': addCenter
-        },
-        'properties': {
-          'title': addCenter,
-          'address': cells[2],
-          'date': 'Submit by ' + cells[5],
-          'timestamp': cells[4],
-          'tags': 'marker',
-        }
-      }
-      stores.features.push(addMarker)
     }
+
+    const addCenter = [cells[0], cells[1]]
+
+    let addMarker = {
+      'type': 'Feature',
+      'geometry': {
+        'type': 'Point',
+        'coordinates': [cells[0], cells[1]]
+      },
+      'properties': {
+        'title': addCenter,
+        'address': cells[2],
+        'date': 'Submit by ' + cells[5],
+        'timestamp': cells[4],
+        'tags': 'marker',
+      }
+    }
+    stores.features.push(addMarker)
   }
 }
